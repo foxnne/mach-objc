@@ -54,10 +54,26 @@ pub const WindowFrameAutosaveName = *String;
 pub const AccessibilityParameterizedAttributeName = *String;
 pub const UserInterfaceItemIdentifier = *String;
 
+pub const ApplicationActivationPolicy = Integer;
+pub const ApplicationActivationPolicyRegular: ApplicationActivationPolicy = 0;
+pub const ApplicationActivationPolicyAccessory: ApplicationActivationPolicy = 0;
+pub const ApplicationActivationPolicyProhibited: ApplicationActivationPolicy = 0;
+
 pub const BackingStoreType = UInteger;
 pub const BackingStoreRetained: BackingStoreType = 0;
 pub const BackingStoreNonretained: BackingStoreType = 1;
 pub const BackingStoreBuffered: BackingStoreType = 2;
+
+pub const EventModifierFlags = UInteger;
+pub const EventModifierFlagCapsLock: EventModifierFlags = 65536;
+pub const EventModifierFlagShift: EventModifierFlags = 131072;
+pub const EventModifierFlagControl: EventModifierFlags = 262144;
+pub const EventModifierFlagOption: EventModifierFlags = 524288;
+pub const EventModifierFlagCommand: EventModifierFlags = 1048576;
+pub const EventModifierFlagNumericPad: EventModifierFlags = 2097152;
+pub const EventModifierFlagHelp: EventModifierFlags = 4194304;
+pub const EventModifierFlagFunction: EventModifierFlags = 8388608;
+pub const EventModifierFlagDeviceIndependentFlagsMask: EventModifierFlags = 4294901760;
 
 pub const WindowStyleMask = UInteger;
 pub const WindowStyleMaskBorderless: WindowStyleMask = 0;
@@ -84,14 +100,35 @@ pub const Application = opaque {
     pub const alloc = InternalInfo.alloc;
     pub const allocInit = InternalInfo.allocInit;
 
+    pub fn activateIgnoringOtherApps(self_: *@This(), flag_: bool) void {
+        return objc.msgSend(self_, "activateIgnoringOtherApps:", void, .{flag_});
+    }
     pub fn run(self_: *@This()) void {
         return objc.msgSend(self_, "run", void, .{});
+    }
+    pub fn setActivationPolicy(self_: *@This(), activationPolicy_: ApplicationActivationPolicy) bool {
+        return objc.msgSend(self_, "setActivationPolicy:", bool, .{activationPolicy_});
     }
     pub fn sharedApplication() *Application {
         return objc.msgSend(@This().InternalInfo.class(), "sharedApplication", *Application, .{});
     }
     pub fn setDelegate(self_: *@This(), delegate_: ?*ApplicationDelegate) void {
         return objc.msgSend(self_, "setDelegate:", void, .{delegate_});
+    }
+    pub fn mainWindow(self_: *@This()) ?*Window {
+        return objc.msgSend(self_, "mainWindow", ?*Window, .{});
+    }
+    pub fn keyWindow(self_: *@This()) ?*Window {
+        return objc.msgSend(self_, "keyWindow", ?*Window, .{});
+    }
+    pub fn mainMenu(self_: *@This()) ?*Menu {
+        return objc.msgSend(self_, "mainMenu", ?*Menu, .{});
+    }
+    pub fn setMainMenu(self_: *@This(), mainMenu_: ?*Menu) void {
+        return objc.msgSend(self_, "setMainMenu:", void, .{mainMenu_});
+    }
+    pub fn sendEvent(self_: *@This(), event_: *Event) void {
+        return objc.msgSend(self_, "sendEvent:", void, .{event_});
     }
 };
 
@@ -104,6 +141,13 @@ pub const Responder = opaque {
     pub const new = InternalInfo.new;
     pub const alloc = InternalInfo.alloc;
     pub const allocInit = InternalInfo.allocInit;
+
+    pub fn keyDown(self_: *@This(), event_: *Event) void {
+        return objc.msgSend(self_, "keyDown:", void, .{event_});
+    }
+    pub fn keyUp(self_: *@This(), event_: *Event) void {
+        return objc.msgSend(self_, "keyUp:", void, .{event_});
+    }
 };
 
 pub const Window = opaque {
@@ -131,8 +175,14 @@ pub const Window = opaque {
     pub fn update(self_: *@This()) void {
         return objc.msgSend(self_, "update", void, .{});
     }
+    pub fn makeFirstResponder(self_: *@This(), responder_: ?*Responder) bool {
+        return objc.msgSend(self_, "makeFirstResponder:", bool, .{responder_});
+    }
     pub fn makeKeyAndOrderFront(self_: *@This(), sender_: ?*objc.Id) void {
         return objc.msgSend(self_, "makeKeyAndOrderFront:", void, .{sender_});
+    }
+    pub fn makeMainWindow(self_: *@This()) void {
+        return objc.msgSend(self_, "makeMainWindow", void, .{});
     }
     pub fn title(self_: *@This()) *String {
         return objc.msgSend(self_, "title", *String, .{});
@@ -142,6 +192,9 @@ pub const Window = opaque {
     }
     pub fn contentView(self_: *@This()) ?*View {
         return objc.msgSend(self_, "contentView", ?*View, .{});
+    }
+    pub fn setContentView(self_: *@This(), contentView_: ?*View) void {
+        return objc.msgSend(self_, "setContentView:", void, .{contentView_});
     }
     pub fn setDelegate(self_: *@This(), delegate_: ?*WindowDelegate) void {
         return objc.msgSend(self_, "setDelegate:", void, .{delegate_});
@@ -158,11 +211,29 @@ pub const Window = opaque {
     pub fn isVisible(self_: *@This()) bool {
         return objc.msgSend(self_, "isVisible", bool, .{});
     }
+    pub fn isKeyWindow(self_: *@This()) bool {
+        return objc.msgSend(self_, "isKeyWindow", bool, .{});
+    }
+    pub fn isMainWindow(self_: *@This()) bool {
+        return objc.msgSend(self_, "isMainWindow", bool, .{});
+    }
+    pub fn canBecomeKeyWindow(self_: *@This()) bool {
+        return objc.msgSend(self_, "canBecomeKeyWindow", bool, .{});
+    }
+    pub fn canBecomeMainWindow(self_: *@This()) bool {
+        return objc.msgSend(self_, "canBecomeMainWindow", bool, .{});
+    }
     pub fn setMinSize(self_: *@This(), minSize_: Size) void {
         return objc.msgSend(self_, "setMinSize:", void, .{minSize_});
     }
+    pub fn setInitialFirstResponder(self_: *@This(), initialFirstResponder_: ?*View) void {
+        return objc.msgSend(self_, "setInitialFirstResponder:", void, .{initialFirstResponder_});
+    }
     pub fn setIsVisible(self_: *@This(), flag_: bool) void {
         return objc.msgSend(self_, "setIsVisible:", void, .{flag_});
+    }
+    pub fn hasTitleBar(self_: *@This()) bool {
+        return objc.msgSend(self_, "hasTitleBar", bool, .{});
     }
 };
 
@@ -184,6 +255,21 @@ pub const Notification = opaque {
     }
 };
 
+pub const Menu = opaque {
+    pub const InternalInfo = objc.ExternClass("NSMenu", @This(), ObjectInterface, &.{});
+    pub const as = InternalInfo.as;
+    pub const retain = InternalInfo.retain;
+    pub const release = InternalInfo.release;
+    pub const autorelease = InternalInfo.autorelease;
+    pub const new = InternalInfo.new;
+    pub const alloc = InternalInfo.alloc;
+    pub const allocInit = InternalInfo.allocInit;
+
+    pub fn initWithTitle(self_: *@This(), title_: *String) *@This() {
+        return objc.msgSend(self_, "initWithTitle:", *@This(), .{title_});
+    }
+};
+
 pub const ObjectInterface = opaque {
     pub const InternalInfo = objc.ExternClass("NSObject", @This(), objc.Id, &.{});
     pub const as = InternalInfo.as;
@@ -199,6 +285,27 @@ pub const ObjectInterface = opaque {
     }
 };
 
+pub const Event = opaque {
+    pub const InternalInfo = objc.ExternClass("NSEvent", @This(), ObjectInterface, &.{});
+    pub const as = InternalInfo.as;
+    pub const retain = InternalInfo.retain;
+    pub const release = InternalInfo.release;
+    pub const autorelease = InternalInfo.autorelease;
+    pub const new = InternalInfo.new;
+    pub const alloc = InternalInfo.alloc;
+    pub const allocInit = InternalInfo.allocInit;
+
+    pub fn modifierFlags(self_: *@This()) EventModifierFlags {
+        return objc.msgSend(self_, "modifierFlags", EventModifierFlags, .{});
+    }
+    pub fn keyCode(self_: *@This()) c_ushort {
+        return objc.msgSend(self_, "keyCode", c_ushort, .{});
+    }
+    // pub fn modifierFlags() EventModifierFlags {
+    //     return objc.msgSend(@This().InternalInfo.class(), "modifierFlags", EventModifierFlags, .{});
+    // }
+};
+
 pub const View = opaque {
     pub const InternalInfo = objc.ExternClass("NSView", @This(), Responder, &.{});
     pub const as = InternalInfo.as;
@@ -209,6 +316,9 @@ pub const View = opaque {
     pub const alloc = InternalInfo.alloc;
     pub const allocInit = InternalInfo.allocInit;
 
+    pub fn initWithFrame(self_: *@This(), frameRect_: Rect) *@This() {
+        return objc.msgSend(self_, "initWithFrame:", *@This(), .{frameRect_});
+    }
     pub fn layer(self_: *@This()) *ca.Layer {
         return objc.msgSend(self_, "layer", *ca.Layer, .{});
     }

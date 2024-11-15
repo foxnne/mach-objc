@@ -30,17 +30,12 @@ LBB0_2:
 	.p2align	2
 "-[MACHAppDelegate applicationDidFinishLaunching:]":
 	.cfi_startproc
-	ldr	x8, [x0, #8]
-	cbz	x8, LBB1_2
-	ldr	x1, [x0, #8]
-Lloh0:
-	adrp	x0, __dispatch_main_q@GOTPAGE
-Lloh1:
-	ldr	x0, [x0, __dispatch_main_q@GOTPAGEOFF]
-	b	_dispatch_async
+	ldr	x0, [x0, #8]
+	cbz	x0, LBB1_2
+	ldr	x1, [x0, #16]
+	br	x1
 LBB1_2:
 	ret
-	.loh AdrpLdrGot	Lloh0, Lloh1
 	.cfi_endproc
 
 	.p2align	2

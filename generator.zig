@@ -1903,6 +1903,13 @@ fn generateAppKit(generator: anytype) !void {
         [2][]const u8{ "NSApplication", "sharedApplication" },
         [2][]const u8{ "NSApplication", "setDelegate" },
         [2][]const u8{ "NSApplication", "run" },
+        [2][]const u8{ "NSApplication", "activateIgnoringOtherApps" },
+        [2][]const u8{ "NSApplication", "keyWindow" },
+        [2][]const u8{ "NSApplication", "mainWindow" },
+        [2][]const u8{ "NSApplication", "sendEvent" },
+        [2][]const u8{ "NSApplication", "mainMenu" },
+        [2][]const u8{ "NSApplication", "setMainMenu" },
+        [2][]const u8{ "NSApplication", "setActivationPolicy" },
 
         [2][]const u8{ "NSWindow", "initWithContentRect:styleMask:backing:defer:screen" },
         [2][]const u8{ "NSWindow", "isReleasedWhenClosed" },
@@ -1919,19 +1926,32 @@ fn generateAppKit(generator: anytype) !void {
         [2][]const u8{ "NSWindow", "frame" },
         [2][]const u8{ "NSWindow", "setFrame:display:animate" },
         [2][]const u8{ "NSWindow", "toggleFullscreen" },
+        [2][]const u8{ "NSWindow", "isKeyWindow" },
+        [2][]const u8{ "NSWindow", "canBecomeKeyWindow" },
+        [2][]const u8{ "NSWindow", "isMainWindow" },
+        [2][]const u8{ "NSWindow", "canBecomeMainWindow" },
+        [2][]const u8{ "NSWindow", "makeMainWindow" },
+        [2][]const u8{ "NSWindow", "hasTitleBar" },
+        [2][]const u8{ "NSWindow", "setContentView" },
+        [2][]const u8{ "NSWindow", "setInitialFirstResponder" },
+        [2][]const u8{ "NSWindow", "setNextResponder" },
+        [2][]const u8{ "NSWindow", "makeFirstResponder" },
 
         [2][]const u8{ "NSWindow", "update" },
         [2][]const u8{ "NSWindow", "setMinSize" },
 
+        [2][]const u8{ "NSMenu", "initWithTitle" },
+
         [2][]const u8{ "NSWindowDelegate", "windowWillResize:toSize" },
+
+        [2][]const u8{ "NSResponder", "keyDown" },
+        [2][]const u8{ "NSResponder", "keyUp" },
+        [2][]const u8{ "NSEvent", "modifierFlags" },
+        [2][]const u8{ "NSEvent", "keyCode" },
 
         [2][]const u8{ "NSView", "layer" },
         [2][]const u8{ "NSView", "setLayer" },
-
-        [2][]const u8{ "NSResponder", "" },
-
-        //[2][]const u8{ "NSCoder", "" },
-        //[2][]const u8{ "NSDictionary", "" },
+        [2][]const u8{ "NSView", "initWithFrame" },
 
         [2][]const u8{ "NSScreen", "screens" },
         [2][]const u8{ "NSScreen", "mainScreen" },
@@ -1957,7 +1977,7 @@ fn generateAppKit(generator: anytype) !void {
     // try generator.addInterface("NSUserActivity");
     // try generator.addInterface("NSCoder");
     // try generator.addInterface("NSDictionary");
-    // try generator.addInterface("NSMenu");
+    try generator.addInterface("NSMenu");
     // try generator.addInterface("NSArray");
     // try generator.addInterface("NSURL");
     // try generator.addInterface("NSError");
@@ -1967,7 +1987,7 @@ fn generateAppKit(generator: anytype) !void {
     // try generator.addInterface("NSImage");
     // try generator.addInterface("NSDockTile");
     // try generator.addInterface("NSAppearance");
-    // try generator.addInterface("NSEvent");
+    try generator.addInterface("NSEvent");
     // try generator.addInterface("NSDate");
     // try generator.addInterface("NSGraphicsContext");
     // try generator.addInterface("NSDocument");
@@ -2060,7 +2080,7 @@ fn generateAppKit(generator: anytype) !void {
 
     // try generator.addEnum("NSRequestUserAttentionType");
     // try generator.addEnum("NSWindowListOptions");
-    // try generator.addEnum("NSApplicationActivationPolicy");
+    try generator.addEnum("NSApplicationActivationPolicy");
     // try generator.addEnum("NSApplicationDelegateReply");
     // try generator.addEnum("NSApplicationPresentationOptions");
     // try generator.addEnum("NSApplicationOcclusionState");
@@ -2097,7 +2117,7 @@ fn generateAppKit(generator: anytype) !void {
     // try generator.addEnum("NSEnumerationOptions");
     // try generator.addEnum("NSEventButtonMask");
     // try generator.addEnum("NSEventGestureAxis");
-    // try generator.addEnum("NSEventModifierFlags");
+    try generator.addEnum("NSEventModifierFlags");
     // try generator.addEnum("NSEventPhase");
     // try generator.addEnum("NSEventSubtype");
     // try generator.addEnum("NSEventSwipeTrackingOptions");

@@ -24,11 +24,10 @@ LBB0_1:
 "-[MACHAppDelegate applicationDidFinishLaunching:]":
 
 	.cfi_startproc
-	cmpq	$0, 8(%rdi)
+	movq	8(%rdi), %rdi
+	testq	%rdi, %rdi
 	je	LBB1_1
-	movq	8(%rdi), %rsi
-	movq	__dispatch_main_q@GOTPCREL(%rip), %rdi
-	jmp	_dispatch_async
+	jmpq	*16(%rdi)
 LBB1_1:
 	retq
 	.cfi_endproc

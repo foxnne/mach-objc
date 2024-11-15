@@ -26,7 +26,7 @@
 
 #if TARGET_OS_OSX
 - (void)applicationDidFinishLaunching:(NSNotification *)notification {
-    if (self->_runBlock) dispatch_async(dispatch_get_main_queue(), self->_runBlock);
+    if (self->_runBlock) self->_runBlock();
 }
 #else
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions {
