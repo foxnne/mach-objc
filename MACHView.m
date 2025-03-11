@@ -1,8 +1,36 @@
 #import <AppKit/AppKit.h>
 #import <Foundation/Foundation.h>
-#import <CoreVideo/CVDisplayLink.h>
+#import <QuartzCore/CAMetalLayer.h>
+#import <QuartzCore/CAMetalDisplayLink.h>
+#import <Metal/Metal.h>
 
-@interface MACHView : NSView
+#import "MACHLayer.m"
+
+// @protocol GameViewDelegate <NSObject>
+
+// - (void)drawableResize:(CGSize)size;
+
+// - (void)renderTo:(nonnull CAMetalLayer *)metalLayer
+//             with:(CAMetalDisplayLinkUpdate *_Nonnull)update
+//               at:(CFTimeInterval)deltaTime;
+
+// @end
+
+@interface MACHView : NSView <CALayerDelegate, CAMetalDisplayLinkDelegate>
+@property(nonatomic, nonnull, readonly) MACHLayer *metalLayer;
+
+@property(nonatomic, getter=isPaused) BOOL paused;
+
+//@property(nonatomic, nullable) id<GameViewDelegate> delegate;
+
+- (void)initCommon;
+
+- (void)resizeDrawable:(CGFloat)scaleFactor;
+
+- (void)stopRenderLoop;
+
+// - (void)renderUpdate:(CAMetalDisplayLinkUpdate *_Nonnull)update
+//                 with:(CFTimeInterval)deltaTime;
 @end
 
 @implementation MACHView {
@@ -16,9 +44,16 @@
   void (^_magnify_block)(NSEvent *);
   void (^_insertText_block)(NSEvent *, uint32_t);
   void (^_render_block)(void);
+  void (^_windowDidResize_block)(void);
   NSTrackingArea *trackingArea;
-  dispatch_source_t m_displaySource;
-  CVDisplayLinkRef m_displayLink;
+  CAMetalDisplayLink *_displayLink;
+  CFTimeInterval _previousTargetPresentationTimestamp;
+    
+   // The secondary thread containing the render loop.
+  NSThread *_renderThread;
+    
+  // The flag to indicate that rendering needs to cease on the main thread.
+  BOOL _continueRunLoop;
 }
 
 - (BOOL)canBecomeKeyView {
@@ -29,65 +64,20 @@
   return YES;
 }
 
-- (void)dealloc
+- (void)viewDidAppear
 {
-    [self stopRenderLoop];
-}
-
-- (void)viewDidMoveToWindow
-{
-    [super viewDidMoveToWindow];
-    [self stopRenderLoop];
-
-    if (self.window)
-    {
-        m_displaySource = dispatch_source_create(DISPATCH_SOURCE_TYPE_DATA_ADD, 0,
-            0, dispatch_get_main_queue());
-        dispatch_source_set_event_handler(m_displaySource, ^() { [self render]; });
-        dispatch_resume(m_displaySource);
-
-        CVDisplayLinkCreateWithActiveCGDisplays(&m_displayLink);
-        CVDisplayLinkSetOutputCallback(m_displayLink, &displayLinkCallback, (__bridge void*)m_displaySource);
-        CVDisplayLinkStart(m_displayLink);
-    }
-}
-
-static CVReturn displayLinkCallback(
-    CVDisplayLinkRef displayLink,
-    const CVTimeStamp* now,
-    const CVTimeStamp* outputTime,
-    CVOptionFlags flagsIn,
-    CVOptionFlags* flagsOut,
-    void* displayLinkContext)
-{
-    @autoreleasepool
-    {
-        dispatch_source_t source = (__bridge dispatch_source_t)displayLinkContext;
-        dispatch_source_merge_data(source, 1);
-        return kCVReturnSuccess;
-    }
+    [self.window makeFirstResponder:self];
 }
 
 - (void)render
 {
+  if (_displayLink)
+  {
+    NSLog(@"render called with valid displaylink");
+  }
+
   if (_render_block)
     _render_block();
-}
-
-- (void)stopRenderLoop
-{
-    if (m_displaySource)
-    {
-        dispatch_source_cancel(m_displaySource);
-        m_displaySource = nil;
-    }
-
-    if (m_displayLink)
-    {
-        CVDisplayLinkStop(m_displayLink);
-        CVDisplayLinkRelease(m_displayLink);
-        m_displayLink = nil;
-    }
 }
 
 - (void)setBlock_render:(void (^)(void))render_block
@@ -138,6 +128,10 @@ static CVReturn displayLinkCallback(
 - (void)setBlock_magnify:(void (^)(NSEvent *))magnify_block
     __attribute__((objc_direct)) {
   _magnify_block = magnify_block;
+}
+
+- (void)setBlock_windowDidResize:(void (^)(void))windowDidResize_block __attribute__((objc_direct)) {
+    _windowDidResize_block = windowDidResize_block;
 }
 
 - (void)keyDown:(NSEvent *)event {
@@ -252,11 +246,60 @@ static CVReturn displayLinkCallback(
 {
 }
 
+///////////////////////////////////////
+#pragma mark - Initialization and Setup.
+///////////////////////////////////////
+
+- (void)initCommon
+{
+    NSLog(@"initCommon");
+    self.wantsLayer = YES;
+    
+    self.layerContentsRedrawPolicy = NSViewLayerContentsRedrawDuringViewResize;
+
+    self.layer.delegate = self;
+
+    _metalLayer = (MACHLayer*)self.layer;
+}
+
+// + (Class)layerClass
+// {
+//     return [CAMetalLayer class];
+// }
+
+// - (void)didMoveToWindow
+// {
+//     if (self.window == nil)
+//     {
+//         // If moving off of a window, destroy the display link.
+//         [_displayLink invalidate];
+//         _displayLink = nil;
+//         return;
+//     }
+    
+//     [self movedToWindow];
+// }
+
+- (CALayer *)makeBackingLayer
+{
+    NSLog(@"makeBackingLayer");
+    return [MACHLayer layer];
+}
+
+- (void)viewDidMoveToWindow
+{
+    NSLog(@"viewDidMoveToWindow");
+    [self movedToWindow];
+}
+
 // This overrides the default initializer and creates a tracking area over the
 // views visible rect
-- (id)initWithFrame:(NSRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame {
+    NSLog(@"initWithFrame: %@", NSStringFromRect(frame));
   self = [super initWithFrame:frame];
   if (self) {
+    [self initCommon];
+
     // Create a new tracking area to monitor mouse movement
     NSTrackingAreaOptions options = NSTrackingMouseEnteredAndExited |
                                     NSTrackingMouseMoved |
@@ -266,15 +309,231 @@ static CVReturn displayLinkCallback(
                                                 options:options
                                                   owner:self
                                                userInfo:nil];
-    [self addTrackingArea:trackingArea];
-    
+    [self addTrackingArea:trackingArea];    
   }
   return self;
 }
 
+// - (void)setLayer:(MACHLayer *)layer
+// {
+  
+//   [super setLayer:layer];
+//   //_metalLayer = (MACHLayer*)self.layer;
+// }
+
+- (void)movedToWindow
+{
+    NSLog(@"movedToWindow");
+    [self setupCAMetalLink];
+    
+    // Protect _continueRunLoop with a `@synchronized` block because it's accessed by the separate
+    // animation thread.
+    @synchronized(self)
+    {
+        // Stop the animation loop, allowing it to complete if it's in progress.
+        _continueRunLoop = NO;
+    }
+    
+    // Create and start a secondary NSThread that has another run runloop. The NSThread
+    // class calls the 'runThread' method at the start of the secondary thread's execution.
+    _renderThread =  [[NSThread alloc] initWithTarget:self
+                      selector:@selector(runThread)
+                      object:nil];
+    _continueRunLoop = YES;
+    [_renderThread start];
+    
+    // Perform any actions that need to know the size and scale of the drawable. When UIKit calls
+    // didMoveToWindow after the view initialization, this is the first opportunity to notify
+    // components of the drawable's size.
 
 
+    [self resizeDrawable:self.window.screen.backingScaleFactor];
+
+}
 
 
+- (void)setupCAMetalLink
+{
+    NSLog(@"setupCAMetalLink");
+    [self stopRenderLoop];
+    [self makeMetalLink:(MACHLayer *)self.layer];
+    
+
+    // Register to receive a notification when the window closes so that you
+    // can stop the display link.
+    NSNotificationCenter* notificationCenter = [NSNotificationCenter defaultCenter];
+    [notificationCenter addObserver:self
+                           selector:@selector(windowWillClose:)
+                               name:NSWindowWillCloseNotification
+                             object:self.window];
+
+}
+
+- (void)windowWillClose:(NSNotification*)notification
+{
+    // Stop the display link when the window is closing because there's
+    // no point in drawing something that you can't display.
+    if (notification.object == self.window)
+    {
+        NSLog(@"windowWillClose");
+        [self stopMetalLink];
+    }
+}
+
+- (void)makeMetalLink:(nonnull MACHLayer *)metalLayer;
+{
+    NSLog(@"makeMetalLink");
+    // Create and configure the Metal display link.
+    _displayLink = [[CAMetalDisplayLink alloc] initWithMetalLayer:metalLayer];
+    _displayLink.preferredFrameRateRange = CAFrameRateRangeMake(120.0, 120.0, 120.0);
+    _displayLink.preferredFrameLatency = 3;
+    _displayLink.paused = NO;
+    // Assign the delegate to receive the display update callback.
+    _displayLink.delegate = self;
+}
+
+//////////////////////////////////
+#pragma mark - Render Loop Control
+//////////////////////////////////
+
+- (void)metalDisplayLink:(CAMetalDisplayLink *)link
+             needsUpdate:(CAMetalDisplayLinkUpdate *_Nonnull)update
+{   
+    CFTimeInterval deltaTime = _previousTargetPresentationTimestamp - update.targetPresentationTimestamp;
+    _previousTargetPresentationTimestamp = update.targetPresentationTimestamp;
+    
+       
+    [self renderUpdate:update with:deltaTime];
+}
+
+- (void)startMetalLink
+{
+    NSLog(@"startMetalLink");
+    _previousTargetPresentationTimestamp = CACurrentMediaTime();
+    [_displayLink addToRunLoop:[NSRunLoop currentRunLoop]
+                       forMode:NSRunLoopCommonModes];
+}
+
+- (void)stopMetalLink
+{
+    NSLog(@"stopMetalLink");
+    [_displayLink removeFromRunLoop:[NSRunLoop mainRunLoop]
+                            forMode:NSRunLoopCommonModes];
+    [_displayLink invalidate];
+}
+
+- (void)stopRenderLoop
+{
+    NSLog(@"stopRenderLoop");
+    [_displayLink invalidate];
+}
+
+- (void)dealloc
+{
+    NSLog(@"dealloc");
+    [self stopRenderLoop];
+}
+
+- (void)runThread
+{     
+    NSLog(@"start runThread");
+    // Set the display link to the run loop of this thread so its callback occurs on this thread.
+    NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+    [self startMetalLink];
+    
+    // The system sets the '_continueRunLoop' ivar outside this thread, so it needs to synchronize. Create a
+    // 'continueRunLoop' local var that the system can set from the _continueRunLoop ivar in a @synchronized block.
+    BOOL continueRunLoop = YES;
+    
+    // Begin the run loop.
+    while (continueRunLoop)
+    {
+        // Create the autorelease pool for the current iteration of the loop.
+        @autoreleasepool
+        {
+            // Run the loop once accepting input only from the display link.
+            [runLoop runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+        }
+        
+        // Synchronize this with the _continueRunLoop ivar, which is set on another thread.
+        @synchronized(self)
+        {
+            // When accessing anything outside the thread, such as the '_continueRunLoop' ivar,
+            // the system reads it inside the synchronized block to ensure it writes fully/atomically.
+            continueRunLoop = _continueRunLoop;
+
+        }
+    }
+}
+
+///////////////////////
+#pragma mark - Resizing
+///////////////////////
+
+// Override all methods that indicate the view's size has changed.
+
+- (void)viewDidChangeBackingProperties
+{
+    [super viewDidChangeBackingProperties];
+    [self resizeDrawable:self.window.screen.backingScaleFactor];
+}
+
+- (void)setFrameSize:(NSSize)size
+{
+    [super setFrameSize:size];
+    [self resizeDrawable:self.window.screen.backingScaleFactor];
+}
+
+- (void)setBoundsSize:(NSSize)size
+{
+    [super setBoundsSize:size];
+    [self resizeDrawable:self.window.screen.backingScaleFactor];
+}
+
+- (void)resizeDrawable:(CGFloat)scaleFactor
+{   
+    CGSize newSize = self.bounds.size;
+    newSize.width *= scaleFactor;
+    newSize.height *= scaleFactor;
+    
+    if(newSize.width <= 0 || newSize.width <= 0)
+    {
+        return;
+    }
+    // The system calls all AppKit and UIKit calls that notify of a resize on the main thread. Use
+    // a synchronized block to ensure that resize notifications on the delegate are atomic.
+    @synchronized(_metalLayer)
+    {
+        if(newSize.width == _metalLayer.drawableSize.width &&
+           newSize.height == _metalLayer.drawableSize.height)
+        {
+            return;
+        }
+        
+        _metalLayer.drawableSize = newSize;
+
+        if (_windowDidResize_block)
+            _windowDidResize_block();
+        //[_delegate drawableResize:newSize];
+    }
+}
+
+
+// //////////////////////
+// #pragma mark - Drawing
+// //////////////////////
+
+- (void)renderUpdate:(CAMetalDisplayLinkUpdate *_Nonnull)update
+                with:(CFTimeInterval)deltaTime
+{
+    // You need to synchronize if rendering on the background thread to ensure resize operations from the
+    // main thread are complete before any rendering that depends on the size occurs.
+    @synchronized(_metalLayer)
+    {
+  
+        [_metalLayer update:update];
+        [self render];
+    }
+}
 
 @end

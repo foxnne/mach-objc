@@ -119,3 +119,18 @@ pub const MetalLayer = opaque {
         return objc.msgSend(self_, "setAllowsNextDrawableTimeout:", void, .{allowsNextDrawableTimeout_});
     }
 };
+
+pub const MetalDisplayLinkUpdate = opaque {
+    pub const InternalInfo = objc.ExternClass("CAMetalDisplayLinkUpdate", @This(), ns.ObjectInterface, &.{});
+    pub const as = InternalInfo.as;
+    pub const retain = InternalInfo.retain;
+    pub const release = InternalInfo.release;
+    pub const autorelease = InternalInfo.autorelease;
+    pub const new = InternalInfo.new;
+    pub const alloc = InternalInfo.alloc;
+    pub const allocInit = InternalInfo.allocInit;
+
+    pub fn drawable(self_: *@This()) ?*MetalDrawable {
+        return objc.msgSend(self_, "drawable", ?*MetalDrawable, .{});
+    }
+};

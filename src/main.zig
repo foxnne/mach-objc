@@ -11,6 +11,94 @@ pub const app_kit = @import("app_kit.zig");
 pub const core_video = @import("core_video.zig");
 
 pub const mach = struct {
+    pub const Layer = opaque {
+        pub const InternalInfo = objc.ExternClass("MACHLayer", Layer, quartz_core.MetalLayer, &.{});
+        pub const as = InternalInfo.as;
+        pub const retain = InternalInfo.retain;
+        pub const release = InternalInfo.release;
+        pub const autorelease = InternalInfo.autorelease;
+        pub const new = InternalInfo.new;
+        pub const alloc = InternalInfo.alloc;
+        pub const allocInit = InternalInfo.allocInit;
+
+        pub fn currentDrawable(self_: *@This()) ?*quartz_core.MetalDrawable {
+            return objc.msgSend(self_, "currentDrawable", ?*quartz_core.MetalDrawable, .{});
+        }
+
+        pub fn nextDrawable(self_: *@This()) ?*quartz_core.MetalDrawable {
+            return objc.msgSend(self_, "nextDrawable", ?*quartz_core.MetalDrawable, .{});
+        }
+        pub fn device(self_: *@This()) ?*metal.Device {
+            return objc.msgSend(self_, "device", ?*metal.Device, .{});
+        }
+        pub fn setDevice(self_: *@This(), device_: ?*metal.Device) void {
+            return objc.msgSend(self_, "setDevice:", void, .{device_});
+        }
+        pub fn preferredDevice(self_: *@This()) ?*metal.Device {
+            return objc.msgSend(self_, "preferredDevice", ?*metal.Device, .{});
+        }
+        pub fn pixelFormat(self_: *@This()) metal.PixelFormat {
+            return objc.msgSend(self_, "pixelFormat", metal.PixelFormat, .{});
+        }
+        pub fn setPixelFormat(self_: *@This(), pixelFormat_: metal.PixelFormat) void {
+            return objc.msgSend(self_, "setPixelFormat:", void, .{pixelFormat_});
+        }
+        pub fn framebufferOnly(self_: *@This()) bool {
+            return objc.msgSend(self_, "framebufferOnly", bool, .{});
+        }
+        pub fn setFramebufferOnly(self_: *@This(), framebufferOnly_: bool) void {
+            return objc.msgSend(self_, "setFramebufferOnly:", void, .{framebufferOnly_});
+        }
+        pub fn drawableSize(self_: *@This()) core_graphics.Size {
+            return objc.msgSend(self_, "drawableSize", core_graphics.Size, .{});
+        }
+        pub fn setDrawableSize(self_: *@This(), drawableSize_: core_graphics.Size) void {
+            return objc.msgSend(self_, "setDrawableSize:", void, .{drawableSize_});
+        }
+        pub fn maximumDrawableCount(self_: *@This()) foundation.UInteger {
+            return objc.msgSend(self_, "maximumDrawableCount", foundation.UInteger, .{});
+        }
+        pub fn setMaximumDrawableCount(self_: *@This(), maximumDrawableCount_: foundation.UInteger) void {
+            return objc.msgSend(self_, "setMaximumDrawableCount:", void, .{maximumDrawableCount_});
+        }
+        pub fn presentsWithTransaction(self_: *@This()) bool {
+            return objc.msgSend(self_, "presentsWithTransaction", bool, .{});
+        }
+        pub fn setPresentsWithTransaction(self_: *@This(), presentsWithTransaction_: bool) void {
+            return objc.msgSend(self_, "setPresentsWithTransaction:", void, .{presentsWithTransaction_});
+        }
+        pub fn colorspace(self_: *@This()) core_graphics.ColorSpaceRef {
+            return objc.msgSend(self_, "colorspace", core_graphics.ColorSpaceRef, .{});
+        }
+        pub fn setColorspace(self_: *@This(), colorspace_: core_graphics.ColorSpaceRef) void {
+            return objc.msgSend(self_, "setColorspace:", void, .{colorspace_});
+        }
+        pub fn setOpaque(self_: *@This(), opaque_: bool) void {
+            return objc.msgSend(self_, "setOpaque:", void, .{opaque_});
+        }
+        pub fn setOpacity(self_: *@This(), opacity_: f32) void {
+            return objc.msgSend(self_, "setOpacity:", void, .{opacity_});
+        }
+        pub fn wantsExtendedDynamicRangeContent(self_: *@This()) bool {
+            return objc.msgSend(self_, "wantsExtendedDynamicRangeContent", bool, .{});
+        }
+        pub fn setWantsExtendedDynamicRangeContent(self_: *@This(), wantsExtendedDynamicRangeContent_: bool) void {
+            return objc.msgSend(self_, "setWantsExtendedDynamicRangeContent:", void, .{wantsExtendedDynamicRangeContent_});
+        }
+        pub fn displaySyncEnabled(self_: *@This()) bool {
+            return objc.msgSend(self_, "displaySyncEnabled", bool, .{});
+        }
+        pub fn setDisplaySyncEnabled(self_: *@This(), displaySyncEnabled_: bool) void {
+            return objc.msgSend(self_, "setDisplaySyncEnabled:", void, .{displaySyncEnabled_});
+        }
+        pub fn allowsNextDrawableTimeout(self_: *@This()) bool {
+            return objc.msgSend(self_, "allowsNextDrawableTimeout", bool, .{});
+        }
+        pub fn setAllowsNextDrawableTimeout(self_: *@This(), allowsNextDrawableTimeout_: bool) void {
+            return objc.msgSend(self_, "setAllowsNextDrawableTimeout:", void, .{allowsNextDrawableTimeout_});
+        }
+    };
+
     pub const AppDelegate = opaque {
         pub const InternalInfo = objc.ExternClass("MACHAppDelegate", AppDelegate, foundation.ObjectInterface, &.{app_kit.ApplicationDelegate});
         pub const as = InternalInfo.as;
@@ -67,12 +155,20 @@ pub const mach = struct {
         pub const alloc = InternalInfo.alloc;
         pub const allocInit = InternalInfo.allocInit;
 
+        pub fn setBlock_windowDidResize(self: *View, block: *foundation.Block(fn () void)) void {
+            method_windowDidResize(self, block);
+        }
+        const method_windowDidResize = @extern(
+            *const fn (*View, *foundation.Block(fn () void)) callconv(.C) void,
+            .{ .name = "\x01-[MACHView setBlock_windowDidResize:]" },
+        );
+
         pub fn initWithFrame(self_: *@This(), frameRect_: app_kit.Rect) *@This() {
             return objc.msgSend(self_, "initWithFrame:", *@This(), .{frameRect_});
         }
 
-        pub fn currentDrawable(self_: *@This()) ?*quartz_core.MetalDrawable {
-            return objc.msgSend(self_, "currentDrawable", ?*quartz_core.MetalDrawable, .{});
+        pub fn stopRenderLoop(self_: *@This()) void {
+            return objc.msgSend(self_, "stopRenderLoop", void, .{});
         }
 
         pub fn layer(self_: *@This()) *quartz_core.MetalLayer {
