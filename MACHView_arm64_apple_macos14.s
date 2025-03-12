@@ -1081,38 +1081,32 @@ LBB33_2:
 	.cfi_offset w22, -48
 	mov	x19, x0
 Lloh97:
-	adrp	x0, l__unnamed_cfstring_.35@PAGE
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.35@PAGE
 Lloh98:
-	add	x0, x0, l__unnamed_cfstring_.35@PAGEOFF
-	bl	_NSLog
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.35@PAGEOFF]
+	mov	w2, #1
+	bl	_objc_msgSend
 Lloh99:
 	adrp	x8, _OBJC_SELECTOR_REFERENCES_.37@PAGE
 Lloh100:
 	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.37@PAGEOFF]
 	mov	x0, x19
-	mov	w2, #1
+	mov	w2, #2
 	bl	_objc_msgSend
 Lloh101:
 	adrp	x8, _OBJC_SELECTOR_REFERENCES_.39@PAGE
 Lloh102:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.39@PAGEOFF]
-	mov	x0, x19
-	mov	w2, #2
-	bl	_objc_msgSend
-Lloh103:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.41@PAGE
-Lloh104:
-	ldr	x20, [x8, _OBJC_SELECTOR_REFERENCES_.41@PAGEOFF]
+	ldr	x20, [x8, _OBJC_SELECTOR_REFERENCES_.39@PAGEOFF]
 	mov	x0, x19
 	mov	x1, x20
 	bl	_objc_msgSend
 	mov	x29, x29
 	bl	_objc_retainAutoreleasedReturnValue
 	mov	x21, x0
-Lloh105:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.43@PAGE
-Lloh106:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.43@PAGEOFF]
+Lloh103:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.41@PAGE
+Lloh104:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.41@PAGEOFF]
 	mov	x2, x19
 	bl	_objc_msgSend
 	mov	x0, x21
@@ -1122,9 +1116,9 @@ Lloh106:
 	bl	_objc_msgSend
 	mov	x29, x29
 	bl	_objc_retainAutoreleasedReturnValue
-Lloh107:
+Lloh105:
 	adrp	x8, _OBJC_IVAR_$_MACHView._metalLayer@PAGE
-Lloh108:
+Lloh106:
 	ldrsw	x9, [x8, _OBJC_IVAR_$_MACHView._metalLayer@PAGEOFF]
 	ldr	x8, [x19, x9]
 	str	x0, [x19, x9]
@@ -1140,87 +1134,50 @@ Lloh108:
 	.cfi_restore w21
 	.cfi_restore w22
 	b	_objc_release
-	.loh AdrpLdr	Lloh107, Lloh108
 	.loh AdrpLdr	Lloh105, Lloh106
 	.loh AdrpLdr	Lloh103, Lloh104
 	.loh AdrpLdr	Lloh101, Lloh102
 	.loh AdrpLdr	Lloh99, Lloh100
-	.loh AdrpAdd	Lloh97, Lloh98
+	.loh AdrpLdr	Lloh97, Lloh98
 	.cfi_endproc
 
 	.p2align	2
 "-[MACHView makeBackingLayer]":
 	.cfi_startproc
-	stp	x29, x30, [sp, #-16]!
-	.cfi_def_cfa_offset 16
-	.cfi_offset w30, -8
-	.cfi_offset w29, -16
+Lloh107:
+	adrp	x8, _OBJC_CLASSLIST_REFERENCES_$_.42@PAGE
+Lloh108:
+	ldr	x0, [x8, _OBJC_CLASSLIST_REFERENCES_$_.42@PAGEOFF]
 Lloh109:
-	adrp	x0, l__unnamed_cfstring_.45@PAGE
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.39@PAGE
 Lloh110:
-	add	x0, x0, l__unnamed_cfstring_.45@PAGEOFF
-	bl	_NSLog
-Lloh111:
-	adrp	x8, _OBJC_CLASSLIST_REFERENCES_$_.46@PAGE
-Lloh112:
-	ldr	x0, [x8, _OBJC_CLASSLIST_REFERENCES_$_.46@PAGEOFF]
-Lloh113:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.41@PAGE
-Lloh114:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.41@PAGEOFF]
-	ldp	x29, x30, [sp], #16
-	.cfi_def_cfa_offset 0
-	.cfi_restore w30
-	.cfi_restore w29
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.39@PAGEOFF]
 	b	_objc_msgSend
-	.loh AdrpLdr	Lloh113, Lloh114
-	.loh AdrpAdrp	Lloh111, Lloh113
-	.loh AdrpLdr	Lloh111, Lloh112
-	.loh AdrpAdd	Lloh109, Lloh110
+	.loh AdrpLdr	Lloh109, Lloh110
+	.loh AdrpAdrp	Lloh107, Lloh109
+	.loh AdrpLdr	Lloh107, Lloh108
 	.cfi_endproc
 
 	.p2align	2
 "-[MACHView viewDidMoveToWindow]":
 	.cfi_startproc
-	stp	x20, x19, [sp, #-32]!
-	.cfi_def_cfa_offset 32
-	stp	x29, x30, [sp, #16]
-	.cfi_offset w30, -8
-	.cfi_offset w29, -16
-	.cfi_offset w19, -24
-	.cfi_offset w20, -32
-	mov	x19, x0
-Lloh115:
-	adrp	x0, l__unnamed_cfstring_.48@PAGE
-Lloh116:
-	add	x0, x0, l__unnamed_cfstring_.48@PAGEOFF
-	bl	_NSLog
-Lloh117:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.50@PAGE
-Lloh118:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.50@PAGEOFF]
-	mov	x0, x19
-	ldp	x29, x30, [sp, #16]
-	ldp	x20, x19, [sp], #32
-	.cfi_def_cfa_offset 0
-	.cfi_restore w30
-	.cfi_restore w29
-	.cfi_restore w19
-	.cfi_restore w20
+Lloh111:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.44@PAGE
+Lloh112:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.44@PAGEOFF]
 	b	_objc_msgSend
-	.loh AdrpLdr	Lloh117, Lloh118
-	.loh AdrpAdd	Lloh115, Lloh116
+	.loh AdrpLdr	Lloh111, Lloh112
 	.cfi_endproc
 
 	.p2align	2
 "-[MACHView initWithFrame:]":
 	.cfi_startproc
-	sub	sp, sp, #96
-	.cfi_def_cfa_offset 96
-	stp	d11, d10, [sp, #32]
-	stp	d9, d8, [sp, #48]
-	stp	x20, x19, [sp, #64]
-	stp	x29, x30, [sp, #80]
+	sub	sp, sp, #80
+	.cfi_def_cfa_offset 80
+	stp	d11, d10, [sp, #16]
+	stp	d9, d8, [sp, #32]
+	stp	x20, x19, [sp, #48]
+	stp	x29, x30, [sp, #64]
 	.cfi_offset w30, -8
 	.cfi_offset w29, -16
 	.cfi_offset w19, -24
@@ -1229,65 +1186,44 @@ Lloh118:
 	.cfi_offset b9, -48
 	.cfi_offset b10, -56
 	.cfi_offset b11, -64
-	fmov	d8, d3
-	fmov	d9, d2
-	fmov	d10, d1
-	fmov	d11, d0
-	mov	x19, x0
-	bl	_NSStringFromRect
-	mov	x29, x29
-	bl	_objc_retainAutoreleasedReturnValue
-	mov	x20, x0
-	str	x0, [sp]
-Lloh119:
-	adrp	x0, l__unnamed_cfstring_.52@PAGE
-Lloh120:
-	add	x0, x0, l__unnamed_cfstring_.52@PAGEOFF
-	bl	_NSLog
-	mov	x0, x20
-	bl	_objc_release
-Lloh121:
+Lloh113:
 	adrp	x8, l_OBJC_CLASSLIST_SUP_REFS_$_@PAGE
-Lloh122:
+Lloh114:
 	ldr	x8, [x8, l_OBJC_CLASSLIST_SUP_REFS_$_@PAGEOFF]
-	stp	x19, x8, [sp, #16]
-Lloh123:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.54@PAGE
-Lloh124:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.54@PAGEOFF]
-	add	x0, sp, #16
-	fmov	d0, d11
-	fmov	d1, d10
-	fmov	d2, d9
-	fmov	d3, d8
+	stp	x0, x8, [sp]
+Lloh115:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.46@PAGE
+Lloh116:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.46@PAGEOFF]
+	mov	x0, sp
 	bl	_objc_msgSendSuper2
 	mov	x19, x0
 	cbz	x0, LBB38_2
-Lloh125:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.56@PAGE
-Lloh126:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.56@PAGEOFF]
+Lloh117:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.48@PAGE
+Lloh118:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.48@PAGEOFF]
 	mov	x0, x19
 	bl	_objc_msgSend
-Lloh127:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.58@PAGE
-Lloh128:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.58@PAGEOFF]
+Lloh119:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.50@PAGE
+Lloh120:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.50@PAGEOFF]
 	mov	x0, x19
 	bl	_objc_msgSend
 	fmov	d8, d0
 	fmov	d9, d1
 	fmov	d10, d2
 	fmov	d11, d3
-Lloh129:
-	adrp	x8, _OBJC_CLASSLIST_REFERENCES_$_.59@PAGE
-Lloh130:
-	ldr	x0, [x8, _OBJC_CLASSLIST_REFERENCES_$_.59@PAGEOFF]
+Lloh121:
+	adrp	x8, _OBJC_CLASSLIST_REFERENCES_$_.51@PAGE
+Lloh122:
+	ldr	x0, [x8, _OBJC_CLASSLIST_REFERENCES_$_.51@PAGEOFF]
 	bl	_objc_alloc
-Lloh131:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.61@PAGE
-Lloh132:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.61@PAGEOFF]
+Lloh123:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.53@PAGE
+Lloh124:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.53@PAGEOFF]
 	fmov	d0, d8
 	fmov	d1, d9
 	fmov	d2, d10
@@ -1296,28 +1232,28 @@ Lloh132:
 	mov	x3, x19
 	mov	x4, #0
 	bl	_objc_msgSend
-Lloh133:
+Lloh125:
 	adrp	x8, _OBJC_IVAR_$_MACHView.trackingArea@PAGE
-Lloh134:
+Lloh126:
 	ldrsw	x20, [x8, _OBJC_IVAR_$_MACHView.trackingArea@PAGEOFF]
 	ldr	x8, [x19, x20]
 	str	x0, [x19, x20]
 	mov	x0, x8
 	bl	_objc_release
 	ldr	x2, [x19, x20]
-Lloh135:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.63@PAGE
-Lloh136:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.63@PAGEOFF]
+Lloh127:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.55@PAGE
+Lloh128:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.55@PAGEOFF]
 	mov	x0, x19
 	bl	_objc_msgSend
 LBB38_2:
 	mov	x0, x19
-	ldp	x29, x30, [sp, #80]
-	ldp	x20, x19, [sp, #64]
-	ldp	d9, d8, [sp, #48]
-	ldp	d11, d10, [sp, #32]
-	add	sp, sp, #96
+	ldp	x29, x30, [sp, #64]
+	ldp	x20, x19, [sp, #48]
+	ldp	d9, d8, [sp, #32]
+	ldp	d11, d10, [sp, #16]
+	add	sp, sp, #80
 	.cfi_def_cfa_offset 0
 	.cfi_restore w30
 	.cfi_restore w29
@@ -1328,15 +1264,14 @@ LBB38_2:
 	.cfi_restore b10
 	.cfi_restore b11
 	ret
-	.loh AdrpLdr	Lloh123, Lloh124
-	.loh AdrpLdr	Lloh121, Lloh122
-	.loh AdrpAdd	Lloh119, Lloh120
-	.loh AdrpLdr	Lloh135, Lloh136
-	.loh AdrpLdr	Lloh133, Lloh134
-	.loh AdrpLdr	Lloh131, Lloh132
-	.loh AdrpLdr	Lloh129, Lloh130
+	.loh AdrpLdr	Lloh115, Lloh116
+	.loh AdrpLdr	Lloh113, Lloh114
 	.loh AdrpLdr	Lloh127, Lloh128
 	.loh AdrpLdr	Lloh125, Lloh126
+	.loh AdrpLdr	Lloh123, Lloh124
+	.loh AdrpLdr	Lloh121, Lloh122
+	.loh AdrpLdr	Lloh119, Lloh120
+	.loh AdrpLdr	Lloh117, Lloh118
 	.cfi_endproc
 
 	.p2align	2
@@ -1353,48 +1288,42 @@ LBB38_2:
 	.cfi_offset w21, -40
 	.cfi_offset w22, -48
 	mov	x19, x0
-Lloh137:
-	adrp	x0, l__unnamed_cfstring_.65@PAGE
-Lloh138:
-	add	x0, x0, l__unnamed_cfstring_.65@PAGEOFF
-	bl	_NSLog
-Lloh139:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.67@PAGE
-Lloh140:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.67@PAGEOFF]
-	mov	x0, x19
+Lloh129:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.57@PAGE
+Lloh130:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.57@PAGEOFF]
 	bl	_objc_msgSend
 	mov	x0, x19
 	bl	_objc_retain
 	bl	_objc_sync_enter
-Lloh141:
+Lloh131:
 	adrp	x8, _OBJC_IVAR_$_MACHView._continueRunLoop@PAGE
-Lloh142:
+Lloh132:
 	ldrsw	x20, [x8, _OBJC_IVAR_$_MACHView._continueRunLoop@PAGEOFF]
 	strb	wzr, [x19, x20]
 	mov	x0, x19
 	bl	_objc_sync_exit
 	mov	x0, x19
 	bl	_objc_release
-Lloh143:
-	adrp	x8, _OBJC_CLASSLIST_REFERENCES_$_.68@PAGE
-Lloh144:
-	ldr	x0, [x8, _OBJC_CLASSLIST_REFERENCES_$_.68@PAGEOFF]
+Lloh133:
+	adrp	x8, _OBJC_CLASSLIST_REFERENCES_$_.58@PAGE
+Lloh134:
+	ldr	x0, [x8, _OBJC_CLASSLIST_REFERENCES_$_.58@PAGEOFF]
 	bl	_objc_alloc
-Lloh145:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.70@PAGE
-Lloh146:
-	ldr	x3, [x8, _OBJC_SELECTOR_REFERENCES_.70@PAGEOFF]
-Lloh147:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.72@PAGE
-Lloh148:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.72@PAGEOFF]
+Lloh135:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.60@PAGE
+Lloh136:
+	ldr	x3, [x8, _OBJC_SELECTOR_REFERENCES_.60@PAGEOFF]
+Lloh137:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.62@PAGE
+Lloh138:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.62@PAGEOFF]
 	mov	x2, x19
 	mov	x4, #0
 	bl	_objc_msgSend
-Lloh149:
+Lloh139:
 	adrp	x8, _OBJC_IVAR_$_MACHView._renderThread@PAGE
-Lloh150:
+Lloh140:
 	ldrsw	x21, [x8, _OBJC_IVAR_$_MACHView._renderThread@PAGEOFF]
 	ldr	x8, [x19, x21]
 	str	x0, [x19, x21]
@@ -1403,37 +1332,37 @@ Lloh150:
 	mov	w8, #1
 	strb	w8, [x19, x20]
 	ldr	x0, [x19, x21]
-Lloh151:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.74@PAGE
-Lloh152:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.74@PAGEOFF]
+Lloh141:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.64@PAGE
+Lloh142:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.64@PAGEOFF]
 	bl	_objc_msgSend
-Lloh153:
+Lloh143:
 	adrp	x8, _OBJC_SELECTOR_REFERENCES_.12@PAGE
-Lloh154:
+Lloh144:
 	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.12@PAGEOFF]
 	mov	x0, x19
 	bl	_objc_msgSend
 	mov	x29, x29
 	bl	_objc_retainAutoreleasedReturnValue
 	mov	x20, x0
-Lloh155:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.76@PAGE
-Lloh156:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.76@PAGEOFF]
+Lloh145:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.66@PAGE
+Lloh146:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.66@PAGEOFF]
 	bl	_objc_msgSend
 	mov	x29, x29
 	bl	_objc_retainAutoreleasedReturnValue
 	mov	x21, x0
-Lloh157:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.78@PAGE
-Lloh158:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.78@PAGEOFF]
+Lloh147:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.68@PAGE
+Lloh148:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.68@PAGEOFF]
 	bl	_objc_msgSend
-Lloh159:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.80@PAGE
-Lloh160:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.80@PAGEOFF]
+Lloh149:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.70@PAGE
+Lloh150:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.70@PAGEOFF]
 	mov	x0, x19
 	bl	_objc_msgSend
 	mov	x0, x21
@@ -1450,19 +1379,18 @@ Lloh160:
 	.cfi_restore w21
 	.cfi_restore w22
 	b	_objc_release
-	.loh AdrpLdr	Lloh159, Lloh160
-	.loh AdrpLdr	Lloh157, Lloh158
-	.loh AdrpLdr	Lloh155, Lloh156
-	.loh AdrpLdr	Lloh153, Lloh154
-	.loh AdrpLdr	Lloh151, Lloh152
 	.loh AdrpLdr	Lloh149, Lloh150
 	.loh AdrpLdr	Lloh147, Lloh148
-	.loh AdrpAdrp	Lloh145, Lloh147
 	.loh AdrpLdr	Lloh145, Lloh146
 	.loh AdrpLdr	Lloh143, Lloh144
 	.loh AdrpLdr	Lloh141, Lloh142
 	.loh AdrpLdr	Lloh139, Lloh140
-	.loh AdrpAdd	Lloh137, Lloh138
+	.loh AdrpLdr	Lloh137, Lloh138
+	.loh AdrpAdrp	Lloh135, Lloh137
+	.loh AdrpLdr	Lloh135, Lloh136
+	.loh AdrpLdr	Lloh133, Lloh134
+	.loh AdrpLdr	Lloh131, Lloh132
+	.loh AdrpLdr	Lloh129, Lloh130
 	.cfi_endproc
 
 	.p2align	2
@@ -1482,70 +1410,64 @@ Lloh160:
 	.cfi_offset w23, -56
 	.cfi_offset w24, -64
 	mov	x19, x0
-Lloh161:
-	adrp	x0, l__unnamed_cfstring_.82@PAGE
-Lloh162:
-	add	x0, x0, l__unnamed_cfstring_.82@PAGEOFF
-	bl	_NSLog
-Lloh163:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.84@PAGE
-Lloh164:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.84@PAGEOFF]
-	mov	x0, x19
+Lloh151:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.72@PAGE
+Lloh152:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.72@PAGEOFF]
 	bl	_objc_msgSend
-Lloh165:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.41@PAGE
-Lloh166:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.41@PAGEOFF]
+Lloh153:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.39@PAGE
+Lloh154:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.39@PAGEOFF]
 	mov	x0, x19
 	bl	_objc_msgSend
 	mov	x29, x29
 	bl	_objc_retainAutoreleasedReturnValue
 	mov	x20, x0
-Lloh167:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.86@PAGE
-Lloh168:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.86@PAGEOFF]
+Lloh155:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.74@PAGE
+Lloh156:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.74@PAGEOFF]
 	mov	x0, x19
 	mov	x2, x20
 	bl	_objc_msgSend
 	mov	x0, x20
 	bl	_objc_release
-Lloh169:
-	adrp	x8, _OBJC_CLASSLIST_REFERENCES_$_.87@PAGE
-Lloh170:
-	ldr	x0, [x8, _OBJC_CLASSLIST_REFERENCES_$_.87@PAGEOFF]
-Lloh171:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.89@PAGE
-Lloh172:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.89@PAGEOFF]
+Lloh157:
+	adrp	x8, _OBJC_CLASSLIST_REFERENCES_$_.75@PAGE
+Lloh158:
+	ldr	x0, [x8, _OBJC_CLASSLIST_REFERENCES_$_.75@PAGEOFF]
+Lloh159:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.77@PAGE
+Lloh160:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.77@PAGEOFF]
 	bl	_objc_msgSend
 	mov	x29, x29
 	bl	_objc_retainAutoreleasedReturnValue
 	mov	x20, x0
-Lloh173:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.91@PAGE
-Lloh174:
-	ldr	x21, [x8, _OBJC_SELECTOR_REFERENCES_.91@PAGEOFF]
-Lloh175:
+Lloh161:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.79@PAGE
+Lloh162:
+	ldr	x21, [x8, _OBJC_SELECTOR_REFERENCES_.79@PAGEOFF]
+Lloh163:
 	adrp	x8, _NSWindowWillCloseNotification@GOTPAGE
-Lloh176:
+Lloh164:
 	ldr	x8, [x8, _NSWindowWillCloseNotification@GOTPAGEOFF]
-Lloh177:
+Lloh165:
 	ldr	x22, [x8]
-Lloh178:
+Lloh166:
 	adrp	x8, _OBJC_SELECTOR_REFERENCES_.12@PAGE
-Lloh179:
+Lloh167:
 	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.12@PAGEOFF]
 	mov	x0, x19
 	bl	_objc_msgSend
 	mov	x29, x29
 	bl	_objc_retainAutoreleasedReturnValue
 	mov	x23, x0
-Lloh180:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.93@PAGE
-Lloh181:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.93@PAGEOFF]
+Lloh168:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.81@PAGE
+Lloh169:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.81@PAGEOFF]
 	mov	x0, x20
 	mov	x2, x19
 	mov	x3, x21
@@ -1569,18 +1491,17 @@ Lloh181:
 	.cfi_restore w23
 	.cfi_restore w24
 	b	_objc_release
-	.loh AdrpLdr	Lloh180, Lloh181
-	.loh AdrpLdr	Lloh178, Lloh179
-	.loh AdrpLdrGotLdr	Lloh175, Lloh176, Lloh177
-	.loh AdrpAdrp	Lloh173, Lloh175
-	.loh AdrpLdr	Lloh173, Lloh174
-	.loh AdrpLdr	Lloh171, Lloh172
-	.loh AdrpAdrp	Lloh169, Lloh171
-	.loh AdrpLdr	Lloh169, Lloh170
-	.loh AdrpLdr	Lloh167, Lloh168
-	.loh AdrpLdr	Lloh165, Lloh166
-	.loh AdrpLdr	Lloh163, Lloh164
-	.loh AdrpAdd	Lloh161, Lloh162
+	.loh AdrpLdr	Lloh168, Lloh169
+	.loh AdrpLdr	Lloh166, Lloh167
+	.loh AdrpLdrGotLdr	Lloh163, Lloh164, Lloh165
+	.loh AdrpAdrp	Lloh161, Lloh163
+	.loh AdrpLdr	Lloh161, Lloh162
+	.loh AdrpLdr	Lloh159, Lloh160
+	.loh AdrpAdrp	Lloh157, Lloh159
+	.loh AdrpLdr	Lloh157, Lloh158
+	.loh AdrpLdr	Lloh155, Lloh156
+	.loh AdrpLdr	Lloh153, Lloh154
+	.loh AdrpLdr	Lloh151, Lloh152
 	.cfi_endproc
 
 	.p2align	2
@@ -1598,18 +1519,18 @@ Lloh181:
 	.cfi_offset w22, -48
 	.cfi_remember_state
 	mov	x19, x0
-Lloh182:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.95@PAGE
-Lloh183:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.95@PAGEOFF]
+Lloh170:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.83@PAGE
+Lloh171:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.83@PAGEOFF]
 	mov	x0, x2
 	bl	_objc_msgSend
 	mov	x29, x29
 	bl	_objc_retainAutoreleasedReturnValue
 	mov	x20, x0
-Lloh184:
+Lloh172:
 	adrp	x8, _OBJC_SELECTOR_REFERENCES_.12@PAGE
-Lloh185:
+Lloh173:
 	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.12@PAGEOFF]
 	mov	x0, x19
 	bl	_objc_msgSend
@@ -1634,15 +1555,10 @@ Lloh185:
 	ret
 LBB41_2:
 	.cfi_restore_state
-Lloh186:
-	adrp	x0, l__unnamed_cfstring_.97@PAGE
-Lloh187:
-	add	x0, x0, l__unnamed_cfstring_.97@PAGEOFF
-	bl	_NSLog
-Lloh188:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.99@PAGE
-Lloh189:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.99@PAGEOFF]
+Lloh174:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.85@PAGE
+Lloh175:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.85@PAGEOFF]
 	mov	x0, x19
 	ldp	x29, x30, [sp, #32]
 	ldp	x20, x19, [sp, #16]
@@ -1655,10 +1571,9 @@ Lloh189:
 	.cfi_restore w21
 	.cfi_restore w22
 	b	_objc_msgSend
-	.loh AdrpLdr	Lloh184, Lloh185
-	.loh AdrpLdr	Lloh182, Lloh183
-	.loh AdrpLdr	Lloh188, Lloh189
-	.loh AdrpAdd	Lloh186, Lloh187
+	.loh AdrpLdr	Lloh172, Lloh173
+	.loh AdrpLdr	Lloh170, Lloh171
+	.loh AdrpLdr	Lloh174, Lloh175
 	.cfi_endproc
 
 	.p2align	2
@@ -1676,30 +1591,26 @@ Lloh189:
 	.cfi_offset w22, -48
 	mov	x20, x2
 	mov	x19, x0
+Lloh176:
+	adrp	x8, _OBJC_CLASSLIST_REFERENCES_$_.86@PAGE
+Lloh177:
+	ldr	x21, [x8, _OBJC_CLASSLIST_REFERENCES_$_.86@PAGEOFF]
 	mov	x0, x2
 	bl	_objc_retain
-Lloh190:
-	adrp	x0, l__unnamed_cfstring_.101@PAGE
-Lloh191:
-	add	x0, x0, l__unnamed_cfstring_.101@PAGEOFF
-	bl	_NSLog
-Lloh192:
-	adrp	x8, _OBJC_CLASSLIST_REFERENCES_$_.102@PAGE
-Lloh193:
-	ldr	x0, [x8, _OBJC_CLASSLIST_REFERENCES_$_.102@PAGEOFF]
+	mov	x0, x21
 	bl	_objc_alloc
-Lloh194:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.104@PAGE
-Lloh195:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.104@PAGEOFF]
+Lloh178:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.88@PAGE
+Lloh179:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.88@PAGEOFF]
 	mov	x2, x20
 	bl	_objc_msgSend
 	mov	x21, x0
 	mov	x0, x20
 	bl	_objc_release
-Lloh196:
+Lloh180:
 	adrp	x8, _OBJC_IVAR_$_MACHView._displayLink@PAGE
-Lloh197:
+Lloh181:
 	ldrsw	x20, [x8, _OBJC_IVAR_$_MACHView._displayLink@PAGEOFF]
 	ldr	x0, [x19, x20]
 	str	x21, [x19, x20]
@@ -1709,31 +1620,31 @@ Lloh197:
 	fmov	s1, s0
 	fmov	s2, s0
 	bl	_CAFrameRateRangeMake
-Lloh198:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.106@PAGE
-Lloh199:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.106@PAGEOFF]
+Lloh182:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.90@PAGE
+Lloh183:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.90@PAGEOFF]
 	ldr	x0, [x19, x20]
 	bl	_objc_msgSend
 	ldr	x0, [x19, x20]
-Lloh200:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.108@PAGE
-Lloh201:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.108@PAGEOFF]
-	fmov	s0, #3.00000000
+Lloh184:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.92@PAGE
+Lloh185:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.92@PAGEOFF]
+	fmov	s0, #2.00000000
 	bl	_objc_msgSend
 	ldr	x0, [x19, x20]
-Lloh202:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.110@PAGE
-Lloh203:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.110@PAGEOFF]
+Lloh186:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.94@PAGE
+Lloh187:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.94@PAGEOFF]
 	mov	w2, #0
 	bl	_objc_msgSend
 	ldr	x0, [x19, x20]
-Lloh204:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.43@PAGE
-Lloh205:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.43@PAGEOFF]
+Lloh188:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.41@PAGE
+Lloh189:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.41@PAGEOFF]
 	mov	x2, x19
 	ldp	x29, x30, [sp, #32]
 	ldp	x20, x19, [sp, #16]
@@ -1746,14 +1657,13 @@ Lloh205:
 	.cfi_restore w21
 	.cfi_restore w22
 	b	_objc_msgSend
-	.loh AdrpLdr	Lloh204, Lloh205
-	.loh AdrpLdr	Lloh202, Lloh203
-	.loh AdrpLdr	Lloh200, Lloh201
-	.loh AdrpLdr	Lloh198, Lloh199
-	.loh AdrpLdr	Lloh196, Lloh197
-	.loh AdrpLdr	Lloh194, Lloh195
-	.loh AdrpLdr	Lloh192, Lloh193
-	.loh AdrpAdd	Lloh190, Lloh191
+	.loh AdrpLdr	Lloh188, Lloh189
+	.loh AdrpLdr	Lloh186, Lloh187
+	.loh AdrpLdr	Lloh184, Lloh185
+	.loh AdrpLdr	Lloh182, Lloh183
+	.loh AdrpLdr	Lloh180, Lloh181
+	.loh AdrpLdr	Lloh178, Lloh179
+	.loh AdrpLdr	Lloh176, Lloh177
 	.cfi_endproc
 
 	.p2align	2
@@ -1774,15 +1684,15 @@ Lloh205:
 	.cfi_offset b9, -64
 	mov	x19, x3
 	mov	x20, x0
-Lloh206:
+Lloh190:
 	adrp	x8, _OBJC_IVAR_$_MACHView._previousTargetPresentationTimestamp@PAGE
-Lloh207:
+Lloh191:
 	ldrsw	x22, [x8, _OBJC_IVAR_$_MACHView._previousTargetPresentationTimestamp@PAGEOFF]
 	ldr	d8, [x0, x22]
-Lloh208:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.112@PAGE
-Lloh209:
-	ldr	x21, [x8, _OBJC_SELECTOR_REFERENCES_.112@PAGEOFF]
+Lloh192:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.96@PAGE
+Lloh193:
+	ldr	x21, [x8, _OBJC_SELECTOR_REFERENCES_.96@PAGEOFF]
 	mov	x0, x3
 	bl	_objc_retain
 	mov	x0, x19
@@ -1793,10 +1703,10 @@ Lloh209:
 	mov	x1, x21
 	bl	_objc_msgSend
 	str	d0, [x20, x22]
-Lloh210:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.114@PAGE
-Lloh211:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.114@PAGEOFF]
+Lloh194:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.98@PAGE
+Lloh195:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.98@PAGEOFF]
 	mov	x0, x20
 	mov	x2, x19
 	fmov	d0, d8
@@ -1816,10 +1726,10 @@ Lloh211:
 	.cfi_restore b8
 	.cfi_restore b9
 	b	_objc_release
-	.loh AdrpLdr	Lloh210, Lloh211
-	.loh AdrpLdr	Lloh208, Lloh209
-	.loh AdrpAdrp	Lloh206, Lloh208
-	.loh AdrpLdr	Lloh206, Lloh207
+	.loh AdrpLdr	Lloh194, Lloh195
+	.loh AdrpLdr	Lloh192, Lloh193
+	.loh AdrpAdrp	Lloh190, Lloh192
+	.loh AdrpLdr	Lloh190, Lloh191
 	.cfi_endproc
 
 	.p2align	2
@@ -1833,44 +1743,39 @@ Lloh211:
 	.cfi_offset w19, -24
 	.cfi_offset w20, -32
 	mov	x19, x0
-Lloh212:
-	adrp	x0, l__unnamed_cfstring_.116@PAGE
-Lloh213:
-	add	x0, x0, l__unnamed_cfstring_.116@PAGEOFF
-	bl	_NSLog
 	bl	_CACurrentMediaTime
-Lloh214:
+Lloh196:
 	adrp	x8, _OBJC_IVAR_$_MACHView._previousTargetPresentationTimestamp@PAGE
-Lloh215:
+Lloh197:
 	ldrsw	x8, [x8, _OBJC_IVAR_$_MACHView._previousTargetPresentationTimestamp@PAGEOFF]
 	str	d0, [x19, x8]
-Lloh216:
+Lloh198:
 	adrp	x8, _OBJC_IVAR_$_MACHView._displayLink@PAGE
-Lloh217:
+Lloh199:
 	ldrsw	x8, [x8, _OBJC_IVAR_$_MACHView._displayLink@PAGEOFF]
 	ldr	x19, [x19, x8]
-Lloh218:
-	adrp	x8, _OBJC_CLASSLIST_REFERENCES_$_.117@PAGE
-Lloh219:
-	ldr	x0, [x8, _OBJC_CLASSLIST_REFERENCES_$_.117@PAGEOFF]
-Lloh220:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.119@PAGE
-Lloh221:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.119@PAGEOFF]
+Lloh200:
+	adrp	x8, _OBJC_CLASSLIST_REFERENCES_$_.99@PAGE
+Lloh201:
+	ldr	x0, [x8, _OBJC_CLASSLIST_REFERENCES_$_.99@PAGEOFF]
+Lloh202:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.101@PAGE
+Lloh203:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.101@PAGEOFF]
 	bl	_objc_msgSend
 	mov	x29, x29
 	bl	_objc_retainAutoreleasedReturnValue
 	mov	x20, x0
-Lloh222:
+Lloh204:
 	adrp	x8, _NSRunLoopCommonModes@GOTPAGE
-Lloh223:
+Lloh205:
 	ldr	x8, [x8, _NSRunLoopCommonModes@GOTPAGEOFF]
-Lloh224:
+Lloh206:
 	ldr	x3, [x8]
-Lloh225:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.121@PAGE
-Lloh226:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.121@PAGEOFF]
+Lloh207:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.103@PAGE
+Lloh208:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.103@PAGEOFF]
 	mov	x0, x19
 	mov	x2, x20
 	bl	_objc_msgSend
@@ -1883,14 +1788,13 @@ Lloh226:
 	.cfi_restore w19
 	.cfi_restore w20
 	b	_objc_release
-	.loh AdrpLdr	Lloh225, Lloh226
-	.loh AdrpLdrGotLdr	Lloh222, Lloh223, Lloh224
-	.loh AdrpLdr	Lloh220, Lloh221
-	.loh AdrpAdrp	Lloh218, Lloh220
-	.loh AdrpLdr	Lloh218, Lloh219
-	.loh AdrpLdr	Lloh216, Lloh217
-	.loh AdrpLdr	Lloh214, Lloh215
-	.loh AdrpAdd	Lloh212, Lloh213
+	.loh AdrpLdr	Lloh207, Lloh208
+	.loh AdrpLdrGotLdr	Lloh204, Lloh205, Lloh206
+	.loh AdrpLdr	Lloh202, Lloh203
+	.loh AdrpAdrp	Lloh200, Lloh202
+	.loh AdrpLdr	Lloh200, Lloh201
+	.loh AdrpLdr	Lloh198, Lloh199
+	.loh AdrpLdr	Lloh196, Lloh197
 	.cfi_endproc
 
 	.p2align	2
@@ -1907,48 +1811,43 @@ Lloh226:
 	.cfi_offset w21, -40
 	.cfi_offset w22, -48
 	mov	x19, x0
-Lloh227:
-	adrp	x0, l__unnamed_cfstring_.123@PAGE
-Lloh228:
-	add	x0, x0, l__unnamed_cfstring_.123@PAGEOFF
-	bl	_NSLog
-Lloh229:
+Lloh209:
 	adrp	x8, _OBJC_IVAR_$_MACHView._displayLink@PAGE
-Lloh230:
+Lloh210:
 	ldrsw	x22, [x8, _OBJC_IVAR_$_MACHView._displayLink@PAGEOFF]
-	ldr	x20, [x19, x22]
-Lloh231:
-	adrp	x8, _OBJC_CLASSLIST_REFERENCES_$_.117@PAGE
-Lloh232:
-	ldr	x0, [x8, _OBJC_CLASSLIST_REFERENCES_$_.117@PAGEOFF]
-Lloh233:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.125@PAGE
-Lloh234:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.125@PAGEOFF]
+	ldr	x20, [x0, x22]
+Lloh211:
+	adrp	x8, _OBJC_CLASSLIST_REFERENCES_$_.99@PAGE
+Lloh212:
+	ldr	x0, [x8, _OBJC_CLASSLIST_REFERENCES_$_.99@PAGEOFF]
+Lloh213:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.105@PAGE
+Lloh214:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.105@PAGEOFF]
 	bl	_objc_msgSend
 	mov	x29, x29
 	bl	_objc_retainAutoreleasedReturnValue
 	mov	x21, x0
-Lloh235:
+Lloh215:
 	adrp	x8, _NSRunLoopCommonModes@GOTPAGE
-Lloh236:
+Lloh216:
 	ldr	x8, [x8, _NSRunLoopCommonModes@GOTPAGEOFF]
-Lloh237:
+Lloh217:
 	ldr	x3, [x8]
-Lloh238:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.127@PAGE
-Lloh239:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.127@PAGEOFF]
+Lloh218:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.107@PAGE
+Lloh219:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.107@PAGEOFF]
 	mov	x0, x20
 	mov	x2, x21
 	bl	_objc_msgSend
 	mov	x0, x21
 	bl	_objc_release
 	ldr	x0, [x19, x22]
-Lloh240:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.129@PAGE
-Lloh241:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.129@PAGEOFF]
+Lloh220:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.109@PAGE
+Lloh221:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.109@PAGEOFF]
 	ldp	x29, x30, [sp, #32]
 	ldp	x20, x19, [sp, #16]
 	ldp	x22, x21, [sp], #48
@@ -1960,53 +1859,31 @@ Lloh241:
 	.cfi_restore w21
 	.cfi_restore w22
 	b	_objc_msgSend
-	.loh AdrpLdr	Lloh240, Lloh241
-	.loh AdrpLdr	Lloh238, Lloh239
-	.loh AdrpLdrGotLdr	Lloh235, Lloh236, Lloh237
-	.loh AdrpLdr	Lloh233, Lloh234
-	.loh AdrpAdrp	Lloh231, Lloh233
-	.loh AdrpLdr	Lloh231, Lloh232
-	.loh AdrpAdrp	Lloh229, Lloh231
-	.loh AdrpLdr	Lloh229, Lloh230
-	.loh AdrpAdd	Lloh227, Lloh228
+	.loh AdrpLdr	Lloh220, Lloh221
+	.loh AdrpLdr	Lloh218, Lloh219
+	.loh AdrpLdrGotLdr	Lloh215, Lloh216, Lloh217
+	.loh AdrpLdr	Lloh213, Lloh214
+	.loh AdrpAdrp	Lloh211, Lloh213
+	.loh AdrpLdr	Lloh211, Lloh212
+	.loh AdrpAdrp	Lloh209, Lloh211
+	.loh AdrpLdr	Lloh209, Lloh210
 	.cfi_endproc
 
 	.p2align	2
 "-[MACHView stopRenderLoop]":
 	.cfi_startproc
-	stp	x20, x19, [sp, #-32]!
-	.cfi_def_cfa_offset 32
-	stp	x29, x30, [sp, #16]
-	.cfi_offset w30, -8
-	.cfi_offset w29, -16
-	.cfi_offset w19, -24
-	.cfi_offset w20, -32
-	mov	x19, x0
-Lloh242:
-	adrp	x0, l__unnamed_cfstring_.131@PAGE
-Lloh243:
-	add	x0, x0, l__unnamed_cfstring_.131@PAGEOFF
-	bl	_NSLog
-Lloh244:
+Lloh222:
 	adrp	x8, _OBJC_IVAR_$_MACHView._displayLink@PAGE
-Lloh245:
+Lloh223:
 	ldrsw	x8, [x8, _OBJC_IVAR_$_MACHView._displayLink@PAGEOFF]
-	ldr	x0, [x19, x8]
-Lloh246:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.129@PAGE
-Lloh247:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.129@PAGEOFF]
-	ldp	x29, x30, [sp, #16]
-	ldp	x20, x19, [sp], #32
-	.cfi_def_cfa_offset 0
-	.cfi_restore w30
-	.cfi_restore w29
-	.cfi_restore w19
-	.cfi_restore w20
+	ldr	x0, [x0, x8]
+Lloh224:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.109@PAGE
+Lloh225:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.109@PAGEOFF]
 	b	_objc_msgSend
-	.loh AdrpLdr	Lloh246, Lloh247
-	.loh AdrpLdr	Lloh244, Lloh245
-	.loh AdrpAdd	Lloh242, Lloh243
+	.loh AdrpLdr	Lloh224, Lloh225
+	.loh AdrpLdr	Lloh222, Lloh223
 	.cfi_endproc
 
 	.p2align	2
@@ -2021,26 +1898,20 @@ Lloh247:
 	.cfi_offset w19, -24
 	.cfi_offset w20, -32
 	mov	x19, x0
-Lloh248:
-	adrp	x0, l__unnamed_cfstring_.133@PAGE
-Lloh249:
-	add	x0, x0, l__unnamed_cfstring_.133@PAGEOFF
-	bl	_NSLog
-Lloh250:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.84@PAGE
-Lloh251:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.84@PAGEOFF]
-	mov	x0, x19
+Lloh226:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.72@PAGE
+Lloh227:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.72@PAGEOFF]
 	bl	_objc_msgSend
-Lloh252:
+Lloh228:
 	adrp	x8, l_OBJC_CLASSLIST_SUP_REFS_$_@PAGE
-Lloh253:
+Lloh229:
 	ldr	x8, [x8, l_OBJC_CLASSLIST_SUP_REFS_$_@PAGEOFF]
 	stp	x19, x8, [sp]
-Lloh254:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.135@PAGE
-Lloh255:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.135@PAGEOFF]
+Lloh230:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.111@PAGE
+Lloh231:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.111@PAGEOFF]
 	mov	x0, sp
 	bl	_objc_msgSendSuper2
 	ldp	x29, x30, [sp, #32]
@@ -2052,10 +1923,9 @@ Lloh255:
 	.cfi_restore w19
 	.cfi_restore w20
 	ret
-	.loh AdrpLdr	Lloh254, Lloh255
-	.loh AdrpLdr	Lloh252, Lloh253
-	.loh AdrpLdr	Lloh250, Lloh251
-	.loh AdrpAdd	Lloh248, Lloh249
+	.loh AdrpLdr	Lloh230, Lloh231
+	.loh AdrpLdr	Lloh228, Lloh229
+	.loh AdrpLdr	Lloh226, Lloh227
 	.cfi_endproc
 
 	.p2align	2
@@ -2081,49 +1951,44 @@ Lloh255:
 	.cfi_offset w27, -88
 	.cfi_offset w28, -96
 	mov	x19, x0
-Lloh256:
-	adrp	x0, l__unnamed_cfstring_.137@PAGE
-Lloh257:
-	add	x0, x0, l__unnamed_cfstring_.137@PAGEOFF
-	bl	_NSLog
-Lloh258:
-	adrp	x8, _OBJC_CLASSLIST_REFERENCES_$_.117@PAGE
-Lloh259:
-	ldr	x0, [x8, _OBJC_CLASSLIST_REFERENCES_$_.117@PAGEOFF]
-Lloh260:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.119@PAGE
-Lloh261:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.119@PAGEOFF]
+Lloh232:
+	adrp	x8, _OBJC_CLASSLIST_REFERENCES_$_.99@PAGE
+Lloh233:
+	ldr	x0, [x8, _OBJC_CLASSLIST_REFERENCES_$_.99@PAGEOFF]
+Lloh234:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.101@PAGE
+Lloh235:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.101@PAGEOFF]
 	bl	_objc_msgSend
 	mov	x29, x29
 	bl	_objc_retainAutoreleasedReturnValue
 	mov	x20, x0
-Lloh262:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.139@PAGE
-Lloh263:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.139@PAGEOFF]
+Lloh236:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.113@PAGE
+Lloh237:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.113@PAGEOFF]
 	mov	x0, x19
 	bl	_objc_msgSend
-Lloh264:
+Lloh238:
 	adrp	x8, _NSDefaultRunLoopMode@GOTPAGE
-Lloh265:
+Lloh239:
 	ldr	x8, [x8, _NSDefaultRunLoopMode@GOTPAGEOFF]
-Lloh266:
+Lloh240:
 	ldr	x21, [x8]
-Lloh267:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.142@PAGE
-Lloh268:
-	ldr	x22, [x8, _OBJC_SELECTOR_REFERENCES_.142@PAGEOFF]
-Lloh269:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.144@PAGE
-Lloh270:
-	ldr	x23, [x8, _OBJC_SELECTOR_REFERENCES_.144@PAGEOFF]
-	adrp	x26, _OBJC_CLASSLIST_REFERENCES_$_.140@PAGE
+Lloh241:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.116@PAGE
+Lloh242:
+	ldr	x22, [x8, _OBJC_SELECTOR_REFERENCES_.116@PAGEOFF]
+Lloh243:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.118@PAGE
+Lloh244:
+	ldr	x23, [x8, _OBJC_SELECTOR_REFERENCES_.118@PAGEOFF]
+	adrp	x26, _OBJC_CLASSLIST_REFERENCES_$_.114@PAGE
 	adrp	x27, _OBJC_IVAR_$_MACHView._continueRunLoop@PAGE
 LBB48_1:
 	bl	_objc_autoreleasePoolPush
 	mov	x24, x0
-	ldr	x0, [x26, _OBJC_CLASSLIST_REFERENCES_$_.140@PAGEOFF]
+	ldr	x0, [x26, _OBJC_CLASSLIST_REFERENCES_$_.114@PAGEOFF]
 	mov	x1, x22
 	bl	_objc_msgSend
 	mov	x29, x29
@@ -2169,15 +2034,14 @@ LBB48_1:
 	.cfi_restore w27
 	.cfi_restore w28
 	b	_objc_release
-	.loh AdrpLdr	Lloh269, Lloh270
-	.loh AdrpAdrp	Lloh267, Lloh269
-	.loh AdrpLdr	Lloh267, Lloh268
-	.loh AdrpLdrGotLdr	Lloh264, Lloh265, Lloh266
-	.loh AdrpLdr	Lloh262, Lloh263
-	.loh AdrpLdr	Lloh260, Lloh261
-	.loh AdrpAdrp	Lloh258, Lloh260
-	.loh AdrpLdr	Lloh258, Lloh259
-	.loh AdrpAdd	Lloh256, Lloh257
+	.loh AdrpLdr	Lloh243, Lloh244
+	.loh AdrpAdrp	Lloh241, Lloh243
+	.loh AdrpLdr	Lloh241, Lloh242
+	.loh AdrpLdrGotLdr	Lloh238, Lloh239, Lloh240
+	.loh AdrpLdr	Lloh236, Lloh237
+	.loh AdrpLdr	Lloh234, Lloh235
+	.loh AdrpAdrp	Lloh232, Lloh234
+	.loh AdrpLdr	Lloh232, Lloh233
 	.cfi_endproc
 
 	.p2align	2
@@ -2195,43 +2059,43 @@ LBB48_1:
 	.cfi_offset w21, -40
 	.cfi_offset w22, -48
 	mov	x19, x0
-Lloh271:
+Lloh245:
 	adrp	x8, l_OBJC_CLASSLIST_SUP_REFS_$_@PAGE
-Lloh272:
+Lloh246:
 	ldr	x8, [x8, l_OBJC_CLASSLIST_SUP_REFS_$_@PAGEOFF]
 	stp	x0, x8, [sp]
-Lloh273:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.146@PAGE
-Lloh274:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.146@PAGEOFF]
+Lloh247:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.120@PAGE
+Lloh248:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.120@PAGEOFF]
 	mov	x0, sp
 	bl	_objc_msgSendSuper2
-Lloh275:
+Lloh249:
 	adrp	x8, _OBJC_SELECTOR_REFERENCES_.12@PAGE
-Lloh276:
+Lloh250:
 	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.12@PAGEOFF]
 	mov	x0, x19
 	bl	_objc_msgSend
 	mov	x29, x29
 	bl	_objc_retainAutoreleasedReturnValue
 	mov	x20, x0
-Lloh277:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.76@PAGE
-Lloh278:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.76@PAGEOFF]
+Lloh251:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.66@PAGE
+Lloh252:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.66@PAGEOFF]
 	bl	_objc_msgSend
 	mov	x29, x29
 	bl	_objc_retainAutoreleasedReturnValue
 	mov	x21, x0
-Lloh279:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.78@PAGE
-Lloh280:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.78@PAGEOFF]
+Lloh253:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.68@PAGE
+Lloh254:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.68@PAGEOFF]
 	bl	_objc_msgSend
-Lloh281:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.80@PAGE
-Lloh282:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.80@PAGEOFF]
+Lloh255:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.70@PAGE
+Lloh256:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.70@PAGEOFF]
 	mov	x0, x19
 	bl	_objc_msgSend
 	mov	x0, x21
@@ -2250,12 +2114,12 @@ Lloh282:
 	.cfi_restore w21
 	.cfi_restore w22
 	ret
-	.loh AdrpLdr	Lloh281, Lloh282
-	.loh AdrpLdr	Lloh279, Lloh280
-	.loh AdrpLdr	Lloh277, Lloh278
-	.loh AdrpLdr	Lloh275, Lloh276
-	.loh AdrpLdr	Lloh273, Lloh274
-	.loh AdrpLdr	Lloh271, Lloh272
+	.loh AdrpLdr	Lloh255, Lloh256
+	.loh AdrpLdr	Lloh253, Lloh254
+	.loh AdrpLdr	Lloh251, Lloh252
+	.loh AdrpLdr	Lloh249, Lloh250
+	.loh AdrpLdr	Lloh247, Lloh248
+	.loh AdrpLdr	Lloh245, Lloh246
 	.cfi_endproc
 
 	.p2align	2
@@ -2273,43 +2137,43 @@ Lloh282:
 	.cfi_offset w21, -40
 	.cfi_offset w22, -48
 	mov	x19, x0
-Lloh283:
+Lloh257:
 	adrp	x8, l_OBJC_CLASSLIST_SUP_REFS_$_@PAGE
-Lloh284:
+Lloh258:
 	ldr	x8, [x8, l_OBJC_CLASSLIST_SUP_REFS_$_@PAGEOFF]
 	stp	x0, x8, [sp]
-Lloh285:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.148@PAGE
-Lloh286:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.148@PAGEOFF]
+Lloh259:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.122@PAGE
+Lloh260:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.122@PAGEOFF]
 	mov	x0, sp
 	bl	_objc_msgSendSuper2
-Lloh287:
+Lloh261:
 	adrp	x8, _OBJC_SELECTOR_REFERENCES_.12@PAGE
-Lloh288:
+Lloh262:
 	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.12@PAGEOFF]
 	mov	x0, x19
 	bl	_objc_msgSend
 	mov	x29, x29
 	bl	_objc_retainAutoreleasedReturnValue
 	mov	x20, x0
-Lloh289:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.76@PAGE
-Lloh290:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.76@PAGEOFF]
+Lloh263:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.66@PAGE
+Lloh264:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.66@PAGEOFF]
 	bl	_objc_msgSend
 	mov	x29, x29
 	bl	_objc_retainAutoreleasedReturnValue
 	mov	x21, x0
-Lloh291:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.78@PAGE
-Lloh292:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.78@PAGEOFF]
+Lloh265:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.68@PAGE
+Lloh266:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.68@PAGEOFF]
 	bl	_objc_msgSend
-Lloh293:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.80@PAGE
-Lloh294:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.80@PAGEOFF]
+Lloh267:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.70@PAGE
+Lloh268:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.70@PAGEOFF]
 	mov	x0, x19
 	bl	_objc_msgSend
 	mov	x0, x21
@@ -2328,12 +2192,12 @@ Lloh294:
 	.cfi_restore w21
 	.cfi_restore w22
 	ret
-	.loh AdrpLdr	Lloh293, Lloh294
-	.loh AdrpLdr	Lloh291, Lloh292
-	.loh AdrpLdr	Lloh289, Lloh290
-	.loh AdrpLdr	Lloh287, Lloh288
-	.loh AdrpLdr	Lloh285, Lloh286
-	.loh AdrpLdr	Lloh283, Lloh284
+	.loh AdrpLdr	Lloh267, Lloh268
+	.loh AdrpLdr	Lloh265, Lloh266
+	.loh AdrpLdr	Lloh263, Lloh264
+	.loh AdrpLdr	Lloh261, Lloh262
+	.loh AdrpLdr	Lloh259, Lloh260
+	.loh AdrpLdr	Lloh257, Lloh258
 	.cfi_endproc
 
 	.p2align	2
@@ -2351,43 +2215,43 @@ Lloh294:
 	.cfi_offset w21, -40
 	.cfi_offset w22, -48
 	mov	x19, x0
-Lloh295:
+Lloh269:
 	adrp	x8, l_OBJC_CLASSLIST_SUP_REFS_$_@PAGE
-Lloh296:
+Lloh270:
 	ldr	x8, [x8, l_OBJC_CLASSLIST_SUP_REFS_$_@PAGEOFF]
 	stp	x0, x8, [sp]
-Lloh297:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.150@PAGE
-Lloh298:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.150@PAGEOFF]
+Lloh271:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.124@PAGE
+Lloh272:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.124@PAGEOFF]
 	mov	x0, sp
 	bl	_objc_msgSendSuper2
-Lloh299:
+Lloh273:
 	adrp	x8, _OBJC_SELECTOR_REFERENCES_.12@PAGE
-Lloh300:
+Lloh274:
 	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.12@PAGEOFF]
 	mov	x0, x19
 	bl	_objc_msgSend
 	mov	x29, x29
 	bl	_objc_retainAutoreleasedReturnValue
 	mov	x20, x0
-Lloh301:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.76@PAGE
-Lloh302:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.76@PAGEOFF]
+Lloh275:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.66@PAGE
+Lloh276:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.66@PAGEOFF]
 	bl	_objc_msgSend
 	mov	x29, x29
 	bl	_objc_retainAutoreleasedReturnValue
 	mov	x21, x0
-Lloh303:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.78@PAGE
-Lloh304:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.78@PAGEOFF]
+Lloh277:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.68@PAGE
+Lloh278:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.68@PAGEOFF]
 	bl	_objc_msgSend
-Lloh305:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.80@PAGE
-Lloh306:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.80@PAGEOFF]
+Lloh279:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.70@PAGE
+Lloh280:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.70@PAGEOFF]
 	mov	x0, x19
 	bl	_objc_msgSend
 	mov	x0, x21
@@ -2406,12 +2270,12 @@ Lloh306:
 	.cfi_restore w21
 	.cfi_restore w22
 	ret
-	.loh AdrpLdr	Lloh305, Lloh306
-	.loh AdrpLdr	Lloh303, Lloh304
-	.loh AdrpLdr	Lloh301, Lloh302
-	.loh AdrpLdr	Lloh299, Lloh300
-	.loh AdrpLdr	Lloh297, Lloh298
-	.loh AdrpLdr	Lloh295, Lloh296
+	.loh AdrpLdr	Lloh279, Lloh280
+	.loh AdrpLdr	Lloh277, Lloh278
+	.loh AdrpLdr	Lloh275, Lloh276
+	.loh AdrpLdr	Lloh273, Lloh274
+	.loh AdrpLdr	Lloh271, Lloh272
+	.loh AdrpLdr	Lloh269, Lloh270
 	.cfi_endproc
 
 	.p2align	2
@@ -2433,28 +2297,28 @@ Lloh306:
 	.cfi_remember_state
 	fmov	d9, d0
 	mov	x19, x0
-Lloh307:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.152@PAGE
-Lloh308:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.152@PAGEOFF]
+Lloh281:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.126@PAGE
+Lloh282:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.126@PAGEOFF]
 	bl	_objc_msgSend
 	fmul	d8, d2, d9
 	fcmp	d8, #0.0
 	b.ls	LBB52_6
 	fmul	d9, d3, d9
-Lloh309:
+Lloh283:
 	adrp	x8, _OBJC_IVAR_$_MACHView._metalLayer@PAGE
-Lloh310:
+Lloh284:
 	ldrsw	x22, [x8, _OBJC_IVAR_$_MACHView._metalLayer@PAGEOFF]
 	ldr	x20, [x19, x22]
 	mov	x0, x20
 	bl	_objc_retain
 	bl	_objc_sync_enter
 	ldr	x0, [x19, x22]
-Lloh311:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.154@PAGE
-Lloh312:
-	ldr	x21, [x8, _OBJC_SELECTOR_REFERENCES_.154@PAGEOFF]
+Lloh285:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.128@PAGE
+Lloh286:
+	ldr	x21, [x8, _OBJC_SELECTOR_REFERENCES_.128@PAGEOFF]
 	mov	x1, x21
 	bl	_objc_msgSend
 	fcmp	d8, d0
@@ -2466,16 +2330,16 @@ Lloh312:
 	b.eq	LBB52_5
 LBB52_3:
 	ldr	x0, [x19, x22]
-Lloh313:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.156@PAGE
-Lloh314:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.156@PAGEOFF]
+Lloh287:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.130@PAGE
+Lloh288:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.130@PAGEOFF]
 	fmov	d0, d8
 	fmov	d1, d9
 	bl	_objc_msgSend
-Lloh315:
+Lloh289:
 	adrp	x8, _OBJC_IVAR_$_MACHView._windowDidResize_block@PAGE
-Lloh316:
+Lloh290:
 	ldrsw	x8, [x8, _OBJC_IVAR_$_MACHView._windowDidResize_block@PAGEOFF]
 	ldr	x0, [x19, x8]
 	cbz	x0, LBB52_5
@@ -2515,11 +2379,11 @@ LBB52_6:
 	.cfi_restore b8
 	.cfi_restore b9
 	ret
-	.loh AdrpLdr	Lloh307, Lloh308
-	.loh AdrpLdr	Lloh311, Lloh312
-	.loh AdrpLdr	Lloh309, Lloh310
-	.loh AdrpLdr	Lloh315, Lloh316
-	.loh AdrpLdr	Lloh313, Lloh314
+	.loh AdrpLdr	Lloh281, Lloh282
+	.loh AdrpLdr	Lloh285, Lloh286
+	.loh AdrpLdr	Lloh283, Lloh284
+	.loh AdrpLdr	Lloh289, Lloh290
+	.loh AdrpLdr	Lloh287, Lloh288
 	.cfi_endproc
 
 	.p2align	2
@@ -2537,9 +2401,9 @@ LBB52_6:
 	.cfi_offset w22, -48
 	mov	x19, x2
 	mov	x20, x0
-Lloh317:
+Lloh291:
 	adrp	x8, _OBJC_IVAR_$_MACHView._metalLayer@PAGE
-Lloh318:
+Lloh292:
 	ldrsw	x22, [x8, _OBJC_IVAR_$_MACHView._metalLayer@PAGEOFF]
 	ldr	x21, [x0, x22]
 	mov	x0, x21
@@ -2549,18 +2413,18 @@ Lloh318:
 	mov	x0, x21
 	bl	_objc_sync_enter
 	ldr	x0, [x20, x22]
-Lloh319:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.157@PAGE
-Lloh320:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.157@PAGEOFF]
+Lloh293:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.131@PAGE
+Lloh294:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.131@PAGEOFF]
 	mov	x2, x19
 	bl	_objc_msgSend
 	mov	x0, x19
 	bl	_objc_release
-Lloh321:
-	adrp	x8, _OBJC_SELECTOR_REFERENCES_.159@PAGE
-Lloh322:
-	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.159@PAGEOFF]
+Lloh295:
+	adrp	x8, _OBJC_SELECTOR_REFERENCES_.133@PAGE
+Lloh296:
+	ldr	x1, [x8, _OBJC_SELECTOR_REFERENCES_.133@PAGEOFF]
 	mov	x0, x20
 	bl	_objc_msgSend
 	mov	x0, x21
@@ -2577,45 +2441,45 @@ Lloh322:
 	.cfi_restore w21
 	.cfi_restore w22
 	b	_objc_release
-	.loh AdrpLdr	Lloh321, Lloh322
-	.loh AdrpLdr	Lloh319, Lloh320
-	.loh AdrpLdr	Lloh317, Lloh318
+	.loh AdrpLdr	Lloh295, Lloh296
+	.loh AdrpLdr	Lloh293, Lloh294
+	.loh AdrpLdr	Lloh291, Lloh292
 	.cfi_endproc
 
 	.p2align	2
 "-[MACHView metalLayer]":
 	.cfi_startproc
-Lloh323:
+Lloh297:
 	adrp	x8, _OBJC_IVAR_$_MACHView._metalLayer@PAGE
-Lloh324:
+Lloh298:
 	ldrsw	x8, [x8, _OBJC_IVAR_$_MACHView._metalLayer@PAGEOFF]
 	ldr	x0, [x0, x8]
 	ret
-	.loh AdrpLdr	Lloh323, Lloh324
+	.loh AdrpLdr	Lloh297, Lloh298
 	.cfi_endproc
 
 	.p2align	2
 "-[MACHView isPaused]":
 	.cfi_startproc
-Lloh325:
+Lloh299:
 	adrp	x8, _OBJC_IVAR_$_MACHView._paused@PAGE
-Lloh326:
+Lloh300:
 	ldrsw	x8, [x8, _OBJC_IVAR_$_MACHView._paused@PAGEOFF]
 	ldrb	w0, [x0, x8]
 	ret
-	.loh AdrpLdr	Lloh325, Lloh326
+	.loh AdrpLdr	Lloh299, Lloh300
 	.cfi_endproc
 
 	.p2align	2
 "-[MACHView setPaused:]":
 	.cfi_startproc
-Lloh327:
+Lloh301:
 	adrp	x8, _OBJC_IVAR_$_MACHView._paused@PAGE
-Lloh328:
+Lloh302:
 	ldrsw	x8, [x8, _OBJC_IVAR_$_MACHView._paused@PAGEOFF]
 	strb	w2, [x0, x8]
 	ret
-	.loh AdrpLdr	Lloh327, Lloh328
+	.loh AdrpLdr	Lloh301, Lloh302
 	.cfi_endproc
 
 	.p2align	2
@@ -2629,107 +2493,107 @@ Lloh328:
 	.cfi_offset w19, -24
 	.cfi_offset w20, -32
 	mov	x19, x0
-Lloh329:
+Lloh303:
 	adrp	x8, _OBJC_IVAR_$_MACHView._metalLayer@PAGE
-Lloh330:
+Lloh304:
 	ldrsw	x8, [x8, _OBJC_IVAR_$_MACHView._metalLayer@PAGEOFF]
 	add	x0, x0, x8
 	mov	x1, #0
 	bl	_objc_storeStrong
-Lloh331:
+Lloh305:
 	adrp	x8, _OBJC_IVAR_$_MACHView._renderThread@PAGE
-Lloh332:
+Lloh306:
 	ldrsw	x8, [x8, _OBJC_IVAR_$_MACHView._renderThread@PAGEOFF]
 	add	x0, x19, x8
 	mov	x1, #0
 	bl	_objc_storeStrong
-Lloh333:
+Lloh307:
 	adrp	x8, _OBJC_IVAR_$_MACHView._displayLink@PAGE
-Lloh334:
+Lloh308:
 	ldrsw	x8, [x8, _OBJC_IVAR_$_MACHView._displayLink@PAGEOFF]
 	add	x0, x19, x8
 	mov	x1, #0
 	bl	_objc_storeStrong
-Lloh335:
+Lloh309:
 	adrp	x8, _OBJC_IVAR_$_MACHView.trackingArea@PAGE
-Lloh336:
+Lloh310:
 	ldrsw	x8, [x8, _OBJC_IVAR_$_MACHView.trackingArea@PAGEOFF]
 	add	x0, x19, x8
 	mov	x1, #0
 	bl	_objc_storeStrong
-Lloh337:
+Lloh311:
 	adrp	x8, _OBJC_IVAR_$_MACHView._windowDidResize_block@PAGE
-Lloh338:
+Lloh312:
 	ldrsw	x8, [x8, _OBJC_IVAR_$_MACHView._windowDidResize_block@PAGEOFF]
 	add	x0, x19, x8
 	mov	x1, #0
 	bl	_objc_storeStrong
-Lloh339:
+Lloh313:
 	adrp	x8, _OBJC_IVAR_$_MACHView._render_block@PAGE
-Lloh340:
+Lloh314:
 	ldrsw	x8, [x8, _OBJC_IVAR_$_MACHView._render_block@PAGEOFF]
 	add	x0, x19, x8
 	mov	x1, #0
 	bl	_objc_storeStrong
-Lloh341:
+Lloh315:
 	adrp	x8, _OBJC_IVAR_$_MACHView._insertText_block@PAGE
-Lloh342:
+Lloh316:
 	ldrsw	x8, [x8, _OBJC_IVAR_$_MACHView._insertText_block@PAGEOFF]
 	add	x0, x19, x8
 	mov	x1, #0
 	bl	_objc_storeStrong
-Lloh343:
+Lloh317:
 	adrp	x8, _OBJC_IVAR_$_MACHView._magnify_block@PAGE
-Lloh344:
+Lloh318:
 	ldrsw	x8, [x8, _OBJC_IVAR_$_MACHView._magnify_block@PAGEOFF]
 	add	x0, x19, x8
 	mov	x1, #0
 	bl	_objc_storeStrong
-Lloh345:
+Lloh319:
 	adrp	x8, _OBJC_IVAR_$_MACHView._scrollWheel_block@PAGE
-Lloh346:
+Lloh320:
 	ldrsw	x8, [x8, _OBJC_IVAR_$_MACHView._scrollWheel_block@PAGEOFF]
 	add	x0, x19, x8
 	mov	x1, #0
 	bl	_objc_storeStrong
-Lloh347:
+Lloh321:
 	adrp	x8, _OBJC_IVAR_$_MACHView._mouseUp_block@PAGE
-Lloh348:
+Lloh322:
 	ldrsw	x8, [x8, _OBJC_IVAR_$_MACHView._mouseUp_block@PAGEOFF]
 	add	x0, x19, x8
 	mov	x1, #0
 	bl	_objc_storeStrong
-Lloh349:
+Lloh323:
 	adrp	x8, _OBJC_IVAR_$_MACHView._mouseDown_block@PAGE
-Lloh350:
+Lloh324:
 	ldrsw	x8, [x8, _OBJC_IVAR_$_MACHView._mouseDown_block@PAGEOFF]
 	add	x0, x19, x8
 	mov	x1, #0
 	bl	_objc_storeStrong
-Lloh351:
+Lloh325:
 	adrp	x8, _OBJC_IVAR_$_MACHView._mouseMoved_block@PAGE
-Lloh352:
+Lloh326:
 	ldrsw	x8, [x8, _OBJC_IVAR_$_MACHView._mouseMoved_block@PAGEOFF]
 	add	x0, x19, x8
 	mov	x1, #0
 	bl	_objc_storeStrong
-Lloh353:
+Lloh327:
 	adrp	x8, _OBJC_IVAR_$_MACHView._flagsChanged_block@PAGE
-Lloh354:
+Lloh328:
 	ldrsw	x8, [x8, _OBJC_IVAR_$_MACHView._flagsChanged_block@PAGEOFF]
 	add	x0, x19, x8
 	mov	x1, #0
 	bl	_objc_storeStrong
-Lloh355:
+Lloh329:
 	adrp	x8, _OBJC_IVAR_$_MACHView._keyUp_block@PAGE
-Lloh356:
+Lloh330:
 	ldrsw	x8, [x8, _OBJC_IVAR_$_MACHView._keyUp_block@PAGEOFF]
 	add	x0, x19, x8
 	mov	x1, #0
 	bl	_objc_storeStrong
-Lloh357:
+Lloh331:
 	adrp	x8, _OBJC_IVAR_$_MACHView._keyDown_block@PAGE
-Lloh358:
+Lloh332:
 	ldrsw	x8, [x8, _OBJC_IVAR_$_MACHView._keyDown_block@PAGEOFF]
 	add	x0, x19, x8
 	mov	x1, #0
@@ -2741,21 +2605,21 @@ Lloh358:
 	.cfi_restore w19
 	.cfi_restore w20
 	b	_objc_storeStrong
-	.loh AdrpLdr	Lloh357, Lloh358
-	.loh AdrpLdr	Lloh355, Lloh356
-	.loh AdrpLdr	Lloh353, Lloh354
-	.loh AdrpLdr	Lloh351, Lloh352
-	.loh AdrpLdr	Lloh349, Lloh350
-	.loh AdrpLdr	Lloh347, Lloh348
-	.loh AdrpLdr	Lloh345, Lloh346
-	.loh AdrpLdr	Lloh343, Lloh344
-	.loh AdrpLdr	Lloh341, Lloh342
-	.loh AdrpLdr	Lloh339, Lloh340
-	.loh AdrpLdr	Lloh337, Lloh338
-	.loh AdrpLdr	Lloh335, Lloh336
-	.loh AdrpLdr	Lloh333, Lloh334
 	.loh AdrpLdr	Lloh331, Lloh332
 	.loh AdrpLdr	Lloh329, Lloh330
+	.loh AdrpLdr	Lloh327, Lloh328
+	.loh AdrpLdr	Lloh325, Lloh326
+	.loh AdrpLdr	Lloh323, Lloh324
+	.loh AdrpLdr	Lloh321, Lloh322
+	.loh AdrpLdr	Lloh319, Lloh320
+	.loh AdrpLdr	Lloh317, Lloh318
+	.loh AdrpLdr	Lloh315, Lloh316
+	.loh AdrpLdr	Lloh313, Lloh314
+	.loh AdrpLdr	Lloh311, Lloh312
+	.loh AdrpLdr	Lloh309, Lloh310
+	.loh AdrpLdr	Lloh307, Lloh308
+	.loh AdrpLdr	Lloh305, Lloh306
+	.loh AdrpLdr	Lloh303, Lloh304
 	.cfi_endproc
 
 	.section	__TEXT,__objc_methname,cstring_literals
@@ -3102,22 +2966,18 @@ l_OBJC_METH_VAR_NAME_.32:
 _OBJC_SELECTOR_REFERENCES_.33:
 	.quad	l_OBJC_METH_VAR_NAME_.32
 
-	.section	__TEXT,__cstring,cstring_literals
-l_.str.34:
-	.asciz	"initCommon"
+	.section	__TEXT,__objc_methname,cstring_literals
+l_OBJC_METH_VAR_NAME_.34:
+	.asciz	"setWantsLayer:"
 
-	.section	__DATA,__cfstring
+	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-l__unnamed_cfstring_.35:
-	.quad	___CFConstantStringClassReference
-	.long	1992
-	.space	4
-	.quad	l_.str.34
-	.quad	10
+_OBJC_SELECTOR_REFERENCES_.35:
+	.quad	l_OBJC_METH_VAR_NAME_.34
 
 	.section	__TEXT,__objc_methname,cstring_literals
 l_OBJC_METH_VAR_NAME_.36:
-	.asciz	"setWantsLayer:"
+	.asciz	"setLayerContentsRedrawPolicy:"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
@@ -3126,7 +2986,7 @@ _OBJC_SELECTOR_REFERENCES_.37:
 
 	.section	__TEXT,__objc_methname,cstring_literals
 l_OBJC_METH_VAR_NAME_.38:
-	.asciz	"setLayerContentsRedrawPolicy:"
+	.asciz	"layer"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
@@ -3135,21 +2995,12 @@ _OBJC_SELECTOR_REFERENCES_.39:
 
 	.section	__TEXT,__objc_methname,cstring_literals
 l_OBJC_METH_VAR_NAME_.40:
-	.asciz	"layer"
+	.asciz	"setDelegate:"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
 _OBJC_SELECTOR_REFERENCES_.41:
 	.quad	l_OBJC_METH_VAR_NAME_.40
-
-	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.42:
-	.asciz	"setDelegate:"
-
-	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
-	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.43:
-	.quad	l_OBJC_METH_VAR_NAME_.42
 
 	.private_extern	_OBJC_IVAR_$_MACHView._metalLayer
 	.section	__DATA,__objc_ivar
@@ -3158,58 +3009,19 @@ _OBJC_SELECTOR_REFERENCES_.43:
 _OBJC_IVAR_$_MACHView._metalLayer:
 	.long	136
 
-	.section	__TEXT,__cstring,cstring_literals
-l_.str.44:
-	.asciz	"makeBackingLayer"
-
-	.section	__DATA,__cfstring
-	.p2align	3, 0x0
-l__unnamed_cfstring_.45:
-	.quad	___CFConstantStringClassReference
-	.long	1992
-	.space	4
-	.quad	l_.str.44
-	.quad	16
-
 	.section	__DATA,__objc_classrefs,regular,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_CLASSLIST_REFERENCES_$_.46:
+_OBJC_CLASSLIST_REFERENCES_$_.42:
 	.quad	_OBJC_CLASS_$_MACHLayer
 
-	.section	__TEXT,__cstring,cstring_literals
-l_.str.47:
-	.asciz	"viewDidMoveToWindow"
-
-	.section	__DATA,__cfstring
-	.p2align	3, 0x0
-l__unnamed_cfstring_.48:
-	.quad	___CFConstantStringClassReference
-	.long	1992
-	.space	4
-	.quad	l_.str.47
-	.quad	19
-
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.49:
+l_OBJC_METH_VAR_NAME_.43:
 	.asciz	"movedToWindow"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.50:
-	.quad	l_OBJC_METH_VAR_NAME_.49
-
-	.section	__TEXT,__cstring,cstring_literals
-l_.str.51:
-	.asciz	"initWithFrame: %@"
-
-	.section	__DATA,__cfstring
-	.p2align	3, 0x0
-l__unnamed_cfstring_.52:
-	.quad	___CFConstantStringClassReference
-	.long	1992
-	.space	4
-	.quad	l_.str.51
-	.quad	17
+_OBJC_SELECTOR_REFERENCES_.44:
+	.quad	l_OBJC_METH_VAR_NAME_.43
 
 	.section	__DATA,__objc_data
 	.globl	_OBJC_CLASS_$_MACHView
@@ -3227,45 +3039,45 @@ l_OBJC_CLASSLIST_SUP_REFS_$_:
 	.quad	_OBJC_CLASS_$_MACHView
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.53:
+l_OBJC_METH_VAR_NAME_.45:
 	.asciz	"initWithFrame:"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.54:
-	.quad	l_OBJC_METH_VAR_NAME_.53
+_OBJC_SELECTOR_REFERENCES_.46:
+	.quad	l_OBJC_METH_VAR_NAME_.45
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.55:
+l_OBJC_METH_VAR_NAME_.47:
 	.asciz	"initCommon"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.56:
-	.quad	l_OBJC_METH_VAR_NAME_.55
+_OBJC_SELECTOR_REFERENCES_.48:
+	.quad	l_OBJC_METH_VAR_NAME_.47
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.57:
+l_OBJC_METH_VAR_NAME_.49:
 	.asciz	"visibleRect"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.58:
-	.quad	l_OBJC_METH_VAR_NAME_.57
+_OBJC_SELECTOR_REFERENCES_.50:
+	.quad	l_OBJC_METH_VAR_NAME_.49
 
 	.section	__DATA,__objc_classrefs,regular,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_CLASSLIST_REFERENCES_$_.59:
+_OBJC_CLASSLIST_REFERENCES_$_.51:
 	.quad	_OBJC_CLASS_$_NSTrackingArea
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.60:
+l_OBJC_METH_VAR_NAME_.52:
 	.asciz	"initWithRect:options:owner:userInfo:"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.61:
-	.quad	l_OBJC_METH_VAR_NAME_.60
+_OBJC_SELECTOR_REFERENCES_.53:
+	.quad	l_OBJC_METH_VAR_NAME_.52
 
 	.private_extern	_OBJC_IVAR_$_MACHView.trackingArea
 	.section	__DATA,__objc_ivar
@@ -3275,35 +3087,22 @@ _OBJC_IVAR_$_MACHView.trackingArea:
 	.long	96
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.62:
+l_OBJC_METH_VAR_NAME_.54:
 	.asciz	"addTrackingArea:"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.63:
-	.quad	l_OBJC_METH_VAR_NAME_.62
-
-	.section	__TEXT,__cstring,cstring_literals
-l_.str.64:
-	.asciz	"movedToWindow"
-
-	.section	__DATA,__cfstring
-	.p2align	3, 0x0
-l__unnamed_cfstring_.65:
-	.quad	___CFConstantStringClassReference
-	.long	1992
-	.space	4
-	.quad	l_.str.64
-	.quad	13
+_OBJC_SELECTOR_REFERENCES_.55:
+	.quad	l_OBJC_METH_VAR_NAME_.54
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.66:
+l_OBJC_METH_VAR_NAME_.56:
 	.asciz	"setupCAMetalLink"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.67:
-	.quad	l_OBJC_METH_VAR_NAME_.66
+_OBJC_SELECTOR_REFERENCES_.57:
+	.quad	l_OBJC_METH_VAR_NAME_.56
 
 	.private_extern	_OBJC_IVAR_$_MACHView._continueRunLoop
 	.section	__DATA,__objc_ivar
@@ -3314,26 +3113,26 @@ _OBJC_IVAR_$_MACHView._continueRunLoop:
 
 	.section	__DATA,__objc_classrefs,regular,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_CLASSLIST_REFERENCES_$_.68:
+_OBJC_CLASSLIST_REFERENCES_$_.58:
 	.quad	_OBJC_CLASS_$_NSThread
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.69:
+l_OBJC_METH_VAR_NAME_.59:
 	.asciz	"runThread"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.70:
-	.quad	l_OBJC_METH_VAR_NAME_.69
+_OBJC_SELECTOR_REFERENCES_.60:
+	.quad	l_OBJC_METH_VAR_NAME_.59
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.71:
+l_OBJC_METH_VAR_NAME_.61:
 	.asciz	"initWithTarget:selector:object:"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.72:
-	.quad	l_OBJC_METH_VAR_NAME_.71
+_OBJC_SELECTOR_REFERENCES_.62:
+	.quad	l_OBJC_METH_VAR_NAME_.61
 
 	.private_extern	_OBJC_IVAR_$_MACHView._renderThread
 	.section	__DATA,__objc_ivar
@@ -3343,188 +3142,149 @@ _OBJC_IVAR_$_MACHView._renderThread:
 	.long	120
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.73:
+l_OBJC_METH_VAR_NAME_.63:
 	.asciz	"start"
+
+	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
+	.p2align	3, 0x0
+_OBJC_SELECTOR_REFERENCES_.64:
+	.quad	l_OBJC_METH_VAR_NAME_.63
+
+	.section	__TEXT,__objc_methname,cstring_literals
+l_OBJC_METH_VAR_NAME_.65:
+	.asciz	"screen"
+
+	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
+	.p2align	3, 0x0
+_OBJC_SELECTOR_REFERENCES_.66:
+	.quad	l_OBJC_METH_VAR_NAME_.65
+
+	.section	__TEXT,__objc_methname,cstring_literals
+l_OBJC_METH_VAR_NAME_.67:
+	.asciz	"backingScaleFactor"
+
+	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
+	.p2align	3, 0x0
+_OBJC_SELECTOR_REFERENCES_.68:
+	.quad	l_OBJC_METH_VAR_NAME_.67
+
+	.section	__TEXT,__objc_methname,cstring_literals
+l_OBJC_METH_VAR_NAME_.69:
+	.asciz	"resizeDrawable:"
+
+	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
+	.p2align	3, 0x0
+_OBJC_SELECTOR_REFERENCES_.70:
+	.quad	l_OBJC_METH_VAR_NAME_.69
+
+	.section	__TEXT,__objc_methname,cstring_literals
+l_OBJC_METH_VAR_NAME_.71:
+	.asciz	"stopRenderLoop"
+
+	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
+	.p2align	3, 0x0
+_OBJC_SELECTOR_REFERENCES_.72:
+	.quad	l_OBJC_METH_VAR_NAME_.71
+
+	.section	__TEXT,__objc_methname,cstring_literals
+l_OBJC_METH_VAR_NAME_.73:
+	.asciz	"makeMetalLink:"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
 _OBJC_SELECTOR_REFERENCES_.74:
 	.quad	l_OBJC_METH_VAR_NAME_.73
 
-	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.75:
-	.asciz	"screen"
-
-	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
-	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.76:
-	.quad	l_OBJC_METH_VAR_NAME_.75
-
-	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.77:
-	.asciz	"backingScaleFactor"
-
-	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
-	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.78:
-	.quad	l_OBJC_METH_VAR_NAME_.77
-
-	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.79:
-	.asciz	"resizeDrawable:"
-
-	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
-	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.80:
-	.quad	l_OBJC_METH_VAR_NAME_.79
-
-	.section	__TEXT,__cstring,cstring_literals
-l_.str.81:
-	.asciz	"setupCAMetalLink"
-
-	.section	__DATA,__cfstring
-	.p2align	3, 0x0
-l__unnamed_cfstring_.82:
-	.quad	___CFConstantStringClassReference
-	.long	1992
-	.space	4
-	.quad	l_.str.81
-	.quad	16
-
-	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.83:
-	.asciz	"stopRenderLoop"
-
-	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
-	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.84:
-	.quad	l_OBJC_METH_VAR_NAME_.83
-
-	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.85:
-	.asciz	"makeMetalLink:"
-
-	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
-	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.86:
-	.quad	l_OBJC_METH_VAR_NAME_.85
-
 	.section	__DATA,__objc_classrefs,regular,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_CLASSLIST_REFERENCES_$_.87:
+_OBJC_CLASSLIST_REFERENCES_$_.75:
 	.quad	_OBJC_CLASS_$_NSNotificationCenter
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.88:
+l_OBJC_METH_VAR_NAME_.76:
 	.asciz	"defaultCenter"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.89:
-	.quad	l_OBJC_METH_VAR_NAME_.88
+_OBJC_SELECTOR_REFERENCES_.77:
+	.quad	l_OBJC_METH_VAR_NAME_.76
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.90:
+l_OBJC_METH_VAR_NAME_.78:
 	.asciz	"windowWillClose:"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.91:
-	.quad	l_OBJC_METH_VAR_NAME_.90
+_OBJC_SELECTOR_REFERENCES_.79:
+	.quad	l_OBJC_METH_VAR_NAME_.78
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.92:
+l_OBJC_METH_VAR_NAME_.80:
 	.asciz	"addObserver:selector:name:object:"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.93:
-	.quad	l_OBJC_METH_VAR_NAME_.92
+_OBJC_SELECTOR_REFERENCES_.81:
+	.quad	l_OBJC_METH_VAR_NAME_.80
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.94:
+l_OBJC_METH_VAR_NAME_.82:
 	.asciz	"object"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.95:
-	.quad	l_OBJC_METH_VAR_NAME_.94
-
-	.section	__TEXT,__cstring,cstring_literals
-l_.str.96:
-	.asciz	"windowWillClose"
-
-	.section	__DATA,__cfstring
-	.p2align	3, 0x0
-l__unnamed_cfstring_.97:
-	.quad	___CFConstantStringClassReference
-	.long	1992
-	.space	4
-	.quad	l_.str.96
-	.quad	15
+_OBJC_SELECTOR_REFERENCES_.83:
+	.quad	l_OBJC_METH_VAR_NAME_.82
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.98:
+l_OBJC_METH_VAR_NAME_.84:
 	.asciz	"stopMetalLink"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.99:
-	.quad	l_OBJC_METH_VAR_NAME_.98
-
-	.section	__TEXT,__cstring,cstring_literals
-l_.str.100:
-	.asciz	"makeMetalLink"
-
-	.section	__DATA,__cfstring
-	.p2align	3, 0x0
-l__unnamed_cfstring_.101:
-	.quad	___CFConstantStringClassReference
-	.long	1992
-	.space	4
-	.quad	l_.str.100
-	.quad	13
+_OBJC_SELECTOR_REFERENCES_.85:
+	.quad	l_OBJC_METH_VAR_NAME_.84
 
 	.section	__DATA,__objc_classrefs,regular,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_CLASSLIST_REFERENCES_$_.102:
+_OBJC_CLASSLIST_REFERENCES_$_.86:
 	.quad	_OBJC_CLASS_$_CAMetalDisplayLink
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.103:
+l_OBJC_METH_VAR_NAME_.87:
 	.asciz	"initWithMetalLayer:"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.104:
-	.quad	l_OBJC_METH_VAR_NAME_.103
+_OBJC_SELECTOR_REFERENCES_.88:
+	.quad	l_OBJC_METH_VAR_NAME_.87
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.105:
+l_OBJC_METH_VAR_NAME_.89:
 	.asciz	"setPreferredFrameRateRange:"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.106:
-	.quad	l_OBJC_METH_VAR_NAME_.105
+_OBJC_SELECTOR_REFERENCES_.90:
+	.quad	l_OBJC_METH_VAR_NAME_.89
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.107:
+l_OBJC_METH_VAR_NAME_.91:
 	.asciz	"setPreferredFrameLatency:"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.108:
-	.quad	l_OBJC_METH_VAR_NAME_.107
+_OBJC_SELECTOR_REFERENCES_.92:
+	.quad	l_OBJC_METH_VAR_NAME_.91
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.109:
+l_OBJC_METH_VAR_NAME_.93:
 	.asciz	"setPaused:"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.110:
-	.quad	l_OBJC_METH_VAR_NAME_.109
+_OBJC_SELECTOR_REFERENCES_.94:
+	.quad	l_OBJC_METH_VAR_NAME_.93
 
 	.private_extern	_OBJC_IVAR_$_MACHView._previousTargetPresentationTimestamp
 	.section	__DATA,__objc_ivar
@@ -3534,245 +3294,180 @@ _OBJC_IVAR_$_MACHView._previousTargetPresentationTimestamp:
 	.long	112
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.111:
+l_OBJC_METH_VAR_NAME_.95:
 	.asciz	"targetPresentationTimestamp"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.112:
-	.quad	l_OBJC_METH_VAR_NAME_.111
+_OBJC_SELECTOR_REFERENCES_.96:
+	.quad	l_OBJC_METH_VAR_NAME_.95
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.113:
+l_OBJC_METH_VAR_NAME_.97:
 	.asciz	"renderUpdate:with:"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.114:
-	.quad	l_OBJC_METH_VAR_NAME_.113
-
-	.section	__TEXT,__cstring,cstring_literals
-l_.str.115:
-	.asciz	"startMetalLink"
-
-	.section	__DATA,__cfstring
-	.p2align	3, 0x0
-l__unnamed_cfstring_.116:
-	.quad	___CFConstantStringClassReference
-	.long	1992
-	.space	4
-	.quad	l_.str.115
-	.quad	14
+_OBJC_SELECTOR_REFERENCES_.98:
+	.quad	l_OBJC_METH_VAR_NAME_.97
 
 	.section	__DATA,__objc_classrefs,regular,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_CLASSLIST_REFERENCES_$_.117:
+_OBJC_CLASSLIST_REFERENCES_$_.99:
 	.quad	_OBJC_CLASS_$_NSRunLoop
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.118:
+l_OBJC_METH_VAR_NAME_.100:
 	.asciz	"currentRunLoop"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.119:
-	.quad	l_OBJC_METH_VAR_NAME_.118
+_OBJC_SELECTOR_REFERENCES_.101:
+	.quad	l_OBJC_METH_VAR_NAME_.100
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.120:
+l_OBJC_METH_VAR_NAME_.102:
 	.asciz	"addToRunLoop:forMode:"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.121:
-	.quad	l_OBJC_METH_VAR_NAME_.120
-
-	.section	__TEXT,__cstring,cstring_literals
-l_.str.122:
-	.asciz	"stopMetalLink"
-
-	.section	__DATA,__cfstring
-	.p2align	3, 0x0
-l__unnamed_cfstring_.123:
-	.quad	___CFConstantStringClassReference
-	.long	1992
-	.space	4
-	.quad	l_.str.122
-	.quad	13
+_OBJC_SELECTOR_REFERENCES_.103:
+	.quad	l_OBJC_METH_VAR_NAME_.102
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.124:
+l_OBJC_METH_VAR_NAME_.104:
 	.asciz	"mainRunLoop"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.125:
-	.quad	l_OBJC_METH_VAR_NAME_.124
+_OBJC_SELECTOR_REFERENCES_.105:
+	.quad	l_OBJC_METH_VAR_NAME_.104
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.126:
+l_OBJC_METH_VAR_NAME_.106:
 	.asciz	"removeFromRunLoop:forMode:"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.127:
-	.quad	l_OBJC_METH_VAR_NAME_.126
+_OBJC_SELECTOR_REFERENCES_.107:
+	.quad	l_OBJC_METH_VAR_NAME_.106
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.128:
+l_OBJC_METH_VAR_NAME_.108:
 	.asciz	"invalidate"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.129:
-	.quad	l_OBJC_METH_VAR_NAME_.128
-
-	.section	__TEXT,__cstring,cstring_literals
-l_.str.130:
-	.asciz	"stopRenderLoop"
-
-	.section	__DATA,__cfstring
-	.p2align	3, 0x0
-l__unnamed_cfstring_.131:
-	.quad	___CFConstantStringClassReference
-	.long	1992
-	.space	4
-	.quad	l_.str.130
-	.quad	14
-
-	.section	__TEXT,__cstring,cstring_literals
-l_.str.132:
-	.asciz	"dealloc"
-
-	.section	__DATA,__cfstring
-	.p2align	3, 0x0
-l__unnamed_cfstring_.133:
-	.quad	___CFConstantStringClassReference
-	.long	1992
-	.space	4
-	.quad	l_.str.132
-	.quad	7
+_OBJC_SELECTOR_REFERENCES_.109:
+	.quad	l_OBJC_METH_VAR_NAME_.108
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.134:
+l_OBJC_METH_VAR_NAME_.110:
 	.asciz	"dealloc"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.135:
-	.quad	l_OBJC_METH_VAR_NAME_.134
-
-	.section	__TEXT,__cstring,cstring_literals
-l_.str.136:
-	.asciz	"start runThread"
-
-	.section	__DATA,__cfstring
-	.p2align	3, 0x0
-l__unnamed_cfstring_.137:
-	.quad	___CFConstantStringClassReference
-	.long	1992
-	.space	4
-	.quad	l_.str.136
-	.quad	15
+_OBJC_SELECTOR_REFERENCES_.111:
+	.quad	l_OBJC_METH_VAR_NAME_.110
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.138:
+l_OBJC_METH_VAR_NAME_.112:
 	.asciz	"startMetalLink"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.139:
-	.quad	l_OBJC_METH_VAR_NAME_.138
+_OBJC_SELECTOR_REFERENCES_.113:
+	.quad	l_OBJC_METH_VAR_NAME_.112
 
 	.section	__DATA,__objc_classrefs,regular,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_CLASSLIST_REFERENCES_$_.140:
+_OBJC_CLASSLIST_REFERENCES_$_.114:
 	.quad	_OBJC_CLASS_$_NSDate
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.141:
+l_OBJC_METH_VAR_NAME_.115:
 	.asciz	"distantFuture"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.142:
-	.quad	l_OBJC_METH_VAR_NAME_.141
+_OBJC_SELECTOR_REFERENCES_.116:
+	.quad	l_OBJC_METH_VAR_NAME_.115
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.143:
+l_OBJC_METH_VAR_NAME_.117:
 	.asciz	"runMode:beforeDate:"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.144:
-	.quad	l_OBJC_METH_VAR_NAME_.143
+_OBJC_SELECTOR_REFERENCES_.118:
+	.quad	l_OBJC_METH_VAR_NAME_.117
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.145:
+l_OBJC_METH_VAR_NAME_.119:
 	.asciz	"viewDidChangeBackingProperties"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.146:
-	.quad	l_OBJC_METH_VAR_NAME_.145
+_OBJC_SELECTOR_REFERENCES_.120:
+	.quad	l_OBJC_METH_VAR_NAME_.119
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.147:
+l_OBJC_METH_VAR_NAME_.121:
 	.asciz	"setFrameSize:"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.148:
-	.quad	l_OBJC_METH_VAR_NAME_.147
+_OBJC_SELECTOR_REFERENCES_.122:
+	.quad	l_OBJC_METH_VAR_NAME_.121
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.149:
+l_OBJC_METH_VAR_NAME_.123:
 	.asciz	"setBoundsSize:"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.150:
-	.quad	l_OBJC_METH_VAR_NAME_.149
+_OBJC_SELECTOR_REFERENCES_.124:
+	.quad	l_OBJC_METH_VAR_NAME_.123
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.151:
+l_OBJC_METH_VAR_NAME_.125:
 	.asciz	"bounds"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.152:
-	.quad	l_OBJC_METH_VAR_NAME_.151
+_OBJC_SELECTOR_REFERENCES_.126:
+	.quad	l_OBJC_METH_VAR_NAME_.125
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.153:
+l_OBJC_METH_VAR_NAME_.127:
 	.asciz	"drawableSize"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.154:
-	.quad	l_OBJC_METH_VAR_NAME_.153
+_OBJC_SELECTOR_REFERENCES_.128:
+	.quad	l_OBJC_METH_VAR_NAME_.127
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.155:
+l_OBJC_METH_VAR_NAME_.129:
 	.asciz	"setDrawableSize:"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.156:
-	.quad	l_OBJC_METH_VAR_NAME_.155
+_OBJC_SELECTOR_REFERENCES_.130:
+	.quad	l_OBJC_METH_VAR_NAME_.129
 
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.157:
+_OBJC_SELECTOR_REFERENCES_.131:
 	.quad	l_OBJC_METH_VAR_NAME_.4
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.158:
+l_OBJC_METH_VAR_NAME_.132:
 	.asciz	"render"
 
 	.section	__DATA,__objc_selrefs,literal_pointers,no_dead_strip
 	.p2align	3, 0x0
-_OBJC_SELECTOR_REFERENCES_.159:
-	.quad	l_OBJC_METH_VAR_NAME_.158
+_OBJC_SELECTOR_REFERENCES_.133:
+	.quad	l_OBJC_METH_VAR_NAME_.132
 
 	.private_extern	_OBJC_IVAR_$_MACHView._paused
 	.section	__DATA,__objc_ivar
@@ -3782,116 +3477,116 @@ _OBJC_IVAR_$_MACHView._paused:
 	.long	129
 
 	.section	__TEXT,__objc_classname,cstring_literals
-l_OBJC_CLASS_NAME_.160:
+l_OBJC_CLASS_NAME_.134:
 	.asciz	"MACHView"
 
-l_OBJC_CLASS_NAME_.161:
+l_OBJC_CLASS_NAME_.135:
 	.asciz	"CALayerDelegate"
 
-l_OBJC_CLASS_NAME_.162:
+l_OBJC_CLASS_NAME_.136:
 	.asciz	"NSObject"
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.163:
+l_OBJC_METH_VAR_NAME_.137:
 	.asciz	"isEqual:"
 
 	.section	__TEXT,__objc_methtype,cstring_literals
-l_OBJC_METH_VAR_TYPE_.164:
+l_OBJC_METH_VAR_TYPE_.138:
 	.asciz	"B24@0:8@16"
 
-l_OBJC_METH_VAR_TYPE_.165:
+l_OBJC_METH_VAR_TYPE_.139:
 	.asciz	"#16@0:8"
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.166:
+l_OBJC_METH_VAR_NAME_.140:
 	.asciz	"self"
 
-l_OBJC_METH_VAR_NAME_.167:
+l_OBJC_METH_VAR_NAME_.141:
 	.asciz	"performSelector:"
 
 	.section	__TEXT,__objc_methtype,cstring_literals
-l_OBJC_METH_VAR_TYPE_.168:
+l_OBJC_METH_VAR_TYPE_.142:
 	.asciz	"@24@0:8:16"
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.169:
+l_OBJC_METH_VAR_NAME_.143:
 	.asciz	"performSelector:withObject:"
 
 	.section	__TEXT,__objc_methtype,cstring_literals
-l_OBJC_METH_VAR_TYPE_.170:
+l_OBJC_METH_VAR_TYPE_.144:
 	.asciz	"@32@0:8:16@24"
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.171:
+l_OBJC_METH_VAR_NAME_.145:
 	.asciz	"performSelector:withObject:withObject:"
 
 	.section	__TEXT,__objc_methtype,cstring_literals
-l_OBJC_METH_VAR_TYPE_.172:
+l_OBJC_METH_VAR_TYPE_.146:
 	.asciz	"@40@0:8:16@24@32"
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.173:
+l_OBJC_METH_VAR_NAME_.147:
 	.asciz	"isProxy"
 
 	.section	__TEXT,__objc_methtype,cstring_literals
-l_OBJC_METH_VAR_TYPE_.174:
+l_OBJC_METH_VAR_TYPE_.148:
 	.asciz	"B16@0:8"
 
-l_OBJC_METH_VAR_TYPE_.175:
+l_OBJC_METH_VAR_TYPE_.149:
 	.asciz	"B24@0:8#16"
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.176:
+l_OBJC_METH_VAR_NAME_.150:
 	.asciz	"isMemberOfClass:"
 
-l_OBJC_METH_VAR_NAME_.177:
+l_OBJC_METH_VAR_NAME_.151:
 	.asciz	"conformsToProtocol:"
 
-l_OBJC_METH_VAR_NAME_.178:
+l_OBJC_METH_VAR_NAME_.152:
 	.asciz	"respondsToSelector:"
 
 	.section	__TEXT,__objc_methtype,cstring_literals
-l_OBJC_METH_VAR_TYPE_.179:
+l_OBJC_METH_VAR_TYPE_.153:
 	.asciz	"B24@0:8:16"
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.180:
+l_OBJC_METH_VAR_NAME_.154:
 	.asciz	"retain"
 
-l_OBJC_METH_VAR_NAME_.181:
+l_OBJC_METH_VAR_NAME_.155:
 	.asciz	"release"
 
 	.section	__TEXT,__objc_methtype,cstring_literals
-l_OBJC_METH_VAR_TYPE_.182:
+l_OBJC_METH_VAR_TYPE_.156:
 	.asciz	"Vv16@0:8"
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.183:
+l_OBJC_METH_VAR_NAME_.157:
 	.asciz	"autorelease"
 
-l_OBJC_METH_VAR_NAME_.184:
+l_OBJC_METH_VAR_NAME_.158:
 	.asciz	"retainCount"
 
 	.section	__TEXT,__objc_methtype,cstring_literals
-l_OBJC_METH_VAR_TYPE_.185:
+l_OBJC_METH_VAR_TYPE_.159:
 	.asciz	"Q16@0:8"
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.186:
+l_OBJC_METH_VAR_NAME_.160:
 	.asciz	"zone"
 
 	.section	__TEXT,__objc_methtype,cstring_literals
-l_OBJC_METH_VAR_TYPE_.187:
+l_OBJC_METH_VAR_TYPE_.161:
 	.asciz	"^{_NSZone=}16@0:8"
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.188:
+l_OBJC_METH_VAR_NAME_.162:
 	.asciz	"hash"
 
-l_OBJC_METH_VAR_NAME_.189:
+l_OBJC_METH_VAR_NAME_.163:
 	.asciz	"superclass"
 
-l_OBJC_METH_VAR_NAME_.190:
+l_OBJC_METH_VAR_NAME_.164:
 	.asciz	"description"
 
 	.section	__DATA,__objc_const
@@ -3899,66 +3594,66 @@ l_OBJC_METH_VAR_NAME_.190:
 __OBJC_$_PROTOCOL_INSTANCE_METHODS_NSObject:
 	.long	24
 	.long	19
-	.quad	l_OBJC_METH_VAR_NAME_.163
-	.quad	l_OBJC_METH_VAR_TYPE_.164
+	.quad	l_OBJC_METH_VAR_NAME_.137
+	.quad	l_OBJC_METH_VAR_TYPE_.138
 	.quad	0
 	.quad	l_OBJC_METH_VAR_NAME_.24
-	.quad	l_OBJC_METH_VAR_TYPE_.165
+	.quad	l_OBJC_METH_VAR_TYPE_.139
 	.quad	0
-	.quad	l_OBJC_METH_VAR_NAME_.166
+	.quad	l_OBJC_METH_VAR_NAME_.140
 	.quad	l_OBJC_METH_VAR_TYPE_.6
 	.quad	0
-	.quad	l_OBJC_METH_VAR_NAME_.167
-	.quad	l_OBJC_METH_VAR_TYPE_.168
+	.quad	l_OBJC_METH_VAR_NAME_.141
+	.quad	l_OBJC_METH_VAR_TYPE_.142
 	.quad	0
-	.quad	l_OBJC_METH_VAR_NAME_.169
-	.quad	l_OBJC_METH_VAR_TYPE_.170
+	.quad	l_OBJC_METH_VAR_NAME_.143
+	.quad	l_OBJC_METH_VAR_TYPE_.144
 	.quad	0
-	.quad	l_OBJC_METH_VAR_NAME_.171
-	.quad	l_OBJC_METH_VAR_TYPE_.172
+	.quad	l_OBJC_METH_VAR_NAME_.145
+	.quad	l_OBJC_METH_VAR_TYPE_.146
 	.quad	0
-	.quad	l_OBJC_METH_VAR_NAME_.173
-	.quad	l_OBJC_METH_VAR_TYPE_.174
+	.quad	l_OBJC_METH_VAR_NAME_.147
+	.quad	l_OBJC_METH_VAR_TYPE_.148
 	.quad	0
 	.quad	l_OBJC_METH_VAR_NAME_.26
-	.quad	l_OBJC_METH_VAR_TYPE_.175
+	.quad	l_OBJC_METH_VAR_TYPE_.149
 	.quad	0
-	.quad	l_OBJC_METH_VAR_NAME_.176
-	.quad	l_OBJC_METH_VAR_TYPE_.175
+	.quad	l_OBJC_METH_VAR_NAME_.150
+	.quad	l_OBJC_METH_VAR_TYPE_.149
 	.quad	0
-	.quad	l_OBJC_METH_VAR_NAME_.177
-	.quad	l_OBJC_METH_VAR_TYPE_.164
+	.quad	l_OBJC_METH_VAR_NAME_.151
+	.quad	l_OBJC_METH_VAR_TYPE_.138
 	.quad	0
-	.quad	l_OBJC_METH_VAR_NAME_.178
-	.quad	l_OBJC_METH_VAR_TYPE_.179
+	.quad	l_OBJC_METH_VAR_NAME_.152
+	.quad	l_OBJC_METH_VAR_TYPE_.153
 	.quad	0
-	.quad	l_OBJC_METH_VAR_NAME_.180
+	.quad	l_OBJC_METH_VAR_NAME_.154
 	.quad	l_OBJC_METH_VAR_TYPE_.6
 	.quad	0
-	.quad	l_OBJC_METH_VAR_NAME_.181
-	.quad	l_OBJC_METH_VAR_TYPE_.182
+	.quad	l_OBJC_METH_VAR_NAME_.155
+	.quad	l_OBJC_METH_VAR_TYPE_.156
 	.quad	0
-	.quad	l_OBJC_METH_VAR_NAME_.183
+	.quad	l_OBJC_METH_VAR_NAME_.157
 	.quad	l_OBJC_METH_VAR_TYPE_.6
 	.quad	0
-	.quad	l_OBJC_METH_VAR_NAME_.184
-	.quad	l_OBJC_METH_VAR_TYPE_.185
+	.quad	l_OBJC_METH_VAR_NAME_.158
+	.quad	l_OBJC_METH_VAR_TYPE_.159
 	.quad	0
-	.quad	l_OBJC_METH_VAR_NAME_.186
-	.quad	l_OBJC_METH_VAR_TYPE_.187
+	.quad	l_OBJC_METH_VAR_NAME_.160
+	.quad	l_OBJC_METH_VAR_TYPE_.161
 	.quad	0
-	.quad	l_OBJC_METH_VAR_NAME_.188
-	.quad	l_OBJC_METH_VAR_TYPE_.185
+	.quad	l_OBJC_METH_VAR_NAME_.162
+	.quad	l_OBJC_METH_VAR_TYPE_.159
 	.quad	0
-	.quad	l_OBJC_METH_VAR_NAME_.189
-	.quad	l_OBJC_METH_VAR_TYPE_.165
+	.quad	l_OBJC_METH_VAR_NAME_.163
+	.quad	l_OBJC_METH_VAR_TYPE_.139
 	.quad	0
-	.quad	l_OBJC_METH_VAR_NAME_.190
+	.quad	l_OBJC_METH_VAR_NAME_.164
 	.quad	l_OBJC_METH_VAR_TYPE_.6
 	.quad	0
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.191:
+l_OBJC_METH_VAR_NAME_.165:
 	.asciz	"debugDescription"
 
 	.section	__DATA,__objc_const
@@ -3966,7 +3661,7 @@ l_OBJC_METH_VAR_NAME_.191:
 __OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_NSObject:
 	.long	24
 	.long	1
-	.quad	l_OBJC_METH_VAR_NAME_.191
+	.quad	l_OBJC_METH_VAR_NAME_.165
 	.quad	l_OBJC_METH_VAR_TYPE_.6
 	.quad	0
 
@@ -3974,25 +3669,25 @@ __OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_NSObject:
 l_OBJC_PROP_NAME_ATTR_:
 	.asciz	"hash"
 
-l_OBJC_PROP_NAME_ATTR_.192:
+l_OBJC_PROP_NAME_ATTR_.166:
 	.asciz	"TQ,R"
 
-l_OBJC_PROP_NAME_ATTR_.193:
+l_OBJC_PROP_NAME_ATTR_.167:
 	.asciz	"superclass"
 
-l_OBJC_PROP_NAME_ATTR_.194:
+l_OBJC_PROP_NAME_ATTR_.168:
 	.asciz	"T#,R"
 
-l_OBJC_PROP_NAME_ATTR_.195:
+l_OBJC_PROP_NAME_ATTR_.169:
 	.asciz	"description"
 
-l_OBJC_PROP_NAME_ATTR_.196:
+l_OBJC_PROP_NAME_ATTR_.170:
 	.asciz	"T@\"NSString\",R,C"
 
-l_OBJC_PROP_NAME_ATTR_.197:
+l_OBJC_PROP_NAME_ATTR_.171:
 	.asciz	"debugDescription"
 
-l_OBJC_PROP_NAME_ATTR_.198:
+l_OBJC_PROP_NAME_ATTR_.172:
 	.asciz	"T@\"NSString\",?,R,C"
 
 	.section	__DATA,__objc_const
@@ -4001,44 +3696,44 @@ __OBJC_$_PROP_LIST_NSObject:
 	.long	16
 	.long	4
 	.quad	l_OBJC_PROP_NAME_ATTR_
-	.quad	l_OBJC_PROP_NAME_ATTR_.192
-	.quad	l_OBJC_PROP_NAME_ATTR_.193
-	.quad	l_OBJC_PROP_NAME_ATTR_.194
-	.quad	l_OBJC_PROP_NAME_ATTR_.195
-	.quad	l_OBJC_PROP_NAME_ATTR_.196
-	.quad	l_OBJC_PROP_NAME_ATTR_.197
-	.quad	l_OBJC_PROP_NAME_ATTR_.198
+	.quad	l_OBJC_PROP_NAME_ATTR_.166
+	.quad	l_OBJC_PROP_NAME_ATTR_.167
+	.quad	l_OBJC_PROP_NAME_ATTR_.168
+	.quad	l_OBJC_PROP_NAME_ATTR_.169
+	.quad	l_OBJC_PROP_NAME_ATTR_.170
+	.quad	l_OBJC_PROP_NAME_ATTR_.171
+	.quad	l_OBJC_PROP_NAME_ATTR_.172
 
 	.section	__TEXT,__objc_methtype,cstring_literals
-l_OBJC_METH_VAR_TYPE_.199:
+l_OBJC_METH_VAR_TYPE_.173:
 	.asciz	"B24@0:8@\"Protocol\"16"
 
-l_OBJC_METH_VAR_TYPE_.200:
+l_OBJC_METH_VAR_TYPE_.174:
 	.asciz	"@\"NSString\"16@0:8"
 
 	.section	__DATA,__objc_const
 	.p2align	3, 0x0
 __OBJC_$_PROTOCOL_METHOD_TYPES_NSObject:
-	.quad	l_OBJC_METH_VAR_TYPE_.164
-	.quad	l_OBJC_METH_VAR_TYPE_.165
+	.quad	l_OBJC_METH_VAR_TYPE_.138
+	.quad	l_OBJC_METH_VAR_TYPE_.139
 	.quad	l_OBJC_METH_VAR_TYPE_.6
-	.quad	l_OBJC_METH_VAR_TYPE_.168
-	.quad	l_OBJC_METH_VAR_TYPE_.170
-	.quad	l_OBJC_METH_VAR_TYPE_.172
+	.quad	l_OBJC_METH_VAR_TYPE_.142
+	.quad	l_OBJC_METH_VAR_TYPE_.144
+	.quad	l_OBJC_METH_VAR_TYPE_.146
+	.quad	l_OBJC_METH_VAR_TYPE_.148
+	.quad	l_OBJC_METH_VAR_TYPE_.149
+	.quad	l_OBJC_METH_VAR_TYPE_.149
+	.quad	l_OBJC_METH_VAR_TYPE_.173
+	.quad	l_OBJC_METH_VAR_TYPE_.153
+	.quad	l_OBJC_METH_VAR_TYPE_.6
+	.quad	l_OBJC_METH_VAR_TYPE_.156
+	.quad	l_OBJC_METH_VAR_TYPE_.6
+	.quad	l_OBJC_METH_VAR_TYPE_.159
+	.quad	l_OBJC_METH_VAR_TYPE_.161
+	.quad	l_OBJC_METH_VAR_TYPE_.159
+	.quad	l_OBJC_METH_VAR_TYPE_.139
 	.quad	l_OBJC_METH_VAR_TYPE_.174
-	.quad	l_OBJC_METH_VAR_TYPE_.175
-	.quad	l_OBJC_METH_VAR_TYPE_.175
-	.quad	l_OBJC_METH_VAR_TYPE_.199
-	.quad	l_OBJC_METH_VAR_TYPE_.179
-	.quad	l_OBJC_METH_VAR_TYPE_.6
-	.quad	l_OBJC_METH_VAR_TYPE_.182
-	.quad	l_OBJC_METH_VAR_TYPE_.6
-	.quad	l_OBJC_METH_VAR_TYPE_.185
-	.quad	l_OBJC_METH_VAR_TYPE_.187
-	.quad	l_OBJC_METH_VAR_TYPE_.185
-	.quad	l_OBJC_METH_VAR_TYPE_.165
-	.quad	l_OBJC_METH_VAR_TYPE_.200
-	.quad	l_OBJC_METH_VAR_TYPE_.200
+	.quad	l_OBJC_METH_VAR_TYPE_.174
 
 	.private_extern	__OBJC_PROTOCOL_$_NSObject
 	.section	__DATA,__data
@@ -4047,7 +3742,7 @@ __OBJC_$_PROTOCOL_METHOD_TYPES_NSObject:
 	.p2align	3, 0x0
 __OBJC_PROTOCOL_$_NSObject:
 	.quad	0
-	.quad	l_OBJC_CLASS_NAME_.162
+	.quad	l_OBJC_CLASS_NAME_.136
 	.quad	0
 	.quad	__OBJC_$_PROTOCOL_INSTANCE_METHODS_NSObject
 	.quad	0
@@ -4076,28 +3771,28 @@ __OBJC_$_PROTOCOL_REFS_CALayerDelegate:
 	.quad	0
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.201:
+l_OBJC_METH_VAR_NAME_.175:
 	.asciz	"displayLayer:"
 
-l_OBJC_METH_VAR_NAME_.202:
+l_OBJC_METH_VAR_NAME_.176:
 	.asciz	"drawLayer:inContext:"
 
 	.section	__TEXT,__objc_methtype,cstring_literals
-l_OBJC_METH_VAR_TYPE_.203:
+l_OBJC_METH_VAR_TYPE_.177:
 	.asciz	"v32@0:8@16^{CGContext=}24"
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.204:
+l_OBJC_METH_VAR_NAME_.178:
 	.asciz	"layerWillDraw:"
 
-l_OBJC_METH_VAR_NAME_.205:
+l_OBJC_METH_VAR_NAME_.179:
 	.asciz	"layoutSublayersOfLayer:"
 
-l_OBJC_METH_VAR_NAME_.206:
+l_OBJC_METH_VAR_NAME_.180:
 	.asciz	"actionForLayer:forKey:"
 
 	.section	__TEXT,__objc_methtype,cstring_literals
-l_OBJC_METH_VAR_TYPE_.207:
+l_OBJC_METH_VAR_TYPE_.181:
 	.asciz	"@32@0:8@16@24"
 
 	.section	__DATA,__objc_const
@@ -4105,40 +3800,40 @@ l_OBJC_METH_VAR_TYPE_.207:
 __OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_CALayerDelegate:
 	.long	24
 	.long	5
-	.quad	l_OBJC_METH_VAR_NAME_.201
+	.quad	l_OBJC_METH_VAR_NAME_.175
 	.quad	l_OBJC_METH_VAR_TYPE_
 	.quad	0
-	.quad	l_OBJC_METH_VAR_NAME_.202
-	.quad	l_OBJC_METH_VAR_TYPE_.203
+	.quad	l_OBJC_METH_VAR_NAME_.176
+	.quad	l_OBJC_METH_VAR_TYPE_.177
 	.quad	0
-	.quad	l_OBJC_METH_VAR_NAME_.204
+	.quad	l_OBJC_METH_VAR_NAME_.178
 	.quad	l_OBJC_METH_VAR_TYPE_
 	.quad	0
-	.quad	l_OBJC_METH_VAR_NAME_.205
+	.quad	l_OBJC_METH_VAR_NAME_.179
 	.quad	l_OBJC_METH_VAR_TYPE_
 	.quad	0
-	.quad	l_OBJC_METH_VAR_NAME_.206
-	.quad	l_OBJC_METH_VAR_TYPE_.207
+	.quad	l_OBJC_METH_VAR_NAME_.180
+	.quad	l_OBJC_METH_VAR_TYPE_.181
 	.quad	0
 
 	.section	__TEXT,__objc_methtype,cstring_literals
-l_OBJC_METH_VAR_TYPE_.208:
+l_OBJC_METH_VAR_TYPE_.182:
 	.asciz	"v24@0:8@\"CALayer\"16"
 
-l_OBJC_METH_VAR_TYPE_.209:
+l_OBJC_METH_VAR_TYPE_.183:
 	.asciz	"v32@0:8@\"CALayer\"16^{CGContext=}24"
 
-l_OBJC_METH_VAR_TYPE_.210:
+l_OBJC_METH_VAR_TYPE_.184:
 	.asciz	"@\"<CAAction>\"32@0:8@\"CALayer\"16@\"NSString\"24"
 
 	.section	__DATA,__objc_const
 	.p2align	3, 0x0
 __OBJC_$_PROTOCOL_METHOD_TYPES_CALayerDelegate:
-	.quad	l_OBJC_METH_VAR_TYPE_.208
-	.quad	l_OBJC_METH_VAR_TYPE_.209
-	.quad	l_OBJC_METH_VAR_TYPE_.208
-	.quad	l_OBJC_METH_VAR_TYPE_.208
-	.quad	l_OBJC_METH_VAR_TYPE_.210
+	.quad	l_OBJC_METH_VAR_TYPE_.182
+	.quad	l_OBJC_METH_VAR_TYPE_.183
+	.quad	l_OBJC_METH_VAR_TYPE_.182
+	.quad	l_OBJC_METH_VAR_TYPE_.182
+	.quad	l_OBJC_METH_VAR_TYPE_.184
 
 	.private_extern	__OBJC_PROTOCOL_$_CALayerDelegate
 	.section	__DATA,__data
@@ -4147,7 +3842,7 @@ __OBJC_$_PROTOCOL_METHOD_TYPES_CALayerDelegate:
 	.p2align	3, 0x0
 __OBJC_PROTOCOL_$_CALayerDelegate:
 	.quad	0
-	.quad	l_OBJC_CLASS_NAME_.161
+	.quad	l_OBJC_CLASS_NAME_.135
 	.quad	__OBJC_$_PROTOCOL_REFS_CALayerDelegate
 	.quad	0
 	.quad	0
@@ -4169,15 +3864,15 @@ __OBJC_LABEL_PROTOCOL_$_CALayerDelegate:
 	.quad	__OBJC_PROTOCOL_$_CALayerDelegate
 
 	.section	__TEXT,__objc_classname,cstring_literals
-l_OBJC_CLASS_NAME_.211:
+l_OBJC_CLASS_NAME_.185:
 	.asciz	"CAMetalDisplayLinkDelegate"
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.212:
+l_OBJC_METH_VAR_NAME_.186:
 	.asciz	"metalDisplayLink:needsUpdate:"
 
 	.section	__TEXT,__objc_methtype,cstring_literals
-l_OBJC_METH_VAR_TYPE_.213:
+l_OBJC_METH_VAR_TYPE_.187:
 	.asciz	"v32@0:8@16@24"
 
 	.section	__DATA,__objc_const
@@ -4185,18 +3880,18 @@ l_OBJC_METH_VAR_TYPE_.213:
 __OBJC_$_PROTOCOL_INSTANCE_METHODS_CAMetalDisplayLinkDelegate:
 	.long	24
 	.long	1
-	.quad	l_OBJC_METH_VAR_NAME_.212
-	.quad	l_OBJC_METH_VAR_TYPE_.213
+	.quad	l_OBJC_METH_VAR_NAME_.186
+	.quad	l_OBJC_METH_VAR_TYPE_.187
 	.quad	0
 
 	.section	__TEXT,__objc_methtype,cstring_literals
-l_OBJC_METH_VAR_TYPE_.214:
+l_OBJC_METH_VAR_TYPE_.188:
 	.asciz	"v32@0:8@\"CAMetalDisplayLink\"16@\"CAMetalDisplayLinkUpdate\"24"
 
 	.section	__DATA,__objc_const
 	.p2align	3, 0x0
 __OBJC_$_PROTOCOL_METHOD_TYPES_CAMetalDisplayLinkDelegate:
-	.quad	l_OBJC_METH_VAR_TYPE_.214
+	.quad	l_OBJC_METH_VAR_TYPE_.188
 
 	.private_extern	__OBJC_PROTOCOL_$_CAMetalDisplayLinkDelegate
 	.section	__DATA,__data
@@ -4205,7 +3900,7 @@ __OBJC_$_PROTOCOL_METHOD_TYPES_CAMetalDisplayLinkDelegate:
 	.p2align	3, 0x0
 __OBJC_PROTOCOL_$_CAMetalDisplayLinkDelegate:
 	.quad	0
-	.quad	l_OBJC_CLASS_NAME_.211
+	.quad	l_OBJC_CLASS_NAME_.185
 	.quad	0
 	.quad	__OBJC_$_PROTOCOL_INSTANCE_METHODS_CAMetalDisplayLinkDelegate
 	.quad	0
@@ -4241,7 +3936,7 @@ __OBJC_METACLASS_RO_$_MACHView:
 	.long	40
 	.space	4
 	.quad	0
-	.quad	l_OBJC_CLASS_NAME_.160
+	.quad	l_OBJC_CLASS_NAME_.134
 	.quad	0
 	.quad	__OBJC_CLASS_PROTOCOLS_$_MACHView
 	.quad	0
@@ -4259,103 +3954,103 @@ _OBJC_METACLASS_$_MACHView:
 	.quad	__OBJC_METACLASS_RO_$_MACHView
 
 	.section	__TEXT,__objc_classname,cstring_literals
-l_OBJC_CLASS_NAME_.215:
+l_OBJC_CLASS_NAME_.189:
 	.asciz	"\r\021\021"
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.216:
+l_OBJC_METH_VAR_NAME_.190:
 	.asciz	"canBecomeKeyView"
 
-l_OBJC_METH_VAR_NAME_.217:
+l_OBJC_METH_VAR_NAME_.191:
 	.asciz	"acceptsFirstResponder"
 
-l_OBJC_METH_VAR_NAME_.218:
+l_OBJC_METH_VAR_NAME_.192:
 	.asciz	"viewDidAppear"
 
-l_OBJC_METH_VAR_NAME_.219:
+l_OBJC_METH_VAR_NAME_.193:
 	.asciz	"keyDown:"
 
-l_OBJC_METH_VAR_NAME_.220:
+l_OBJC_METH_VAR_NAME_.194:
 	.asciz	"insertText:"
 
-l_OBJC_METH_VAR_NAME_.221:
+l_OBJC_METH_VAR_NAME_.195:
 	.asciz	"keyUp:"
 
-l_OBJC_METH_VAR_NAME_.222:
+l_OBJC_METH_VAR_NAME_.196:
 	.asciz	"flagsChanged:"
 
-l_OBJC_METH_VAR_NAME_.223:
+l_OBJC_METH_VAR_NAME_.197:
 	.asciz	"mouseMoved:"
 
-l_OBJC_METH_VAR_NAME_.224:
+l_OBJC_METH_VAR_NAME_.198:
 	.asciz	"mouseDragged:"
 
-l_OBJC_METH_VAR_NAME_.225:
+l_OBJC_METH_VAR_NAME_.199:
 	.asciz	"rightMouseDragged:"
 
-l_OBJC_METH_VAR_NAME_.226:
+l_OBJC_METH_VAR_NAME_.200:
 	.asciz	"otherMouseDragged:"
 
-l_OBJC_METH_VAR_NAME_.227:
+l_OBJC_METH_VAR_NAME_.201:
 	.asciz	"mouseDown:"
 
-l_OBJC_METH_VAR_NAME_.228:
+l_OBJC_METH_VAR_NAME_.202:
 	.asciz	"rightMouseDown:"
 
-l_OBJC_METH_VAR_NAME_.229:
+l_OBJC_METH_VAR_NAME_.203:
 	.asciz	"otherMouseDown:"
 
-l_OBJC_METH_VAR_NAME_.230:
+l_OBJC_METH_VAR_NAME_.204:
 	.asciz	"mouseUp:"
 
-l_OBJC_METH_VAR_NAME_.231:
+l_OBJC_METH_VAR_NAME_.205:
 	.asciz	"rightMouseUp:"
 
-l_OBJC_METH_VAR_NAME_.232:
+l_OBJC_METH_VAR_NAME_.206:
 	.asciz	"otherMouseUp:"
 
-l_OBJC_METH_VAR_NAME_.233:
+l_OBJC_METH_VAR_NAME_.207:
 	.asciz	"scrollWheel:"
 
-l_OBJC_METH_VAR_NAME_.234:
+l_OBJC_METH_VAR_NAME_.208:
 	.asciz	"magnifyWithEvent:"
 
-l_OBJC_METH_VAR_NAME_.235:
+l_OBJC_METH_VAR_NAME_.209:
 	.asciz	"doCommandBySelector:"
 
 	.section	__TEXT,__objc_methtype,cstring_literals
-l_OBJC_METH_VAR_TYPE_.236:
+l_OBJC_METH_VAR_TYPE_.210:
 	.asciz	"v24@0:8:16"
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.237:
+l_OBJC_METH_VAR_NAME_.211:
 	.asciz	"makeBackingLayer"
 
-l_OBJC_METH_VAR_NAME_.238:
+l_OBJC_METH_VAR_NAME_.212:
 	.asciz	"viewDidMoveToWindow"
 
 	.section	__TEXT,__objc_methtype,cstring_literals
-l_OBJC_METH_VAR_TYPE_.239:
+l_OBJC_METH_VAR_TYPE_.213:
 	.asciz	"@48@0:8{CGRect={CGPoint=dd}{CGSize=dd}}16"
 
-l_OBJC_METH_VAR_TYPE_.240:
+l_OBJC_METH_VAR_TYPE_.214:
 	.asciz	"v32@0:8{CGSize=dd}16"
 
-l_OBJC_METH_VAR_TYPE_.241:
+l_OBJC_METH_VAR_TYPE_.215:
 	.asciz	"v24@0:8d16"
 
-l_OBJC_METH_VAR_TYPE_.242:
+l_OBJC_METH_VAR_TYPE_.216:
 	.asciz	"v32@0:8@16d24"
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.243:
+l_OBJC_METH_VAR_NAME_.217:
 	.asciz	"metalLayer"
 
-l_OBJC_METH_VAR_NAME_.244:
+l_OBJC_METH_VAR_NAME_.218:
 	.asciz	"isPaused"
 
 	.section	__TEXT,__objc_methtype,cstring_literals
-l_OBJC_METH_VAR_TYPE_.245:
+l_OBJC_METH_VAR_TYPE_.219:
 	.asciz	"v20@0:8B16"
 
 	.section	__DATA,__objc_const
@@ -4363,226 +4058,226 @@ l_OBJC_METH_VAR_TYPE_.245:
 __OBJC_$_INSTANCE_METHODS_MACHView:
 	.long	24
 	.long	44
-	.quad	l_OBJC_METH_VAR_NAME_.216
-	.quad	l_OBJC_METH_VAR_TYPE_.174
+	.quad	l_OBJC_METH_VAR_NAME_.190
+	.quad	l_OBJC_METH_VAR_TYPE_.148
 	.quad	"-[MACHView canBecomeKeyView]"
-	.quad	l_OBJC_METH_VAR_NAME_.217
-	.quad	l_OBJC_METH_VAR_TYPE_.174
+	.quad	l_OBJC_METH_VAR_NAME_.191
+	.quad	l_OBJC_METH_VAR_TYPE_.148
 	.quad	"-[MACHView acceptsFirstResponder]"
-	.quad	l_OBJC_METH_VAR_NAME_.218
+	.quad	l_OBJC_METH_VAR_NAME_.192
 	.quad	l_OBJC_METH_VAR_TYPE_.8
 	.quad	"-[MACHView viewDidAppear]"
-	.quad	l_OBJC_METH_VAR_NAME_.158
+	.quad	l_OBJC_METH_VAR_NAME_.132
 	.quad	l_OBJC_METH_VAR_TYPE_.8
 	.quad	"-[MACHView render]"
-	.quad	l_OBJC_METH_VAR_NAME_.219
+	.quad	l_OBJC_METH_VAR_NAME_.193
 	.quad	l_OBJC_METH_VAR_TYPE_
 	.quad	"-[MACHView keyDown:]"
-	.quad	l_OBJC_METH_VAR_NAME_.220
+	.quad	l_OBJC_METH_VAR_NAME_.194
 	.quad	l_OBJC_METH_VAR_TYPE_
 	.quad	"-[MACHView insertText:]"
-	.quad	l_OBJC_METH_VAR_NAME_.221
+	.quad	l_OBJC_METH_VAR_NAME_.195
 	.quad	l_OBJC_METH_VAR_TYPE_
 	.quad	"-[MACHView keyUp:]"
-	.quad	l_OBJC_METH_VAR_NAME_.222
+	.quad	l_OBJC_METH_VAR_NAME_.196
 	.quad	l_OBJC_METH_VAR_TYPE_
 	.quad	"-[MACHView flagsChanged:]"
-	.quad	l_OBJC_METH_VAR_NAME_.223
+	.quad	l_OBJC_METH_VAR_NAME_.197
 	.quad	l_OBJC_METH_VAR_TYPE_
 	.quad	"-[MACHView mouseMoved:]"
-	.quad	l_OBJC_METH_VAR_NAME_.224
+	.quad	l_OBJC_METH_VAR_NAME_.198
 	.quad	l_OBJC_METH_VAR_TYPE_
 	.quad	"-[MACHView mouseDragged:]"
-	.quad	l_OBJC_METH_VAR_NAME_.225
+	.quad	l_OBJC_METH_VAR_NAME_.199
 	.quad	l_OBJC_METH_VAR_TYPE_
 	.quad	"-[MACHView rightMouseDragged:]"
-	.quad	l_OBJC_METH_VAR_NAME_.226
+	.quad	l_OBJC_METH_VAR_NAME_.200
 	.quad	l_OBJC_METH_VAR_TYPE_
 	.quad	"-[MACHView otherMouseDragged:]"
-	.quad	l_OBJC_METH_VAR_NAME_.227
+	.quad	l_OBJC_METH_VAR_NAME_.201
 	.quad	l_OBJC_METH_VAR_TYPE_
 	.quad	"-[MACHView mouseDown:]"
-	.quad	l_OBJC_METH_VAR_NAME_.228
+	.quad	l_OBJC_METH_VAR_NAME_.202
 	.quad	l_OBJC_METH_VAR_TYPE_
 	.quad	"-[MACHView rightMouseDown:]"
-	.quad	l_OBJC_METH_VAR_NAME_.229
+	.quad	l_OBJC_METH_VAR_NAME_.203
 	.quad	l_OBJC_METH_VAR_TYPE_
 	.quad	"-[MACHView otherMouseDown:]"
-	.quad	l_OBJC_METH_VAR_NAME_.230
+	.quad	l_OBJC_METH_VAR_NAME_.204
 	.quad	l_OBJC_METH_VAR_TYPE_
 	.quad	"-[MACHView mouseUp:]"
-	.quad	l_OBJC_METH_VAR_NAME_.231
+	.quad	l_OBJC_METH_VAR_NAME_.205
 	.quad	l_OBJC_METH_VAR_TYPE_
 	.quad	"-[MACHView rightMouseUp:]"
-	.quad	l_OBJC_METH_VAR_NAME_.232
+	.quad	l_OBJC_METH_VAR_NAME_.206
 	.quad	l_OBJC_METH_VAR_TYPE_
 	.quad	"-[MACHView otherMouseUp:]"
-	.quad	l_OBJC_METH_VAR_NAME_.233
+	.quad	l_OBJC_METH_VAR_NAME_.207
 	.quad	l_OBJC_METH_VAR_TYPE_
 	.quad	"-[MACHView scrollWheel:]"
-	.quad	l_OBJC_METH_VAR_NAME_.234
+	.quad	l_OBJC_METH_VAR_NAME_.208
 	.quad	l_OBJC_METH_VAR_TYPE_
 	.quad	"-[MACHView magnifyWithEvent:]"
-	.quad	l_OBJC_METH_VAR_NAME_.235
-	.quad	l_OBJC_METH_VAR_TYPE_.236
+	.quad	l_OBJC_METH_VAR_NAME_.209
+	.quad	l_OBJC_METH_VAR_TYPE_.210
 	.quad	"-[MACHView doCommandBySelector:]"
-	.quad	l_OBJC_METH_VAR_NAME_.55
+	.quad	l_OBJC_METH_VAR_NAME_.47
 	.quad	l_OBJC_METH_VAR_TYPE_.8
 	.quad	"-[MACHView initCommon]"
-	.quad	l_OBJC_METH_VAR_NAME_.237
+	.quad	l_OBJC_METH_VAR_NAME_.211
 	.quad	l_OBJC_METH_VAR_TYPE_.6
 	.quad	"-[MACHView makeBackingLayer]"
-	.quad	l_OBJC_METH_VAR_NAME_.238
+	.quad	l_OBJC_METH_VAR_NAME_.212
 	.quad	l_OBJC_METH_VAR_TYPE_.8
 	.quad	"-[MACHView viewDidMoveToWindow]"
-	.quad	l_OBJC_METH_VAR_NAME_.53
-	.quad	l_OBJC_METH_VAR_TYPE_.239
+	.quad	l_OBJC_METH_VAR_NAME_.45
+	.quad	l_OBJC_METH_VAR_TYPE_.213
 	.quad	"-[MACHView initWithFrame:]"
-	.quad	l_OBJC_METH_VAR_NAME_.49
+	.quad	l_OBJC_METH_VAR_NAME_.43
 	.quad	l_OBJC_METH_VAR_TYPE_.8
 	.quad	"-[MACHView movedToWindow]"
-	.quad	l_OBJC_METH_VAR_NAME_.66
+	.quad	l_OBJC_METH_VAR_NAME_.56
 	.quad	l_OBJC_METH_VAR_TYPE_.8
 	.quad	"-[MACHView setupCAMetalLink]"
-	.quad	l_OBJC_METH_VAR_NAME_.90
+	.quad	l_OBJC_METH_VAR_NAME_.78
 	.quad	l_OBJC_METH_VAR_TYPE_
 	.quad	"-[MACHView windowWillClose:]"
-	.quad	l_OBJC_METH_VAR_NAME_.85
+	.quad	l_OBJC_METH_VAR_NAME_.73
 	.quad	l_OBJC_METH_VAR_TYPE_
 	.quad	"-[MACHView makeMetalLink:]"
-	.quad	l_OBJC_METH_VAR_NAME_.212
-	.quad	l_OBJC_METH_VAR_TYPE_.213
+	.quad	l_OBJC_METH_VAR_NAME_.186
+	.quad	l_OBJC_METH_VAR_TYPE_.187
 	.quad	"-[MACHView metalDisplayLink:needsUpdate:]"
-	.quad	l_OBJC_METH_VAR_NAME_.138
+	.quad	l_OBJC_METH_VAR_NAME_.112
 	.quad	l_OBJC_METH_VAR_TYPE_.8
 	.quad	"-[MACHView startMetalLink]"
-	.quad	l_OBJC_METH_VAR_NAME_.98
+	.quad	l_OBJC_METH_VAR_NAME_.84
 	.quad	l_OBJC_METH_VAR_TYPE_.8
 	.quad	"-[MACHView stopMetalLink]"
-	.quad	l_OBJC_METH_VAR_NAME_.83
+	.quad	l_OBJC_METH_VAR_NAME_.71
 	.quad	l_OBJC_METH_VAR_TYPE_.8
 	.quad	"-[MACHView stopRenderLoop]"
-	.quad	l_OBJC_METH_VAR_NAME_.134
+	.quad	l_OBJC_METH_VAR_NAME_.110
 	.quad	l_OBJC_METH_VAR_TYPE_.8
 	.quad	"-[MACHView dealloc]"
-	.quad	l_OBJC_METH_VAR_NAME_.69
+	.quad	l_OBJC_METH_VAR_NAME_.59
 	.quad	l_OBJC_METH_VAR_TYPE_.8
 	.quad	"-[MACHView runThread]"
-	.quad	l_OBJC_METH_VAR_NAME_.145
+	.quad	l_OBJC_METH_VAR_NAME_.119
 	.quad	l_OBJC_METH_VAR_TYPE_.8
 	.quad	"-[MACHView viewDidChangeBackingProperties]"
-	.quad	l_OBJC_METH_VAR_NAME_.147
-	.quad	l_OBJC_METH_VAR_TYPE_.240
+	.quad	l_OBJC_METH_VAR_NAME_.121
+	.quad	l_OBJC_METH_VAR_TYPE_.214
 	.quad	"-[MACHView setFrameSize:]"
-	.quad	l_OBJC_METH_VAR_NAME_.149
-	.quad	l_OBJC_METH_VAR_TYPE_.240
+	.quad	l_OBJC_METH_VAR_NAME_.123
+	.quad	l_OBJC_METH_VAR_TYPE_.214
 	.quad	"-[MACHView setBoundsSize:]"
-	.quad	l_OBJC_METH_VAR_NAME_.79
-	.quad	l_OBJC_METH_VAR_TYPE_.241
+	.quad	l_OBJC_METH_VAR_NAME_.69
+	.quad	l_OBJC_METH_VAR_TYPE_.215
 	.quad	"-[MACHView resizeDrawable:]"
-	.quad	l_OBJC_METH_VAR_NAME_.113
-	.quad	l_OBJC_METH_VAR_TYPE_.242
+	.quad	l_OBJC_METH_VAR_NAME_.97
+	.quad	l_OBJC_METH_VAR_TYPE_.216
 	.quad	"-[MACHView renderUpdate:with:]"
-	.quad	l_OBJC_METH_VAR_NAME_.243
+	.quad	l_OBJC_METH_VAR_NAME_.217
 	.quad	l_OBJC_METH_VAR_TYPE_.6
 	.quad	"-[MACHView metalLayer]"
-	.quad	l_OBJC_METH_VAR_NAME_.244
-	.quad	l_OBJC_METH_VAR_TYPE_.174
+	.quad	l_OBJC_METH_VAR_NAME_.218
+	.quad	l_OBJC_METH_VAR_TYPE_.148
 	.quad	"-[MACHView isPaused]"
-	.quad	l_OBJC_METH_VAR_NAME_.109
-	.quad	l_OBJC_METH_VAR_TYPE_.245
+	.quad	l_OBJC_METH_VAR_NAME_.93
+	.quad	l_OBJC_METH_VAR_TYPE_.219
 	.quad	"-[MACHView setPaused:]"
 	.quad	l_OBJC_METH_VAR_NAME_.7
 	.quad	l_OBJC_METH_VAR_TYPE_.8
 	.quad	"-[MACHView .cxx_destruct]"
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.246:
+l_OBJC_METH_VAR_NAME_.220:
 	.asciz	"_keyDown_block"
 
 	.section	__TEXT,__objc_methtype,cstring_literals
-l_OBJC_METH_VAR_TYPE_.247:
+l_OBJC_METH_VAR_TYPE_.221:
 	.asciz	"@?"
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.248:
+l_OBJC_METH_VAR_NAME_.222:
 	.asciz	"_keyUp_block"
 
-l_OBJC_METH_VAR_NAME_.249:
+l_OBJC_METH_VAR_NAME_.223:
 	.asciz	"_flagsChanged_block"
 
-l_OBJC_METH_VAR_NAME_.250:
+l_OBJC_METH_VAR_NAME_.224:
 	.asciz	"_mouseMoved_block"
 
-l_OBJC_METH_VAR_NAME_.251:
+l_OBJC_METH_VAR_NAME_.225:
 	.asciz	"_mouseDown_block"
 
-l_OBJC_METH_VAR_NAME_.252:
+l_OBJC_METH_VAR_NAME_.226:
 	.asciz	"_mouseUp_block"
 
-l_OBJC_METH_VAR_NAME_.253:
+l_OBJC_METH_VAR_NAME_.227:
 	.asciz	"_scrollWheel_block"
 
-l_OBJC_METH_VAR_NAME_.254:
+l_OBJC_METH_VAR_NAME_.228:
 	.asciz	"_magnify_block"
 
-l_OBJC_METH_VAR_NAME_.255:
+l_OBJC_METH_VAR_NAME_.229:
 	.asciz	"_insertText_block"
 
-l_OBJC_METH_VAR_NAME_.256:
+l_OBJC_METH_VAR_NAME_.230:
 	.asciz	"_render_block"
 
-l_OBJC_METH_VAR_NAME_.257:
+l_OBJC_METH_VAR_NAME_.231:
 	.asciz	"_windowDidResize_block"
 
-l_OBJC_METH_VAR_NAME_.258:
+l_OBJC_METH_VAR_NAME_.232:
 	.asciz	"trackingArea"
 
 	.section	__TEXT,__objc_methtype,cstring_literals
-l_OBJC_METH_VAR_TYPE_.259:
+l_OBJC_METH_VAR_TYPE_.233:
 	.asciz	"@\"NSTrackingArea\""
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.260:
+l_OBJC_METH_VAR_NAME_.234:
 	.asciz	"_displayLink"
 
 	.section	__TEXT,__objc_methtype,cstring_literals
-l_OBJC_METH_VAR_TYPE_.261:
+l_OBJC_METH_VAR_TYPE_.235:
 	.asciz	"@\"CAMetalDisplayLink\""
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.262:
+l_OBJC_METH_VAR_NAME_.236:
 	.asciz	"_previousTargetPresentationTimestamp"
 
 	.section	__TEXT,__objc_methtype,cstring_literals
-l_OBJC_METH_VAR_TYPE_.263:
+l_OBJC_METH_VAR_TYPE_.237:
 	.asciz	"d"
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.264:
+l_OBJC_METH_VAR_NAME_.238:
 	.asciz	"_renderThread"
 
 	.section	__TEXT,__objc_methtype,cstring_literals
-l_OBJC_METH_VAR_TYPE_.265:
+l_OBJC_METH_VAR_TYPE_.239:
 	.asciz	"@\"NSThread\""
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.266:
+l_OBJC_METH_VAR_NAME_.240:
 	.asciz	"_continueRunLoop"
 
 	.section	__TEXT,__objc_methtype,cstring_literals
-l_OBJC_METH_VAR_TYPE_.267:
+l_OBJC_METH_VAR_TYPE_.241:
 	.asciz	"B"
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.268:
+l_OBJC_METH_VAR_NAME_.242:
 	.asciz	"_paused"
 
-l_OBJC_METH_VAR_NAME_.269:
+l_OBJC_METH_VAR_NAME_.243:
 	.asciz	"_metalLayer"
 
 	.section	__TEXT,__objc_methtype,cstring_literals
-l_OBJC_METH_VAR_TYPE_.270:
+l_OBJC_METH_VAR_TYPE_.244:
 	.asciz	"@\"MACHLayer\""
 
 	.section	__DATA,__objc_const
@@ -4591,107 +4286,107 @@ __OBJC_$_INSTANCE_VARIABLES_MACHView:
 	.long	32
 	.long	18
 	.quad	_OBJC_IVAR_$_MACHView._keyDown_block
-	.quad	l_OBJC_METH_VAR_NAME_.246
-	.quad	l_OBJC_METH_VAR_TYPE_.247
+	.quad	l_OBJC_METH_VAR_NAME_.220
+	.quad	l_OBJC_METH_VAR_TYPE_.221
 	.long	3
 	.long	8
 	.quad	_OBJC_IVAR_$_MACHView._keyUp_block
-	.quad	l_OBJC_METH_VAR_NAME_.248
-	.quad	l_OBJC_METH_VAR_TYPE_.247
+	.quad	l_OBJC_METH_VAR_NAME_.222
+	.quad	l_OBJC_METH_VAR_TYPE_.221
 	.long	3
 	.long	8
 	.quad	_OBJC_IVAR_$_MACHView._flagsChanged_block
-	.quad	l_OBJC_METH_VAR_NAME_.249
-	.quad	l_OBJC_METH_VAR_TYPE_.247
+	.quad	l_OBJC_METH_VAR_NAME_.223
+	.quad	l_OBJC_METH_VAR_TYPE_.221
 	.long	3
 	.long	8
 	.quad	_OBJC_IVAR_$_MACHView._mouseMoved_block
-	.quad	l_OBJC_METH_VAR_NAME_.250
-	.quad	l_OBJC_METH_VAR_TYPE_.247
+	.quad	l_OBJC_METH_VAR_NAME_.224
+	.quad	l_OBJC_METH_VAR_TYPE_.221
 	.long	3
 	.long	8
 	.quad	_OBJC_IVAR_$_MACHView._mouseDown_block
-	.quad	l_OBJC_METH_VAR_NAME_.251
-	.quad	l_OBJC_METH_VAR_TYPE_.247
+	.quad	l_OBJC_METH_VAR_NAME_.225
+	.quad	l_OBJC_METH_VAR_TYPE_.221
 	.long	3
 	.long	8
 	.quad	_OBJC_IVAR_$_MACHView._mouseUp_block
-	.quad	l_OBJC_METH_VAR_NAME_.252
-	.quad	l_OBJC_METH_VAR_TYPE_.247
+	.quad	l_OBJC_METH_VAR_NAME_.226
+	.quad	l_OBJC_METH_VAR_TYPE_.221
 	.long	3
 	.long	8
 	.quad	_OBJC_IVAR_$_MACHView._scrollWheel_block
-	.quad	l_OBJC_METH_VAR_NAME_.253
-	.quad	l_OBJC_METH_VAR_TYPE_.247
+	.quad	l_OBJC_METH_VAR_NAME_.227
+	.quad	l_OBJC_METH_VAR_TYPE_.221
 	.long	3
 	.long	8
 	.quad	_OBJC_IVAR_$_MACHView._magnify_block
-	.quad	l_OBJC_METH_VAR_NAME_.254
-	.quad	l_OBJC_METH_VAR_TYPE_.247
+	.quad	l_OBJC_METH_VAR_NAME_.228
+	.quad	l_OBJC_METH_VAR_TYPE_.221
 	.long	3
 	.long	8
 	.quad	_OBJC_IVAR_$_MACHView._insertText_block
-	.quad	l_OBJC_METH_VAR_NAME_.255
-	.quad	l_OBJC_METH_VAR_TYPE_.247
+	.quad	l_OBJC_METH_VAR_NAME_.229
+	.quad	l_OBJC_METH_VAR_TYPE_.221
 	.long	3
 	.long	8
 	.quad	_OBJC_IVAR_$_MACHView._render_block
-	.quad	l_OBJC_METH_VAR_NAME_.256
-	.quad	l_OBJC_METH_VAR_TYPE_.247
+	.quad	l_OBJC_METH_VAR_NAME_.230
+	.quad	l_OBJC_METH_VAR_TYPE_.221
 	.long	3
 	.long	8
 	.quad	_OBJC_IVAR_$_MACHView._windowDidResize_block
-	.quad	l_OBJC_METH_VAR_NAME_.257
-	.quad	l_OBJC_METH_VAR_TYPE_.247
+	.quad	l_OBJC_METH_VAR_NAME_.231
+	.quad	l_OBJC_METH_VAR_TYPE_.221
 	.long	3
 	.long	8
 	.quad	_OBJC_IVAR_$_MACHView.trackingArea
-	.quad	l_OBJC_METH_VAR_NAME_.258
-	.quad	l_OBJC_METH_VAR_TYPE_.259
+	.quad	l_OBJC_METH_VAR_NAME_.232
+	.quad	l_OBJC_METH_VAR_TYPE_.233
 	.long	3
 	.long	8
 	.quad	_OBJC_IVAR_$_MACHView._displayLink
-	.quad	l_OBJC_METH_VAR_NAME_.260
-	.quad	l_OBJC_METH_VAR_TYPE_.261
+	.quad	l_OBJC_METH_VAR_NAME_.234
+	.quad	l_OBJC_METH_VAR_TYPE_.235
 	.long	3
 	.long	8
 	.quad	_OBJC_IVAR_$_MACHView._previousTargetPresentationTimestamp
-	.quad	l_OBJC_METH_VAR_NAME_.262
-	.quad	l_OBJC_METH_VAR_TYPE_.263
+	.quad	l_OBJC_METH_VAR_NAME_.236
+	.quad	l_OBJC_METH_VAR_TYPE_.237
 	.long	3
 	.long	8
 	.quad	_OBJC_IVAR_$_MACHView._renderThread
-	.quad	l_OBJC_METH_VAR_NAME_.264
-	.quad	l_OBJC_METH_VAR_TYPE_.265
+	.quad	l_OBJC_METH_VAR_NAME_.238
+	.quad	l_OBJC_METH_VAR_TYPE_.239
 	.long	3
 	.long	8
 	.quad	_OBJC_IVAR_$_MACHView._continueRunLoop
-	.quad	l_OBJC_METH_VAR_NAME_.266
-	.quad	l_OBJC_METH_VAR_TYPE_.267
+	.quad	l_OBJC_METH_VAR_NAME_.240
+	.quad	l_OBJC_METH_VAR_TYPE_.241
 	.long	0
 	.long	1
 	.quad	_OBJC_IVAR_$_MACHView._paused
-	.quad	l_OBJC_METH_VAR_NAME_.268
-	.quad	l_OBJC_METH_VAR_TYPE_.267
+	.quad	l_OBJC_METH_VAR_NAME_.242
+	.quad	l_OBJC_METH_VAR_TYPE_.241
 	.long	0
 	.long	1
 	.quad	_OBJC_IVAR_$_MACHView._metalLayer
-	.quad	l_OBJC_METH_VAR_NAME_.269
-	.quad	l_OBJC_METH_VAR_TYPE_.270
+	.quad	l_OBJC_METH_VAR_NAME_.243
+	.quad	l_OBJC_METH_VAR_TYPE_.244
 	.long	3
 	.long	8
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_PROP_NAME_ATTR_.271:
+l_OBJC_PROP_NAME_ATTR_.245:
 	.asciz	"metalLayer"
 
-l_OBJC_PROP_NAME_ATTR_.272:
+l_OBJC_PROP_NAME_ATTR_.246:
 	.asciz	"T@\"MACHLayer\",R,N,V_metalLayer"
 
-l_OBJC_PROP_NAME_ATTR_.273:
+l_OBJC_PROP_NAME_ATTR_.247:
 	.asciz	"paused"
 
-l_OBJC_PROP_NAME_ATTR_.274:
+l_OBJC_PROP_NAME_ATTR_.248:
 	.asciz	"TB,N,GisPaused,V_paused"
 
 	.section	__DATA,__objc_const
@@ -4699,18 +4394,18 @@ l_OBJC_PROP_NAME_ATTR_.274:
 __OBJC_$_PROP_LIST_MACHView:
 	.long	16
 	.long	6
-	.quad	l_OBJC_PROP_NAME_ATTR_.271
-	.quad	l_OBJC_PROP_NAME_ATTR_.272
-	.quad	l_OBJC_PROP_NAME_ATTR_.273
-	.quad	l_OBJC_PROP_NAME_ATTR_.274
+	.quad	l_OBJC_PROP_NAME_ATTR_.245
+	.quad	l_OBJC_PROP_NAME_ATTR_.246
+	.quad	l_OBJC_PROP_NAME_ATTR_.247
+	.quad	l_OBJC_PROP_NAME_ATTR_.248
 	.quad	l_OBJC_PROP_NAME_ATTR_
-	.quad	l_OBJC_PROP_NAME_ATTR_.192
-	.quad	l_OBJC_PROP_NAME_ATTR_.193
-	.quad	l_OBJC_PROP_NAME_ATTR_.194
-	.quad	l_OBJC_PROP_NAME_ATTR_.195
-	.quad	l_OBJC_PROP_NAME_ATTR_.196
-	.quad	l_OBJC_PROP_NAME_ATTR_.197
-	.quad	l_OBJC_PROP_NAME_ATTR_.198
+	.quad	l_OBJC_PROP_NAME_ATTR_.166
+	.quad	l_OBJC_PROP_NAME_ATTR_.167
+	.quad	l_OBJC_PROP_NAME_ATTR_.168
+	.quad	l_OBJC_PROP_NAME_ATTR_.169
+	.quad	l_OBJC_PROP_NAME_ATTR_.170
+	.quad	l_OBJC_PROP_NAME_ATTR_.171
+	.quad	l_OBJC_PROP_NAME_ATTR_.172
 
 	.p2align	3, 0x0
 __OBJC_CLASS_RO_$_MACHView:
@@ -4718,8 +4413,8 @@ __OBJC_CLASS_RO_$_MACHView:
 	.long	8
 	.long	144
 	.space	4
-	.quad	l_OBJC_CLASS_NAME_.215
-	.quad	l_OBJC_CLASS_NAME_.160
+	.quad	l_OBJC_CLASS_NAME_.189
+	.quad	l_OBJC_CLASS_NAME_.134
 	.quad	__OBJC_$_INSTANCE_METHODS_MACHView
 	.quad	__OBJC_CLASS_PROTOCOLS_$_MACHView
 	.quad	__OBJC_$_INSTANCE_VARIABLES_MACHView

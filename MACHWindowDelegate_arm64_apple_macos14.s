@@ -1,11 +1,19 @@
 	.section	__TEXT,__text,regular,pure_instructions
 	.build_version macos, 14, 0
+	.p2align	2
+"-[MACHWindowDelegate window:willUseFullScreenContentSize:]":
+	.cfi_startproc
+	fmov	d2, #-1.00000000
+	fadd	d1, d1, d2
+	ret
+	.cfi_endproc
+
 	.private_extern	"-[MACHWindowDelegate setBlock_windowDidResize:]"
 	.globl	"-[MACHWindowDelegate setBlock_windowDidResize:]"
 	.p2align	2
 "-[MACHWindowDelegate setBlock_windowDidResize:]":
 	.cfi_startproc
-	cbz	x0, LBB0_2
+	cbz	x0, LBB1_2
 	stp	x20, x19, [sp, #-32]!
 	.cfi_def_cfa_offset 32
 	stp	x29, x30, [sp, #16]
@@ -27,7 +35,7 @@
 	.cfi_restore w19
 	.cfi_restore w20
 	b	_objc_release
-LBB0_2:
+LBB1_2:
 	ret
 	.cfi_endproc
 
@@ -36,7 +44,7 @@ LBB0_2:
 	.p2align	2
 "-[MACHWindowDelegate setBlock_windowShouldClose:]":
 	.cfi_startproc
-	cbz	x0, LBB1_2
+	cbz	x0, LBB2_2
 	stp	x20, x19, [sp, #-32]!
 	.cfi_def_cfa_offset 32
 	stp	x29, x30, [sp, #16]
@@ -58,18 +66,13 @@ LBB0_2:
 	.cfi_restore w19
 	.cfi_restore w20
 	b	_objc_release
-LBB1_2:
+LBB2_2:
 	ret
 	.cfi_endproc
 
 	.p2align	2
 "-[MACHWindowDelegate windowDidResize:]":
 	.cfi_startproc
-	ldr	x0, [x0, #8]
-	cbz	x0, LBB2_2
-	ldr	x1, [x0, #16]
-	br	x1
-LBB2_2:
 	ret
 	.cfi_endproc
 
@@ -77,7 +80,7 @@ LBB2_2:
 "-[MACHWindowDelegate windowShouldClose:]":
 	.cfi_startproc
 	ldr	x0, [x0, #16]
-	cbz	x0, LBB3_2
+	cbz	x0, LBB4_2
 	stp	x29, x30, [sp, #-16]!
 	.cfi_def_cfa_offset 16
 	.cfi_offset w30, -8
@@ -88,7 +91,7 @@ LBB2_2:
 	.cfi_def_cfa_offset 0
 	.cfi_restore w30
 	.cfi_restore w29
-LBB3_2:
+LBB4_2:
 	mov	w0, #0
 	ret
 	.cfi_endproc
@@ -160,47 +163,58 @@ l_OBJC_CLASS_NAME_.1:
 
 	.section	__TEXT,__objc_methname,cstring_literals
 l_OBJC_METH_VAR_NAME_:
-	.asciz	"windowDidResize:"
+	.asciz	"window:willUseFullScreenContentSize:"
 
 	.section	__TEXT,__objc_methtype,cstring_literals
 l_OBJC_METH_VAR_TYPE_:
-	.asciz	"v24@0:8@16"
+	.asciz	"{CGSize=dd}40@0:8@16{CGSize=dd}24"
 
 	.section	__TEXT,__objc_methname,cstring_literals
 l_OBJC_METH_VAR_NAME_.2:
-	.asciz	"windowShouldClose:"
+	.asciz	"windowDidResize:"
 
 	.section	__TEXT,__objc_methtype,cstring_literals
 l_OBJC_METH_VAR_TYPE_.3:
-	.asciz	"B24@0:8@16"
+	.asciz	"v24@0:8@16"
 
 	.section	__TEXT,__objc_methname,cstring_literals
 l_OBJC_METH_VAR_NAME_.4:
+	.asciz	"windowShouldClose:"
+
+	.section	__TEXT,__objc_methtype,cstring_literals
+l_OBJC_METH_VAR_TYPE_.5:
+	.asciz	"B24@0:8@16"
+
+	.section	__TEXT,__objc_methname,cstring_literals
+l_OBJC_METH_VAR_NAME_.6:
 	.asciz	"windowWillClose:"
 
-l_OBJC_METH_VAR_NAME_.5:
+l_OBJC_METH_VAR_NAME_.7:
 	.asciz	".cxx_destruct"
 
 	.section	__TEXT,__objc_methtype,cstring_literals
-l_OBJC_METH_VAR_TYPE_.6:
+l_OBJC_METH_VAR_TYPE_.8:
 	.asciz	"v16@0:8"
 
 	.section	__DATA,__objc_const
 	.p2align	3, 0x0
 __OBJC_$_INSTANCE_METHODS_MACHWindowDelegate:
 	.long	24
-	.long	4
+	.long	5
 	.quad	l_OBJC_METH_VAR_NAME_
 	.quad	l_OBJC_METH_VAR_TYPE_
-	.quad	"-[MACHWindowDelegate windowDidResize:]"
+	.quad	"-[MACHWindowDelegate window:willUseFullScreenContentSize:]"
 	.quad	l_OBJC_METH_VAR_NAME_.2
 	.quad	l_OBJC_METH_VAR_TYPE_.3
-	.quad	"-[MACHWindowDelegate windowShouldClose:]"
+	.quad	"-[MACHWindowDelegate windowDidResize:]"
 	.quad	l_OBJC_METH_VAR_NAME_.4
-	.quad	l_OBJC_METH_VAR_TYPE_
+	.quad	l_OBJC_METH_VAR_TYPE_.5
+	.quad	"-[MACHWindowDelegate windowShouldClose:]"
+	.quad	l_OBJC_METH_VAR_NAME_.6
+	.quad	l_OBJC_METH_VAR_TYPE_.3
 	.quad	"-[MACHWindowDelegate windowWillClose:]"
-	.quad	l_OBJC_METH_VAR_NAME_.5
-	.quad	l_OBJC_METH_VAR_TYPE_.6
+	.quad	l_OBJC_METH_VAR_NAME_.7
+	.quad	l_OBJC_METH_VAR_TYPE_.8
 	.quad	"-[MACHWindowDelegate .cxx_destruct]"
 
 	.private_extern	_OBJC_IVAR_$_MACHWindowDelegate._windowDidResize_block
@@ -211,11 +225,11 @@ _OBJC_IVAR_$_MACHWindowDelegate._windowDidResize_block:
 	.long	8
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.7:
+l_OBJC_METH_VAR_NAME_.9:
 	.asciz	"_windowDidResize_block"
 
 	.section	__TEXT,__objc_methtype,cstring_literals
-l_OBJC_METH_VAR_TYPE_.8:
+l_OBJC_METH_VAR_TYPE_.10:
 	.asciz	"@?"
 
 	.private_extern	_OBJC_IVAR_$_MACHWindowDelegate._windowShouldClose_block
@@ -226,7 +240,7 @@ _OBJC_IVAR_$_MACHWindowDelegate._windowShouldClose_block:
 	.long	16
 
 	.section	__TEXT,__objc_methname,cstring_literals
-l_OBJC_METH_VAR_NAME_.9:
+l_OBJC_METH_VAR_NAME_.11:
 	.asciz	"_windowShouldClose_block"
 
 	.section	__DATA,__objc_const
@@ -235,13 +249,13 @@ __OBJC_$_INSTANCE_VARIABLES_MACHWindowDelegate:
 	.long	32
 	.long	2
 	.quad	_OBJC_IVAR_$_MACHWindowDelegate._windowDidResize_block
-	.quad	l_OBJC_METH_VAR_NAME_.7
-	.quad	l_OBJC_METH_VAR_TYPE_.8
+	.quad	l_OBJC_METH_VAR_NAME_.9
+	.quad	l_OBJC_METH_VAR_TYPE_.10
 	.long	3
 	.long	8
 	.quad	_OBJC_IVAR_$_MACHWindowDelegate._windowShouldClose_block
-	.quad	l_OBJC_METH_VAR_NAME_.9
-	.quad	l_OBJC_METH_VAR_TYPE_.8
+	.quad	l_OBJC_METH_VAR_NAME_.11
+	.quad	l_OBJC_METH_VAR_TYPE_.10
 	.long	3
 	.long	8
 

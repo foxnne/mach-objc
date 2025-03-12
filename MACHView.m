@@ -252,7 +252,6 @@
 
 - (void)initCommon
 {
-    NSLog(@"initCommon");
     self.wantsLayer = YES;
     
     self.layerContentsRedrawPolicy = NSViewLayerContentsRedrawDuringViewResize;
@@ -262,40 +261,19 @@
     _metalLayer = (MACHLayer*)self.layer;
 }
 
-// + (Class)layerClass
-// {
-//     return [CAMetalLayer class];
-// }
-
-// - (void)didMoveToWindow
-// {
-//     if (self.window == nil)
-//     {
-//         // If moving off of a window, destroy the display link.
-//         [_displayLink invalidate];
-//         _displayLink = nil;
-//         return;
-//     }
-    
-//     [self movedToWindow];
-// }
-
 - (CALayer *)makeBackingLayer
 {
-    NSLog(@"makeBackingLayer");
     return [MACHLayer layer];
 }
 
 - (void)viewDidMoveToWindow
 {
-    NSLog(@"viewDidMoveToWindow");
     [self movedToWindow];
 }
 
 // This overrides the default initializer and creates a tracking area over the
 // views visible rect
 - (instancetype)initWithFrame:(CGRect)frame {
-    NSLog(@"initWithFrame: %@", NSStringFromRect(frame));
   self = [super initWithFrame:frame];
   if (self) {
     [self initCommon];
@@ -314,16 +292,8 @@
   return self;
 }
 
-// - (void)setLayer:(MACHLayer *)layer
-// {
-  
-//   [super setLayer:layer];
-//   //_metalLayer = (MACHLayer*)self.layer;
-// }
-
 - (void)movedToWindow
 {
-    NSLog(@"movedToWindow");
     [self setupCAMetalLink];
     
     // Protect _continueRunLoop with a `@synchronized` block because it's accessed by the separate
@@ -354,7 +324,6 @@
 
 - (void)setupCAMetalLink
 {
-    NSLog(@"setupCAMetalLink");
     [self stopRenderLoop];
     [self makeMetalLink:(MACHLayer *)self.layer];
     
@@ -375,18 +344,16 @@
     // no point in drawing something that you can't display.
     if (notification.object == self.window)
     {
-        NSLog(@"windowWillClose");
         [self stopMetalLink];
     }
 }
 
 - (void)makeMetalLink:(nonnull MACHLayer *)metalLayer;
 {
-    NSLog(@"makeMetalLink");
     // Create and configure the Metal display link.
     _displayLink = [[CAMetalDisplayLink alloc] initWithMetalLayer:metalLayer];
     _displayLink.preferredFrameRateRange = CAFrameRateRangeMake(120.0, 120.0, 120.0);
-    _displayLink.preferredFrameLatency = 3;
+    _displayLink.preferredFrameLatency = 2;
     _displayLink.paused = NO;
     // Assign the delegate to receive the display update callback.
     _displayLink.delegate = self;
@@ -402,13 +369,12 @@
     CFTimeInterval deltaTime = _previousTargetPresentationTimestamp - update.targetPresentationTimestamp;
     _previousTargetPresentationTimestamp = update.targetPresentationTimestamp;
     
-       
+    
     [self renderUpdate:update with:deltaTime];
 }
 
 - (void)startMetalLink
 {
-    NSLog(@"startMetalLink");
     _previousTargetPresentationTimestamp = CACurrentMediaTime();
     [_displayLink addToRunLoop:[NSRunLoop currentRunLoop]
                        forMode:NSRunLoopCommonModes];
@@ -416,7 +382,6 @@
 
 - (void)stopMetalLink
 {
-    NSLog(@"stopMetalLink");
     [_displayLink removeFromRunLoop:[NSRunLoop mainRunLoop]
                             forMode:NSRunLoopCommonModes];
     [_displayLink invalidate];
@@ -424,19 +389,16 @@
 
 - (void)stopRenderLoop
 {
-    NSLog(@"stopRenderLoop");
     [_displayLink invalidate];
 }
 
 - (void)dealloc
 {
-    NSLog(@"dealloc");
     [self stopRenderLoop];
 }
 
 - (void)runThread
 {     
-    NSLog(@"start runThread");
     // Set the display link to the run loop of this thread so its callback occurs on this thread.
     NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
     [self startMetalLink];
@@ -495,6 +457,8 @@
     CGSize newSize = self.bounds.size;
     newSize.width *= scaleFactor;
     newSize.height *= scaleFactor;
+
+    //newSize.height += 1;
     
     if(newSize.width <= 0 || newSize.width <= 0)
     {

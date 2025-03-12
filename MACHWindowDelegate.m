@@ -9,6 +9,13 @@
     bool (^_windowShouldClose_block)(void);
 }
 
+/// This avoids "optimizations" made to fullscreen apps, which causes issues on macbook air
+/// when apps are fullscreen. This makes apps run the same in windowed vs fullscreen
+/// https://stackoverflow.com/questions/27758027/sprite-kit-serious-fps-issue-in-full-screen-mode-on-os-x
+- (NSSize)window:(NSWindow *)window willUseFullScreenContentSize:(NSSize)proposedSize {
+    return NSMakeSize(proposedSize.width, proposedSize.height - 1);
+}
+
 - (void)setBlock_windowDidResize:(void (^)(void))windowDidResize_block __attribute__((objc_direct)) {
     _windowDidResize_block = windowDidResize_block;
 }
@@ -18,7 +25,7 @@
 }
 
 - (void) windowDidResize:(NSNotification *) notification {
-    if (self->_windowDidResize_block) self->_windowDidResize_block();
+    //if (self->_windowDidResize_block) self->_windowDidResize_block();
 }
 
 - (BOOL)windowShouldClose:(NSWindow *)sender {
