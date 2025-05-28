@@ -1,5 +1,5 @@
 .{
-    .name = "mach-objc",
+    .name = .mach_objc,
     .version = "0.0.0",
     .paths = .{
         "src",
