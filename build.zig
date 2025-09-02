@@ -34,11 +34,14 @@ pub fn build(b: *std.Build) void {
         module.addLibraryPath(dep.path("lib"));
     }
 
-    const generator_exe = b.addExecutable(.{
-        .name = "generator",
-        .root_source_file = b.path("generator.zig"),
-        .target = target,
-        .optimize = optimize,
-    });
-    b.installArtifact(generator_exe);
+    // const generator_exe = b.addExecutable(.{
+    //     .name = "generator",
+    //     .root_module = b.addModule("generator", .{
+    //         .root_source_file = b.path("generator.zig"),
+    //     }),
+    //     .
+    //     .target = target,
+    //     .optimize = optimize,
+    // });
+    // b.installArtifact(generator_exe);
 }
