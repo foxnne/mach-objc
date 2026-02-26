@@ -162,8 +162,8 @@ pub const EventTypeOtherMouseUp: EventType = 26;
 pub const EventTypeOtherMouseDragged: EventType = 27;
 pub const EventTypeGesture: EventType = 29;
 pub const EventTypeMagnify: EventType = 30;
-pub const EventTypeSwipe: EventType   = 31;
-pub const EventTypeRotate: EventType  = 18;
+pub const EventTypeSwipe: EventType = 31;
+pub const EventTypeRotate: EventType = 18;
 pub const EventTypeBeginGesture: EventType = 19;
 pub const EventTypeEndGesture: EventType = 20;
 pub const EventTypeSmartMagnify: EventType = 32;
@@ -216,7 +216,7 @@ pub const Application = opaque {
         return objc.msgSend(self_, "setDelegate:", void, .{delegate_});
     }
     pub fn nextEventMatchingMask(self_: *@This(), mask_: EventMask, expiration_: ?*Date, run_loop_mode_: RunLoopMode, dequeue_: bool) ?*Event {
-        return objc.msgSend(self_, "nextEventMatchingMask:untilDate:inMode:dequeue:", ?*Event, .{mask_, expiration_, run_loop_mode_, dequeue_});
+        return objc.msgSend(self_, "nextEventMatchingMask:untilDate:inMode:dequeue:", ?*Event, .{ mask_, expiration_, run_loop_mode_, dequeue_ });
     }
     pub fn sendEvent(self_: *@This(), event_: *Event) void {
         return objc.msgSend(self_, "sendEvent:", void, .{event_});
@@ -243,7 +243,6 @@ pub const Date = opaque {
     pub const new = InternalInfo.new;
     pub const alloc = InternalInfo.alloc;
     pub const allocInit = InternalInfo.allocInit;
-
 
     pub fn distantPast() *Date {
         return objc.msgSend(@This().InternalInfo.class(), "distantPast", *Date, .{});
@@ -331,6 +330,9 @@ pub const Window = opaque {
     }
     pub fn setIsVisible(self_: *@This(), flag_: bool) void {
         return objc.msgSend(self_, "setIsVisible:", void, .{flag_});
+    }
+    pub fn setHasShadow(self_: *@This(), flag_: bool) void {
+        return objc.msgSend(self_, "setHasShadow:", void, .{flag_});
     }
 };
 
