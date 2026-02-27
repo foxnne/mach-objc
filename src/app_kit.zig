@@ -8,6 +8,11 @@ const std = @import("std");
 pub const applicationMain = NSApplicationMain;
 extern fn NSApplicationMain(argc: c_int, argv: [*]*c_char) c_int;
 
+pub extern const NSAppearanceNameAqua: *String;
+pub extern const NSAppearanceNameDarkAqua: *String;
+pub extern const NSAppearanceNameVibrantDark: *String;
+pub extern const NSAppearanceNameVibrantLight: *String;
+
 // ------------------------------------------------------------------------------------------------
 // Shared
 
@@ -31,7 +36,7 @@ pub const String = ns.String;
 pub const ModalResponse = *String;
 pub const PasteboardType = *String;
 pub const AboutPanelOptionKey = *String;
-pub const AppearanceName = *String;
+pub const AppearanceName = *const String;
 pub const ModalSession = *opaque {};
 pub const PrintInfoAttributeKey = *String;
 pub const Rect = cg.Rect;
@@ -333,6 +338,10 @@ pub const Window = opaque {
     }
     pub fn setHasShadow(self_: *@This(), flag_: bool) void {
         return objc.msgSend(self_, "setHasShadow:", void, .{flag_});
+    }
+
+    pub fn setAppearance(self_: *@This(), appearance_: *Appearance) void {
+        return objc.msgSend(self_, "setAppearance:", void, .{appearance_});
     }
 };
 
